@@ -1,0 +1,18 @@
+<?php
+// Retrieve order
+$_order = new Mage_Sales_Model_Order();
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+$_order->loadByIncrementId($orderId);
+?>
+<strong>Your order is being processed</strong>
+<form name="mygatewayform" method="post" action="https://merchant.webmoney.ru/lmi/payment.asp" accept-charset="windows-1251" >
+	<input type="hidden" name="LMI_PAYMENT_DESC" value="Premium key - Order # <?php echo $orderId; ?>">
+    <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="<?php echo $_order->getBaseTotalDue(); ?>">
+	<input type="hidden" name="LMI_PAYEE_PURSE" value="Z247691182861" />
+	<input type="hidden" name="LMI_SIM_MODE" value="0" />
+	<input type="hidden" name="LMI_SUCCESS_URL" value="http://keyinstant.com/success/">
+	<input type="hidden" name="LMI_FAIL_URL" value="http://keyinstant.com/cancel/">
+</form>
+<script type="text/javascript">
+document.mygatewayform.submit();
+</script>

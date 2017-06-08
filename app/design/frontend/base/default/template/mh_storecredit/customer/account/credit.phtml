@@ -1,0 +1,58 @@
+<style type="text/css">
+.storecredit_info {
+    background: url("../../skin/frontend/base/default/mh_storecredit/images/coins.png");
+    background-repeat: no-repeat;
+    height: 35px;
+}
+.credit-transaction{
+    background: url("../../skin/frontend/base/default/mh_storecredit/images/transactionhistory.png");
+    background-repeat: no-repeat;
+    height: 35px;
+    padding-left: 39px;
+    padding-top: 7px;
+}
+.sent-credits-friend {
+     background: url("../../skin/frontend/base/default/mh_storecredit/images/send-money-icon.png");
+    background-repeat: no-repeat;
+    height: 35px;
+    padding-left: 46px;
+    padding-top: 3px;
+}
+.storecredit_info .amount{
+    margin-left: 37px;
+    float: left;
+    margin-top: 6px;
+}
+.storecredit-index-index .box-info, .storecredit-index-index .storecredit-transaction{
+    padding-bottom: 0px !important;
+    border-bottom: none;
+    margin-bottom: 0px;
+}               
+</style>
+<div class="dashboard">
+	<div class="page-title    page-head">
+    	<h1><?php echo $this->__('Credits Information') ?></h1>
+	</div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    
+    <div class="account-box ad-account-info box-account box-info">
+    	<?php echo $this->getChildHtml('storecredit_info'); ?>
+    </div>
+    
+    <?php $credit = Mage::helper('storecredit')->getCreditByCustomer() ?>
+    <?php //if($credit):?>
+	    <?php if($this->getChild('storecredit_transaction')):?>
+	    <div class="box-account box-recent account-box storecredit-transaction">
+	        <div class="head box-head">
+	            <h2 id="credit-transaction" class="credit-transaction"><?php echo $this->__('Credits Transaction') ?></h2><a class="active" id="active-01" href="javascript:void(0);"><?php echo $this->__('Show');?> (+)</a><a href="javascript:void(0);"  style="display: none;" id="btn-slide-01" class="btn-slide btn_in"><?php echo $this->__('Hide');?> (-)</a>
+	        </div>
+	        <?php echo $this->getChildHtml('storecredit_transaction') ?>                       
+	    </div>
+	    <?php endif;?>
+	        
+	    <?php if(Mage::helper('storecredit')->allowSendCreditToFriend(Mage::app()->getStore()->getStoreId())):?>
+	    	<?php echo $this->getChildHtml('storecredit_send') ?>
+	    <?php endif;?>
+	    	
+    <?php //endif;?>
+</div>

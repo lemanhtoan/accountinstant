@@ -1,0 +1,113 @@
+﻿<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<section class="footer-top">
+<?php 
+	$keycodeNum1 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb1');
+	$keycodeNum2 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb2');
+	$keycodeNum3 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb3');
+	$keycodeNum4 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb4');
+	
+	$keycodeNum1l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb1');
+	$keycodeNum2l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb2');
+	$keycodeNum3l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb3');
+	$keycodeNum4l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb4');
+?>
+    <div class="container ststCntnr">
+	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icoshop-bag"></i><span><b><?php echo $keycodeNum1;?></b><small>+</small><em><?php echo $keycodeNum1l;?></em></span></p>
+	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icocustomer"></i><span><b><?php echo $keycodeNum2;?></b><small>+</small><em><?php echo $keycodeNum2l;?></em></span></p>
+	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icofavuser"></i><span><b><?php echo $keycodeNum3;?></b><small>+</small><em><?php echo $keycodeNum3l;?></em></span></p>
+	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icotransactions"></i><span><b><?php echo $keycodeNum4;?></b><small>+</small><em><?php echo $keycodeNum4l;?></em></span></p>
+    </div>
+</section>
+
+<div class="footer-bottom">
+	<div class="container">
+		<div class="row">
+
+			<?php echo $this->getChildHtml() ?>	 
+		</div>
+		<div class="row copyright">
+			<?php echo $this->getCopyright() ?>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://premiumaccountz.com/skin/frontend/default/bluescale/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://premiumaccountz.com/skin/frontend/default/bluescale/js/owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="https://premiumaccountz.com/skin/frontend/default/bluescale/js/script.js"></script>
+
+
+<?php 
+	$removeAjax = Mage::getBaseUrl().'mygateway/payment/clearCartt';
+?>
+
+<script>
+	jQuery(document).ready(function() {
+
+		jQuery(".alang.currentStore").on("click", function (e) {
+			e.preventDefault();
+			return false;
+		});
+		jQuery(".alang.notCurrent").on("click", function (e) {
+			e.preventDefault();
+			var urlGo = jQuery(this).attr('href');
+			doRemove(urlGo);
+		});
+	});
+
+	function doRemove(urlGo) {
+		var urlForm = "<?php echo $removeAjax; ?>";
+		jQuery.ajax({
+			url: urlForm,
+			method: 'post',
+			dataType:"json",
+			success:function(data) {
+				//console.log(data, "success");
+				window.location.href = urlGo;
+			},
+			error:function(data) {
+				window.location.href = urlGo;
+				//console.log(data, " error");
+			}
+		});
+
+		//console.log("action before href");
+	}
+</script>
+
+
+<?php $goId = $_GET['___store']; $baseUrl = Mage::getBaseUrl();?>
+<?php if ($goId != ""): ?>
+	<script>
+		jQuery(document).ready(function () {
+			setTimeout(function() {
+				window.location.href = "<?php echo $baseUrl; ?>";
+			},100);
+			//console.log("Dirrect");
+		});
+	</script>
+<?php endif; ?>

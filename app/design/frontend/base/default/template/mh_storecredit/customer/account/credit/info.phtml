@@ -1,0 +1,9 @@
+<?php 
+$credit = Mage::helper('storecredit')->getCreditByCustomer();
+?>
+<div class="storecredit_info">
+<span class="amount"><?php echo $this->__('Your Credits'); ?><?php echo $this->__(': <strong>%s</strong>', Mage::helper('checkout')->formatPrice($credit));?></span>
+</div> 
+
+
+

@@ -1,0 +1,387 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magehit_Storecredit>
+            <version>1.0.5</version>
+        </Magehit_Storecredit>
+    </modules>
+    <frontend>
+    	<secure_url>
+            <storecredit>/storecredit/index/</storecredit>
+			<storecredit_checkout_cart>/storecredit/checkout_cart/</storecredit_checkout_cart>
+        </secure_url>
+        <routers>
+            <storecredit>
+                <use>standard</use>
+                <args>
+                    <module>Magehit_Storecredit</module>
+                    <frontName>storecredit</frontName>
+                </args>
+            </storecredit>
+        </routers>
+        <layout>
+            <updates>
+                <storecredit>
+                    <file>mh_storecredit.xml</file>
+                </storecredit>
+            </updates>
+        </layout>
+		
+		<translate>
+            <modules>
+                <Magehit_Storecredit>
+                    <files>
+                        <default>Magehit_StorecreditFrontend.csv</default>
+                    </files>
+                </Magehit_Storecredit>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+			<storecredit>
+				<use>admin</use>
+				<args>
+					<module>Magehit_Storecredit</module>
+					<frontName>storecredit</frontName>
+				</args>
+			</storecredit>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<storecredit module="storecredit" translate="title">
+                <title>Store Credit</title>
+                <sort_order>100</sort_order>
+    	    	<children>
+		    	    <member module="storecredit">
+					    <title>Customers Credit</title>
+					    <sort_order>1</sort_order>      
+					    <action>storecredit/adminhtml_member</action>         
+				    </member>
+				    <history module="storecredit">
+					    <title>Transaction History</title>
+					    <sort_order>2</sort_order>      
+					    <action>storecredit/adminhtml_transaction</action>         
+				    </history>
+				    <configuration module="storecredit">
+					    <title>Configuration</title>
+					    <sort_order>3</sort_order>
+					    <action>adminhtml/system_config/edit/section/storecredit</action>
+				    </configuration>
+    	    	</children>
+    	    </storecredit>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<customer module="customer">
+			    	    	<children>
+			    	    		<storecredit module="storecredit">
+									<title>Manage Credit</title>
+									<sort_order>6</sort_order>               
+									<children>
+					    	    		<member module="storecredit">
+											<title>Customer Accounts</title>
+											<sort_order>1</sort_order>      
+											<action>storecredit/adminhtml_member</action>         
+										</member>
+										<history module="storecredit">
+											<title>All Transaction History</title>
+											<sort_order>2</sort_order>      
+											<action>storecredit/adminhtml_transaction</action>         
+										</history>
+										<configuration module="storecredit">
+											<title>Configuration</title>
+											<sort_order>3</sort_order>
+											<action>adminhtml/system_config/edit/section/storecredit</action>
+										</configuration>
+									</children>
+								</storecredit>
+			    	    	</children>
+			    	    </customer>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <storecredit translate="title" module="storecredit">
+                                            <title>Store Credit</title>
+                                        </storecredit>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<storecredit>
+					<file>mh_storecredit.xml</file>
+				</storecredit>
+			</updates>
+		</layout>
+		
+		<translate>
+            <modules>
+                <Magehit_Storecredit>
+                    <files>
+                        <default>Magehit_StorecreditBackend.csv</default>
+                    </files>
+                </Magehit_Storecredit>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+    	<fieldsets>
+            <sales_convert_quote_address>
+            
+                <mh_storecredit>
+                    <to_order>*</to_order>
+                </mh_storecredit>
+                
+                <mh_storecredit_buy_credit>
+                	<to_order>*</to_order>
+                </mh_storecredit_buy_credit>
+                
+                <mh_storecredit_discount>
+                    <to_order>*</to_order>
+                </mh_storecredit_discount>
+                
+                <mh_storecredit_discount_show>
+                    <to_order>*</to_order>
+                </mh_storecredit_discount_show>
+                
+            </sales_convert_quote_address>
+        </fieldsets>
+        
+        <events>
+        	<sales_quote_collect_totals_before>
+                <observers>
+                    <storecredit>
+                        <type>singleton</type>
+                        <class>storecredit/quote</class>
+                        <method>collectTotalBefore</method>
+                    </storecredit>
+                </observers>
+            </sales_quote_collect_totals_before> 
+        	<adminhtml_customer_save_after>
+                <observers>
+                    <storecredit_admin_credit>
+                        <class>storecredit/obsever</class>
+                        <method>saveCredits</method>
+                    </storecredit_admin_credit>
+                </observers>
+            </adminhtml_customer_save_after>
+            <checkout_cart_product_add_after>
+	            <observers>
+	                <storecredit>
+	                    <type>singleton</type>
+	                    <class>storecredit/obsever</class>
+	                    <method>checkoutCartProductAddAfter</method>
+	                </storecredit>
+            	</observers>
+           </checkout_cart_product_add_after>
+           <sales_convert_quote_item_to_order_item>
+	            <observers>
+	                <storecredit>
+	                    <type>singleton</type>
+	                    <class>storecredit/obsever</class>
+	                    <method>salesConvertQuoteItemToOrderItem</method>
+	                </storecredit>
+	            </observers>
+            </sales_convert_quote_item_to_order_item>
+            <!--  submit ifomation form reward admin -->
+			<adminhtml_sales_order_create_process_data>
+                <observers>
+                    <storecredit>
+                        <class>storecredit/obsever</class>
+                        <method>processOrderCreationData</method>
+                    </storecredit>
+                </observers>
+            </adminhtml_sales_order_create_process_data>
+            <!-- update credit when send credit a friend (khi login) -->
+            <customer_customer_authenticated>
+                <observers>
+                    <storecredit>
+                        <type>singleton</type>
+                        <class>storecredit/sendcredit</class>
+                        <method>updateWhenLogin</method>
+                    </storecredit>
+                </observers>
+            </customer_customer_authenticated>
+            <!-- update credit when send credit a friend (khi register) -->
+            <customer_register_success>
+            	<observers>
+                    <storecredit>
+                        <type>singleton</type>
+                        <class>storecredit/sendcredit</class>
+                        <method>updateWhenRegister</method>
+                    </storecredit>
+                </observers>
+            </customer_register_success>
+            
+            <sales_order_place_after>
+				 <observers>
+                    <storecredit>
+                        <type>singleton</type>
+                        <class>storecredit/checkout</class>
+                        <method>placeAfter</method>
+                    </storecredit>
+                </observers>
+			</sales_order_place_after>
+			
+			<sales_order_save_after>
+            	<observers>
+                    <storecredit>
+                        <type>singleton</type>
+                        <class>storecredit/checkout</class>
+                        <method>orderSaveAfter</method>
+                    </storecredit>
+                </observers>
+            </sales_order_save_after>
+            <adminhtml_sales_order_creditmemo_register_before>
+                <observers>
+                    <storecredit>
+                        <class>storecredit/obsever</class>
+                        <method>setCheckCreditToRefund</method>
+                    </storecredit>
+                </observers>
+            </adminhtml_sales_order_creditmemo_register_before>
+            
+            <sales_order_creditmemo_save_after>
+                <observers>
+                    <storecredit>
+                        <class>storecredit/obsever</class>
+                        <method>refundCreditOrder</method>
+                    </storecredit>
+                </observers>
+            </sales_order_creditmemo_save_after>
+            
+        </events> 
+        
+        <models>
+            <storecredit>
+                <class>Magehit_Storecredit_Model</class>
+                <resourceModel>storecredit_mysql4</resourceModel>
+            </storecredit>
+            <storecredit_mysql4>
+                <class>Magehit_Storecredit_Model_Mysql4</class>
+                <entities>
+                    <customer>
+                        <table>mh_storecredit_customer</table>
+                    </customer>
+                    <history>
+                        <table>mh_storecredit_history</table>
+                    </history>
+                </entities>
+            </storecredit_mysql4>
+        </models>
+        <resources>
+            <storecredit_setup>
+                <setup>
+                    <module>Magehit_Storecredit</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </storecredit_setup>
+            <storecredit_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </storecredit_write>
+            <storecredit_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </storecredit_read>
+        </resources>
+        <blocks>
+            <storecredit>
+                <class>Magehit_Storecredit_Block</class>
+            </storecredit>
+        </blocks>
+        <helpers>
+            <storecredit>
+                <class>Magehit_Storecredit_Helper</class>
+            </storecredit>
+        </helpers>
+        <template>
+		  <email>
+		  	<storecredit_email_notifications_credit_balance translate="label" module="storecredit">
+			      <label>Balance update email</label>
+			      <file>mh_storecredit/mh_storecredit_balance_changed.html</file>
+			      <type>html</type>
+		     </storecredit_email_notifications_credit_balance>
+		     <storecredit_email_notifications_recipient_template translate="label" module="storecredit">
+			      <label>Sending Credits email</label>
+			      <file>mh_storecredit/mh_storecredit_sending_credits.html</file>
+			      <type>html</type>
+		     </storecredit_email_notifications_recipient_template>
+		  </email>
+		</template>
+        <sales>
+            <quote>
+                <totals>
+                    <mh_storecredit>
+                        <class>storecredit/quote_address_total_storecredit</class>
+                        <after>weee,discount,reward_points,tax,tax_subtotal,grand_total</after>
+                       <!-- <renderer>storecredit/checkout_total</renderer> --> 
+                    </mh_storecredit>
+                </totals>
+            </quote>
+            <order_invoice>
+            	<totals>
+                    <mh_storecredit>
+                        <class>storecredit/order_invoice_total_storecredit</class>
+                        <after>grand_total</after>
+                    </mh_storecredit>
+            	</totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>
+                    <mh_storecredit>
+                        <class>storecredit/order_creditmemo_total_storecredit</class>
+                        <after>weee,discount,tax,grand_total</after>
+                    </mh_storecredit>
+                </totals>
+            </order_creditmemo>
+    	</sales>
+    	<pdf>
+    		<totals>
+                <mh_storecredit_discount translate="title">
+                    <title>Storecredit Discount</title>
+                    <source_field>mh_storecredit_discount</source_field>
+                    <amount_prefix>-</amount_prefix>
+                    <font_size>7</font_size>
+                    <display_zero>0</display_zero>
+                    <sort_order>201</sort_order>
+                    <model>storecredit/order_pdf_total_storecredit</model>
+                </mh_storecredit_discount>
+            </totals>
+    	</pdf>
+    </global>
+    <default>
+    	<storecredit>
+    		<config>
+    			<enabled>1</enabled>
+                <send_credit_to_friend>1</send_credit_to_friend>
+    			<min_checkout>0</min_checkout>
+    			<max_checkout>0</max_checkout>
+    		</config>
+    		<email_notifications>
+    			<enable_notifications>1</enable_notifications>
+    			<email_sender>general</email_sender>
+    			<credit_balance>storecredit_email_notifications_credit_balance</credit_balance>
+    			<recipient_template>storecredit_email_notifications_recipient_template</recipient_template>
+    		</email_notifications>
+    	</storecredit>
+    	
+    </default>
+</config>

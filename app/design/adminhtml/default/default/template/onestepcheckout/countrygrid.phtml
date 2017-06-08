@@ -1,0 +1,74 @@
+<?php
+	$user_guide = Mage::helper('onestepcheckout')->__('Country and Ip Database is used to auto detect country by ip address 
+								when a customer purchase in your website.
+								If you want import first database now please click into "Import Geoip Database Version1.0" Button.
+								<br/> And update new version database please click into "Update" Button.
+								');
+?>
+<?php $geoip = $this->getGeoip();?>
+<div class="entry-edit">
+	<div class="entry-edit-head">
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('onestepcheckout')->__('User Guide')?></h4>
+		<div class="form-buttons"></div>
+	</div>
+	<div id="import_form" class="fieldset ">
+		<div class="hor-scroll">
+			<?php echo $user_guide?>
+		</div>
+	</div>
+</div>
+<div class="entry-edit">
+	<div class="entry-edit-head">
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('onestepcheckout')->__('Database Infomation')?></h4>
+		<div class="form-buttons"></div>
+	</div>
+	<div id="import_form" class="fieldset ">
+		<div class="hor-scroll">
+			<table cellspacing="0" class="form-list">
+					<tbody>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong>Records Total:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo Mage::getModel('onestepcheckout/country')->getCollection()->getsize();?>          
+							</td>
+						</tr>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong>Current Version:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo $geoip->getCurrentVersion();?>         
+							</td>
+						</tr>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong>Lastest Version:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo $geoip->getLastVersion();?>            
+							</td>
+						</tr>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong>Status:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo Mage::getModel('onestepcheckout/countrylist')->getStatusLabel($geoip->getStatus());?>          
+							</td>
+						</tr>
+						
+						<tr>
+							<td class="label"><label for="csv_geoip"><span class="required"></span></label></td>
+							<td class="value">
+								<button onclick="importCountryIp('<?php echo $this->linkImportCountryIp()?>')" type="button"><?php echo Mage::helper('onestepcheckout')->__('Update')?></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+</div>
+	
+
+<style type="text/css">					
+	.user_guide{
+		background:none repeat scroll 0 0 #EAF0EE;
+		border:1px dotted #FF0000;
+		margin-bottom: 20px;
+		padding: 20px;
+	}
+</style>

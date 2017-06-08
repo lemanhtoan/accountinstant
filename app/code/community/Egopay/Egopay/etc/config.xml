@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Egopay_Egopay>
+            <version>0.0.1</version>
+        </Egopay_Egopay>
+    </modules>
+
+    <global>
+
+        <models>
+            <egopay>
+                <class>Egopay_Egopay_Model</class>
+            </egopay>
+        </models>
+
+        <blocks>
+            <egopay>
+                <class>Egopay_Egopay_Block</class>
+            </egopay>
+        </blocks>
+
+        <resources>
+            <egopay_setup>
+                <setup>
+                    <module>Egopay_Egopay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </egopay_setup>
+            <egopay_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </egopay_write>
+            <egopay_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </egopay_read>
+        </resources>
+        <helpers>
+            <egopay>
+                <class>Egopay_Egopay_Helper</class>
+            </egopay>
+        </helpers>
+    </global>
+
+
+    <frontend>
+        <secure_url>
+            <egopay_redirect>/egopay/redirect/00</egopay_redirect>
+        </secure_url>
+        <routers>
+            <egopay>
+                <use>standard</use>
+                <args>
+                    <module>Egopay_Egopay</module>
+                    <frontName>egopay</frontName>
+                </args>
+            </egopay>
+        </routers>
+        <translate>
+            <modules>
+                <Egopay_Egopay>
+                    <files>
+                        <default>Egopay_Egopay.csv</default>
+                    </files>
+                </Egopay_Egopay>
+            </modules>
+        </translate>
+    </frontend>
+
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Egopay_Egopay>
+                    <files>
+                        <default>Egopay_Egopay.csv</default>
+                    </files>
+                </Egopay_Egopay>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <default>
+        <payment>
+            <egopay>
+                <active>0</active>
+                <model>egopay/checkout</model>
+                <title>Bitcoin</title>
+                <egopay_storeid>OK########</egopay_storeid>
+            </egopay>
+        </payment>
+    </default>
+</config>

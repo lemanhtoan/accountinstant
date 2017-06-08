@@ -1,0 +1,18 @@
+<?php
+	$ext = 0;
+	$order = $this->getOrder();
+	//if ( $order->getId() ) {
+	if ( !is_null($order) ) {
+		$ext = 1;
+		$data = $this->getTransactionData($order);
+	}
+?>
+<p><?php echo Mage::helper('webmoney')->__('WebMoney') ?></p>
+<?php if ($ext): ?>
+	<div>
+		<?php echo Mage::helper('webmoney')->__('Purse: ') ?><?php echo $data['lmi_payer_purse'] ?>
+	</div>
+	<div>
+		<?php echo Mage::helper('webmoney')->__('WMID: ') ?><?php echo $data['lmi_payer_wm'] ?>
+	</div>
+<?php endif; ?>

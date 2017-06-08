@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+	</default>
+	<webmoneyadmin_adminhtml_webmoney_index>
+		<reference name="content">
+			<block type="webmoney/adminhtml_webmoney" name="webmoney" />
+		</reference>
+	</webmoneyadmin_adminhtml_webmoney_index>
+</layout>

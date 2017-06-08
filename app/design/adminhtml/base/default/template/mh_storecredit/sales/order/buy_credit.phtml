@@ -1,0 +1,20 @@
+<?php
+
+$_order  = $this->getOrder();
+$_source = $this->getSource();
+$this->setPriceDataObject($_source); 
+
+$store_id = Mage::getModel('sales/order')->load($_order->getId())->getStoreId();
+$buy_credit = Mage::helper('core')->currency($_order->getMhStorecreditBuyCredit(),false,false);
+
+
+if($buy_credit > 0){ ?>
+<tr>
+    <td class="label" style="color: #CD5033;font: 13px/1.55 Arial,Helvetica,sans-serif; font-weight: bold;">
+        <?php echo Mage::helper('storecredit')->__('Credits awarded'); ?>
+    </td>
+    <td style="color: #CD5033;font: 13px/1.55 Arial,Helvetica,sans-serif; font-weight: bold;"><?php echo Mage::helper('storecredit')->formatCredit($buy_credit)?></td>
+</tr>
+<?php };
+?>
+

@@ -1,0 +1,12 @@
+<?php if(count($this->getStores())>1): ?>
+<div class="form-language">
+    <div class="langs-wrapper">
+        <?php foreach ($this->getStores() as $_lang): ?>
+            <?php if (Mage::app()->getStore()->getCode() == $_lang->getCode()) {$cc = 'currentStore';} else {$cc = 'notCurrent';}?>
+            <a class="lang-flag alang <?php echo $cc;?>"
+               href="<?php echo Mage::getBaseUrl().'?___store=' . $_lang->getCode()?>">
+                <img src="<?php echo $this->getSkinUrl('images/flags/' . $_lang->getCode() . '.png');?>" alt=""></a>
+        <?php endforeach;?>
+    </div>
+</div>
+<?php endif; ?>

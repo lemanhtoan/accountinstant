@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<onestepcheckout_index_index>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="head">
+			<action method="addJs"><script>magestore/onestepcheckout.js</script></action>
+			<action method="addJs"><script>magestore/responsive/jquery.mediaqueries.js</script></action>
+			<action method="addJs"><script>magestore/tinybox.js</script></action>
+			<action method="addJs"><script>magestore/window.js</script></action>
+			<action method="addJs"><script>magestore/geoip.js</script></action> 
+			<action method="addCss"><stylesheet>css/magestore/onestepcheckout.css</stylesheet></action>
+			<action method="addCss" ifconfig="onestepcheckout/mobile/enable"><stylesheet>css/magestore/mobileonestepcheckout.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/magestore/tinybox.css</stylesheet></action>
+			<action method="removeItem">
+				<type>skin_js</type>
+				<name>sagepaysuite/js/sagePaySuite_Checkout.js</name>
+				<params />
+			</action> 
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>onestepcheckout/js/sagePaySuite_Checkout.js</name>
+			</action>
+			<block type="page/html_head" name="mobie_view" template="onestepcheckout/head.phtml"/>
+		</reference>
+		<reference name="content">
+			<block type="onestepcheckout/onestepcheckout" name="onestepcheckout" template="onestepcheckout/onestepcheckout.phtml">
+				<block type="onestepcheckout/onestepcheckout" name="onestepcheckout_billing" as="onestepcheckout.billing" template="onestepcheckout/onestepcheckout/billing.phtml" />
+				<block type="onestepcheckout/onestepcheckout" name="onestepcheckout_shipping" as="onestepcheckout.shipping" template="onestepcheckout/onestepcheckout/shipping.phtml" />
+				<block type="checkout/onepage_shipping_method_available" name="onestepcheckout_shipping_method" as="onestepcheckout.shipping_method" template="onestepcheckout/onestepcheckout/shipping_method.phtml"/>
+				<block type="checkout/onepage_payment_methods" name="onestepcheckout_payment_method" as="onestepcheckout.payment_method" template="onestepcheckout/onestepcheckout/payment_method.phtml">
+					<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+				</block>
+				<block type="checkout/onepage_review" name="onestepcheckout.onestepcheckout.review" as="onestepcheckout.review" template="onestepcheckout/onestepcheckout/review.phtml">
+					<block type="checkout/agreements" name="onestepcheckout.onestepcheckout.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
+					<block type="checkout/onepage_review_info" name="review_info" as="info" template="onestepcheckout/onestepcheckout/review/info.phtml">
+						<action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+						<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+						<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+						<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+					</block>
+				</block>				
+			</block>			           
+		</reference>
+       <reference name="before_body_end">
+            <block type="core/template" template="onestepcheckout/login_popup.phtml" name="login-popup" />       			
+        </reference>
+	</onestepcheckout_index_index>    
+    
+	<onestepcheckout_index_show_login>
+		<reference name="root">
+			<action method="setTemplate"><template>page/empty.phtml</template></action>
+			<reference name="content">
+				<block type="onestepcheckout/onestepcheckout" name="onestepcheckout_login" template="onestepcheckout/onestepcheckout/login.phtml"/>
+			</reference>
+		</reference>
+	</onestepcheckout_index_show_login>
+	
+	<onestepcheckout_index_show_password>
+		<reference name="root">
+			<action method="setTemplate"><template>page/empty.phtml</template></action>
+			<reference name="content">
+				<block type="onestepcheckout/onestepcheckout" name="onestepcheckout_login" template="onestepcheckout/onestepcheckout/forgotpassword.phtml"/>
+			</reference>
+		</reference>
+	</onestepcheckout_index_show_password>
+	<!--<checkout_cart_index>
+		<reference name="checkout.cart.methods">
+			<update handle="checkout.cart.methods.onepage" />
+			<reference name="checkout.cart.methods.onepage">
+				<action method="setTemplate"><template>onestepcheckout/link.phtml</template></action>
+			</reference>			
+		</reference>
+	</checkout_cart_index>-->
+	<onestepcheckout_onestepcheckout_shippingmethod>
+		<block type="checkout/onepage_shipping_method_available" name="shippingmethod" output="toHtml" template="onestepcheckout/onestepcheckout/shipping_method.phtml"/>
+	</onestepcheckout_onestepcheckout_shippingmethod>
+	<onestepcheckout_onestepcheckout_paymentmethod>
+		<block type="checkout/onepage_payment_methods" name="paymentmethod" output="toHtml" template="onestepcheckout/onestepcheckout/payment_method.phtml">
+			<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+		</block>
+	</onestepcheckout_onestepcheckout_paymentmethod>
+	<onestepcheckout_onestepcheckout_review>
+		<block type="checkout/onepage_review_info" name="review" output="toHtml" template="onestepcheckout/onestepcheckout/review/info.phtml">
+			<action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+			<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+			<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+			<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+		</block>
+	</onestepcheckout_onestepcheckout_review>
+	<onestepcheckout_index_save_address>
+		<block type="onestepcheckout/reload" output="toHtml" name="onestepcheckout_reload" as="onestepcheckout_reload" template="onestepcheckout/onestepcheckout/reload_data.phtml">
+			<block type="checkout/onepage_shipping_method_available" name="onestepcheckout_shipping_method" as="onestepcheckout_shipping_method" template="onestepcheckout/onestepcheckout/shipping_method.phtml" />
+			<block type="checkout/onepage_payment_methods" name="onestepcheckout_payment_method" as="onestepcheckout_payment_method" template="onestepcheckout/onestepcheckout/payment_method.phtml">
+				<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+			</block>
+			<block type="checkout/onepage_review_info" name="onestepcheckout_review" as="onestepcheckout_review" template="onestepcheckout/onestepcheckout/review/info.phtml">
+				<action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+			</block>
+		</block>
+	</onestepcheckout_index_save_address>
+
+	<onestepcheckout_index_save_shipping>
+		<block type="onestepcheckout/reload" name="onestepcheckout_reload" as="onestepcheckout_reload" output="toHtml" template="onestepcheckout/onestepcheckout/reload_payment.phtml">
+			<block type="checkout/onepage_payment_methods" name="onestepcheckout_payment_method" as="onestepcheckout_payment_method" template="onestepcheckout/onestepcheckout/payment_method.phtml">
+				<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+			</block>
+			<block type="checkout/onepage_review_info" name="onestepcheckout_review" as="onestepcheckout_review" template="onestepcheckout/onestepcheckout/review/info.phtml">
+				<action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+			</block>
+		</block>
+	</onestepcheckout_index_save_shipping>
+
+    <onestepcheckout_ajax_add_giftwrap>       
+        <block type="checkout/onepage_review_info" output="toHtml" name="onestepcheckout_review" as="onestepcheckout_review" template="onestepcheckout/onestepcheckout/review/info.phtml">
+            <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+            <block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+        </block>        
+    </onestepcheckout_ajax_add_giftwrap>
+	
+	<!--Order -->
+    <sales_order_view>        
+        <reference name="order_totals">
+            <block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" /> 	
+			<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+        </reference>
+    </sales_order_view>
+    <sales_order_invoice>
+        <reference name="invoice_totals">
+            <block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />  
+			<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+        </reference>       
+    </sales_order_invoice>
+    <sales_order_print>
+        <reference name="order_totals">
+            <block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />   
+			<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+        </reference>       
+    </sales_order_print>
+    <sales_order_printinvoice>
+        <reference name="invoice_totals">
+            <block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" /> 
+			<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+        </reference>        
+    </sales_order_printinvoice>
+	<!--Email -->
+    <sales_email_order_items>       
+        <reference name="order_totals">
+            <block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />            
+			<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+        </reference>        
+    </sales_email_order_items>   
+    <sales_email_order_invoice_items>
+        <reference name="invoice_totals">
+            <block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />            
+			<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+        </reference>              
+    </sales_email_order_invoice_items> 
+	<sales_email_order_creditmemo_items>
+        <reference name="creditmemo_totals">
+            <block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />
+			<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+        </reference>              
+    </sales_email_order_creditmemo_items> 	
+	
+	<!-- One Step Check Our for admin -->
+	<onestepcheckout_admin_index>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/magestore/orderlist/orderlist.css</stylesheet></action>
+			<!-- <action method="addCss"><stylesheet>css/magestore/orderlist/boxes.css</stylesheet></action> -->
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<remove name="header" />
+		<remove name="footer" />
+		<reference name="head">
+			<action method="addJs"><script>magestore/onestepcheckout.js</script></action>
+			<action method="addJs"><script>magestore/tinybox.js</script></action>
+			<action method="addJs"><script>magestore/window.js</script></action>
+			<action method="addJs"><script>magestore/geoip.js</script></action> 
+			<action method="addJs"><script>magestore/adminhtml/onestepcheckout/ajaxcartpage.js</script></action> 
+			<action method="addCss"><stylesheet>css/magestore/onestepcheckout.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/magestore/tinybox.css</stylesheet></action>
+			<action method="removeItem">
+				<type>skin_js</type>
+				<name>sagepaysuite/js/sagePaySuite_Checkout.js</name>
+				<params />
+			</action> 
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>onestepcheckout/js/sagePaySuite_Checkout.js</name>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="onestepcheckout/onestepcheckout" name="onestepcheckout" template="onestepcheckout/admin/onestepcheckout.phtml">
+				<block type="checkout/cart" name="checkout.cart" as="checkout.cart">
+					<action method="setCartTemplate"><value>onestepcheckout/admin/checkout/cart.phtml</value></action>
+					<action method="setEmptyTemplate"><value>onestepcheckout/admin/checkout/cart.phtml</value></action>
+					<action method="chooseTemplate"/>
+					<action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/item/default.phtml</template></action>
+					<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/item/default.phtml</template></action>
+					<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/item/default.phtml</template></action>
+				</block>
+				
+				<block type="onestepcheckout/onestepcheckout" name="onestepcheckout_billing" as="onestepcheckout.billing" template="onestepcheckout/admin/onestepcheckout/billing.phtml" />
+				<block type="onestepcheckout/onestepcheckout" name="onestepcheckout_shipping" as="onestepcheckout.shipping" template="onestepcheckout/admin/onestepcheckout/shipping.phtml" />
+				<block type="checkout/onepage_shipping_method_available" name="onestepcheckout_shipping_method" as="onestepcheckout.shipping_method" template="onestepcheckout/onestepcheckout/shipping_method.phtml"/>
+				<block type="checkout/onepage_payment_methods" name="onestepcheckout_payment_method" as="onestepcheckout.payment_method" template="onestepcheckout/onestepcheckout/payment_method.phtml">
+					<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+				</block>
+				<block type="checkout/onepage_review" name="onestepcheckout.onestepcheckout.review" as="onestepcheckout.review" template="onestepcheckout/admin/onestepcheckout/review.phtml">
+					<block type="checkout/agreements" name="onestepcheckout.onestepcheckout.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
+					<block type="checkout/onepage_review_info" name="review_info" as="info" template="onestepcheckout/onestepcheckout/review/info.phtml">
+						<action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+						<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+						<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+						<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+					</block>
+				</block>				
+				<!-- <block type="onestepcheckout/admin_orderlist_orderlist" name="order_list" template="onestepcheckout/admin/orderlist/orderlist.phtml" /> 				  -->
+			</block>			           
+		</reference> 
+		 <!-- <reference name="before_body_end">          			 
+			<block type="onestepcheckout/admin_orderlist_orderlist" name="order_tab_info" template="onestepcheckout/admin/orderlist/view.phtml">
+				<block type="onestepcheckout/admin_orderlist_payment" name="order_payment"/>
+				<block type="adminhtml/sales_order_totals" name="order_totals" template="onestepcheckout/admin/orderlist/totals.phtml">
+					<block type="adminhtml/sales_order_totals_tax" name="tax" template="sales/order/totals/tax.phtml" />
+					<block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />           
+					<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" />
+				</block>										
+			</block>
+        </reference>  -->
+	</onestepcheckout_admin_index> 
+	
+	<onestepcheckout_admin_save_address>
+		<block type="onestepcheckout/reload" output="toHtml" name="onestepcheckout_reload" as="onestepcheckout_reload" template="onestepcheckout/onestepcheckout/reload_data.phtml">
+			<block type="checkout/onepage_shipping_method_available" name="onestepcheckout_shipping_method" as="onestepcheckout_shipping_method" template="onestepcheckout/onestepcheckout/shipping_method.phtml" />
+			<block type="checkout/onepage_payment_methods" name="onestepcheckout_payment_method" as="onestepcheckout_payment_method" template="onestepcheckout/onestepcheckout/payment_method.phtml">
+				<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+			</block>
+			<block type="checkout/onepage_review_info" name="onestepcheckout_review" as="onestepcheckout_review" template="onestepcheckout/onestepcheckout/review/info.phtml">
+				<action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+			</block>
+		</block>
+	</onestepcheckout_admin_save_address>
+
+	<onestepcheckout_admin_save_shipping>
+		<block type="onestepcheckout/reload" name="onestepcheckout_reload" as="onestepcheckout_reload" output="toHtml" template="onestepcheckout/onestepcheckout/reload_payment.phtml">
+			<block type="checkout/onepage_payment_methods" name="onestepcheckout_payment_method" as="onestepcheckout_payment_method" template="onestepcheckout/onestepcheckout/payment_method.phtml">
+				<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+			</block>
+			<block type="checkout/onepage_review_info" name="onestepcheckout_review" as="onestepcheckout_review" template="onestepcheckout/onestepcheckout/review/info.phtml">
+				<action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>onestepcheckout/onestepcheckout/review/item.phtml</template></action>
+				<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="onestepcheckout/onestepcheckout/review/totals.phtml"/>
+			</block>
+		</block>
+	</onestepcheckout_admin_save_shipping>
+	
+	<onestepcheckout_admin_cart translate="label">
+        <label>Shopping Cart</label>
+        <remove name="right"/>
+        <remove name="left"/>
+        <!-- Mage_Checkout -->
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="checkout/cart" name="checkout.cart">
+                <action method="setCartTemplate"><value>onestepcheckout/admin/checkout/cart.phtml</value></action>
+                <action method="setEmptyTemplate"><value>onestepcheckout/admin/checkout/cart.phtml</value></action>
+                <action method="chooseTemplate"/>
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/item/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/item/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/item/default.phtml</template></action>
+            </block>
+        </reference>
+    </onestepcheckout_admin_cart>
+	
+	<onestepcheckout_admin_printinvoice translate="label">		 
+        <label>Sales Order Print View</label>
+        <reference name="content">
+            <block type="onestepcheckout/admin_orderlist_printinvoice" name="order.print" template="onestepcheckout/admin/orderlist/print.phtml">
+                <action method="addItemRender"><type>default</type><block>sales/order_item_renderer_default</block><template>sales/order/items/renderer/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>sales/order_item_renderer_grouped</block><template>sales/order/items/renderer/default.phtml</template></action>
+                <block type="onestepcheckout/admin_orderlist_totals" name="order_totals" template="sales/order/totals.phtml">
+                    <action method="setLabelProperties"><value>colspan="4" class="a-right"</value></action>
+                    <action method="setValueProperties"><value>class="last a-right"</value></action>
+                    <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+                        <action method="setIsPlaneMode"><value>1</value></action>
+                    </block>
+					<block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />           
+					<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" /> 
+                </block>
+            </block>
+        </reference>
+        <block type="core/text_list" name="additional.product.info" />
+    </onestepcheckout_admin_printinvoice>
+	
+	<onestepcheckout_admin_orderlistsearch>	
+		<block type="onestepcheckout/admin_orderlist_reload" name="order_reload" template="onestepcheckout/admin/orderlist/reload_order.phtml" output="toHtml">				
+			<block type="onestepcheckout/admin_orderlist_orderlist" name="order_list" template="onestepcheckout/admin/orderlist/orderlist.phtml">								
+			</block> 
+		</block>
+	</onestepcheckout_admin_orderlistsearch>
+	
+	<onestepcheckout_admin_vieworder>
+		 <reference name="content">
+            <block type="onestepcheckout/admin_orderlist_vieworder" name="view_order" template="onestepcheckout/admin/orderlist/view.phtml" output="toHtml">
+				<block type="onestepcheckout/admin_orderlist_payment" name="order_payment"/>
+				<block type="adminhtml/sales_order_totals" name="order_totals" template="onestepcheckout/admin/orderlist/totals.phtml">
+					<block type="adminhtml/sales_order_totals_tax" name="tax" template="onestepcheckout/admin/orderlist/tax.phtml" />
+					<block type="onestepcheckout/sales_order_totals_giftwrap" name="giftwrap" />           
+					<block type="onestepcheckout/sales_order_totals_discount" name="onestepcheckout_discount" />
+				</block>
+			</block>
+        </reference>
+	</onestepcheckout_admin_vieworder>
+</layout> 

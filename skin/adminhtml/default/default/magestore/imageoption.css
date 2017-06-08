@@ -1,0 +1,30 @@
+
+
+#template_options_container{
+	padding:20px;
+}
+#template_options_container select{
+	width:340px;
+}
+
+#template_options_container .tmpl-box{
+	float:left;
+	width:50%;
+}
+
+#tmpl-description{
+	display:block;
+	margin: 0 0 0 50px;
+}
+
+#text-guide{
+	display:block;
+	margin:0px 0 0 0;
+}
+
+#template_options_container .description-templ{
+	border:1px solid #DDDDDD;
+	margin:20px 0 0 0;
+	padding:10px 20px 10px 20px;
+	width:300px;
+}

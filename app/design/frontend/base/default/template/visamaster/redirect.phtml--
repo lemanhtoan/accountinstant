@@ -1,0 +1,24 @@
+<?php
+// Retrieve order
+$_order = new Mage_Sales_Model_Order();
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+$_order->loadByIncrementId($orderId);
+?>
+<p></p>
+<p></p>
+<strong>Please wait while your payment is being processed...</strong>
+<form name="mygatewayform" method="post" action="http://keyinstant.com/migsvpcasp/vpc_php_authenticate_and_pay_merchanthost_do.php" >
+	<input type="hidden" name="virtualPaymentClientURL" size="65" value="https://migs.mastercard.com.au/vpcpay" />
+	<input type="hidden" name="vpc_Version" value="1"/>
+	<input type="hidden" name="vpc_Command" value="pay" />
+	<input type="hidden" name="vpc_AccessCode" value="1AA568A3" />
+	<input type="hidden" name="vpc_MerchTxnRef" id="vpc_MerchTxnRef" value="<?php echo $orderId; ?>" />
+	<input type="hidden" name="vpc_Merchant" value="200500011432" />
+	<input type="hidden" name="vpc_OrderInfo" value="Premium key - Order # <?php echo $orderId; ?>"/>
+	<input type="hidden" name="vpc_Amount" value="<?php echo $_order->getBaseTotalDue()*100; ?>" />
+	<input type="hidden" name="vpc_ReturnURL" size="65" value="http://keyinstant.com/migsvpcasp/vpc_php_authenticate_and_pay_merchanthost_dr.php"/>
+	<input type="hidden" name="vpc_Locale" value="en" size="20" maxlength="5"/>
+</form>
+<script type="text/javascript">
+document.mygatewayform.submit();
+</script>

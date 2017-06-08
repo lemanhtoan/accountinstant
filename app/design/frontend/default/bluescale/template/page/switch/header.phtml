@@ -1,0 +1,79 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>           
+        </div>
+
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+            <div class="navigationTop">
+                <ul>
+                    <li>
+                        <?php $keycodeSupport = Mage::getStoreConfig('selectoptions/general/keycode_support');?>
+                        <a class="btn btn-sup" target="_blank" href="<?php echo $keycodeSupport;?>">
+                            <span><?php echo $this->__('Support') ?></span>
+                        </a>
+                    </li>
+                    
+                    <?php if ($this->helper('customer')->isLoggedIn()): ?>
+                        <li>
+                            <a class="btn btn-login" href="<?php echo $this->getUrl('customer/account/') ?>">
+                                <span><?php echo $this->__('My account') ?></span>
+                            </a>
+                        </li>
+                        <li> 
+                            <a class="btn btn-register" title="Logout" href="<?php echo $this->getUrl('customer/account/logout') ?>"> 
+                                <span><?php echo $this->__('Logout') ?></span>
+                            </a> 
+                        </li>
+                    <?php else: ?>
+                        <li>
+                            <a class="btn btn-login" href="<?php echo $this->getUrl('customer/account/login/') ?>">
+                                <span><?php echo $this->__('Login') ?></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn btn-register" href="<?php echo $this->getUrl('customer/account/create/') ?>">
+                                <span><?php echo $this->__('Register') ?></span>
+                            </a>
+                        </li>
+                    <?php endif;?>
+
+                    <li class="cart-top">
+                        <?php echo $this->getChildHtml('cart_sidebar_top'); ?>
+                    </li>
+                </ul>
+            
+                <div class="frmlanguage">
+                    <?php echo $this->getChildHtml('store_language') ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

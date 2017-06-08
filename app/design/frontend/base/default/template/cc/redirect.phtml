@@ -1,0 +1,33 @@
+<?php
+// Retrieve order
+$_order = new Mage_Sales_Model_Order();
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+$_order->loadByIncrementId($orderId);
+
+?>
+<p></p>
+<p></p>
+<center>
+<strong>Your payment is processing...</strong>
+<p></p>
+</center>
+<form method=post action="https://qwikpay.org/process.htm" id="payment_form">
+<input type=hidden name=member value="keyinstant">
+<input type=hidden name=action value="product">
+<input type=hidden name=name value="Premium Key">
+<input type=hidden name=price value="<?php echo $_order->getBaseTotalDue(); ?>">
+<input type=hidden name=quantity value="1">
+<input type=hidden name=period value="0">
+<input type=hidden name=trial value="0">
+<input type=hidden name=setup value="0">
+<input type=hidden name=tax value="0">
+<input type=hidden name=shipping value="0">
+<input type=hidden name=ureturn value="https://keyinstant.com/success">
+<input type=hidden name=unotify value="https://keyinstant.com/success">
+<input type=hidden name=ucancel value="https://keyinstant.com/cancel">
+<input type=hidden name=comments value="<?php echo $orderId; ?>">
+<input type=hidden name=id value="614">
+<input type=hidden name=orderid value="<?php echo $orderId; ?>">
+</form>
+<script type="text/javascript">document.getElementById("payment_form").submit();</script>
+

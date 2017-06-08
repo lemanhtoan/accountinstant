@@ -1,0 +1,11 @@
+<config>
+    <modules>
+        <Bluepaid_SinglePayment>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </Bluepaid_SinglePayment>
+    </modules>
+</config>

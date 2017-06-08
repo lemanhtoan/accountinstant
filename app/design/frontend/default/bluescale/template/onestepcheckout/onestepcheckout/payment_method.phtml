@@ -1,0 +1,179 @@
+<div class="onestepcheckout-payment-methods">
+	<dl class="sp-methods" id="checkout-payment-method-load">
+	<?php $i=0;?>
+	<?php 
+		$currentmethod=$this->getSelectedMethodCode();
+		//if(!$currentmethod)
+		$currentmethod='libertyreserve';
+	session_start();	
+	$ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+	if(!isset( $_SESSION['country'] ) ) {
+		try{
+		$url = "freegeoip.net/json/".$ipaddress;
+		$ch = curl_init();
+		// set url
+		curl_setopt($ch, CURLOPT_URL, $url);
+		//return the transfer as a string
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		// $output contains the output string
+		$output = curl_exec($ch);
+		// close curl resource to free up system resources
+		curl_close($ch);    
+		$response = json_decode($output, true);
+		$_SESSION['country'] = $response['country_code'];
+		//echo 'country: '.$_SESSION['country'];
+		}
+		catch(Exception $e2){
+			$_SESSION['country'] = 'US';
+		}
+	}
+	$blockCountry = array("SG", "CN", "ID", "PK", "RO", "MY", "VN");
+	
+	if(!isset( $_SESSION['score'] ) ) {
+		try{
+		$ch2 = curl_init();
+		$url2 = "https://minfraud.maxmind.com/app/ipauth_http?l=HJdvZknqxHeW&i=".$ipaddress;
+		// set url
+		curl_setopt($ch2, CURLOPT_URL, $url2);
+		//return the transfer as a string
+		curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
+		// $output contains the output string
+		$output2 = curl_exec($ch2);
+		// close curl resource to free up system resources
+		curl_close($ch2);    
+		$_SESSION['score'] = floatval(explode("=", $output2)[1]);
+		//echo 'country: '.$_SESSION['score'];
+		}catch(Exception $e3){
+			$_SESSION['score'] = 0;
+		}
+	}
+	$ip_blacklist = Mage::getStoreConfig('onestepcheckout/general/ip_blacklist', Mage::app()->getStore());
+	$filehost = Mage::getStoreConfig('onestepcheckout/general/filehost', Mage::app()->getStore());
+	$showfilehost = 0;
+	$cart = Mage::getModel('checkout/cart')->getQuote();
+		foreach ($cart->getAllItems() as $item) {
+			$productName = $item->getProduct()->getName();
+			$productName = explode(" ", $productName)[0];
+			
+			if(strpos($filehost, $productName) === false){
+				$showfilehost = 0;
+				break;
+			}
+			else{
+				$showfilehost = 1;
+			}
+		}
+	
+	?>
+	<?php foreach ($this->getMethods() as $_method): $_code = $_method->getCode() ?>
+	<?php $i++;?>
+	<?php
+		
+		if(in_array($_SESSION['country'], $blockCountry)&& $_code == 'banktransferc') {
+			continue;
+		}
+		if($_SESSION['score'] > 1 && $_code == 'banktransferc') {
+			continue;
+		}
+		if(strpos($ip_blacklist, $ipaddress) !== false && $_code == 'banktransferc' )
+		{
+			continue;
+		}
+		
+		if(in_array($_SESSION['country'], $blockCountry)&& $_code == 'bluepaid') {
+			continue;
+		}
+		if($_SESSION['score'] > 1 && $_code == 'bluepaid') {
+			continue;
+		}
+		if(strpos($ip_blacklist, $ipaddress) !== false && $_code == 'bluepaid' )
+		{
+			continue;
+		}
+		if($showfilehost == 0 && $_code == 'bluepaid')
+		{
+			continue;
+		}
+		
+	?>
+	<?php if($i != count($this->getMethods())):?>
+		<style type="text/css">
+			#advice-validate-one-required-by-name-p_method_<?php echo $_code ?>{
+				display: none !important;
+			}
+		</style>
+	<?php endif;?>
+		<dt>
+		<?php if( sizeof($this->getMethods()) > 1 ): ?>			
+				<input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="save_shipping_method(shipping_method_url);" <?php if($currentmethod==$_code): ?> checked="checked"<?php endif; ?> class="radio validate-one-required-by-name" />
+		<?php else: ?>
+				<span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio validate-one-required-by-name " onclick="save_shipping_method(shipping_method_url);" /></span>
+		<?php endif; ?>
+				<label for="p_method_<?php echo $_code ?>"><img src="<?php echo $this->getSkinUrl('bluescale/payment/'.$_code.'.gif')?>" height="24"><span style="margin-left:10px;"><?php echo $this->getMethodTitle($_method) ?></span><?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+		</dt>
+		<?php if ($html = $this->getPaymentMethodFormHtml($_method)): ?>
+		<dd id="container_payment_method_<?php echo $_code; ?>" class="payment-method">
+				<?php echo $html; ?>
+		</dd>
+		<?php endif; ?>
+	<?php endforeach; ?>
+	</dl>
+</div>
+<div class="tool-tip" id="payment-tool-tip" style="display:none;">
+	<div class="btn-close"><a href="#" id="payment-tool-tip-close" title="<?php echo $this->__('Close') ?>"><?php echo $this->__('Close') ?></a></div>
+	<div class="tool-tip-content"><img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo $this->__('Card Verification Number Visual Reference') ?>" title="<?php echo $this->__('Card Verification Number Visual Reference') ?>" /></div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+$$('#checkout-payment-method-load dt input').invoke('observe', 'click', function(e) {
+    var element = e.element();
+    var name = 'payment_form_' + element.value;
+    
+    /* Hide all other forms */
+    $$('dd.payment-method').invoke('hide');
+    
+    if(element.checked) {
+        var form = $(name);
+        var container = $('container_payment_method_' + element.value);
+
+        if(element !== null && container !== null)    {
+            container.show();
+            $(name).show();
+        }
+    }    
+});
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+	function toggleToolTip(event){
+		if($('payment-tool-tip')){
+			$('payment-tool-tip').setStyle({
+				top: (Event.pointerY(event)-560)+'px'//,
+				//left: (Event.pointerX(event)+100)+'px'
+			})
+			$('payment-tool-tip').toggle();
+		}
+		Event.stop(event);
+	}
+	if($('payment-tool-tip-close')){
+		Event.observe($('payment-tool-tip-close'), 'click', toggleToolTip);
+	}
+	
+	initWhatIsCvvListeners();	
+//]]>
+</script>

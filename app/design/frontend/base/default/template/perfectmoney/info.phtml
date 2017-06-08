@@ -1,0 +1,6 @@
+<?php echo $this->htmlEscape($this->getMethod()->getTitle()) ?><br />
+<?php if ($this->getInfo()->getLastTransId() == ''): ?>
+    <em><?php echo Mage::helper('perfectmoney')->__('You will be redirected to our secure Perfect Money payment page when you place an order.') ?></em>
+<?php else: ?>
+    <?php echo Mage::helper('perfectmoney')->__('Perfect Money Transaction ID: %s', $this->htmlEscape($this->getInfo()->getLastTransId())) ?><br />
+<?php endif; ?>

@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * magevn
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the magevn.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magevn.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    magevn
+ * @package     magevn_Payments
+ * @copyright   Copyright (c) 2012 magevn (http://www.magevn.com/)
+ * @license     http://www.magevn.com/license-agreement.html
+ */
+-->
+<config>
+    <modules>
+        <Magevn_Payments>
+            <version>0.1.0</version>
+        </Magevn_Payments>
+    </modules>
+    <frontend>
+        <routers>
+            <payments>
+                <use>standard</use>
+                <args>
+                    <module>Magevn_Payments</module>
+                    <frontName>payments</frontName>
+                </args>
+            </payments>
+        </routers>
+        <layout>
+            <updates>
+                <payments>
+                    <file>payments.xml</file>
+                </payments>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <paymentsadmin>
+                <use>admin</use>
+                <args>
+                    <module>Magevn_Payments</module>
+                    <frontName>paymentsadmin</frontName>
+                </args>
+            </paymentsadmin>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Magevn_Payments>
+                    <files>
+                        <default>Magevn_Payments.csv</default>
+                    </files>
+                </Magevn_Payments>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+        <models>
+            <payments>
+                <class>Magevn_Payments_Model</class>
+                <resourceModel>payments_mysql4</resourceModel>
+            </payments>
+            <payments_mysql4>
+                <class>Magevn_Payments_Model_Mysql4</class>
+                <!--entities>
+                    <payments>
+                        <table>payments</table>
+                    </payments>
+                </entities-->
+            </payments_mysql4>
+        </models>
+        <resources>
+            <payments_setup>
+                <setup>
+                    <module>Magevn_Payments</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </payments_setup>
+            <payments_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </payments_write>
+            <payments_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </payments_read>
+        </resources>
+        <blocks>
+            <payments>
+                <class>Magevn_Payments_Block</class>
+            </payments>
+        </blocks>
+        <helpers>
+            <payments>
+                <class>Magevn_Payments_Helper</class>
+            </payments>
+        </helpers>
+        <!-- <events>
+            <controller_action_predispatch>
+                <observers>
+                    <payments_observers>
+                        <class>payments/observer</class>
+                        <method>controllerActionPredispatch</method>
+                    </payments_observers>
+                </observers>
+            </controller_action_predispatch>
+        </events> -->
+    </global>
+    <default>
+        <payment>
+            <banktransfera>
+                <active>0</active>
+                <model>payments/method_banktransfera</model>
+                <order_status>pending</order_status>
+                <title>Manual method 1</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </banktransfera>
+            <banktransferb>
+                <active>0</active>
+                <model>payments/method_banktransferb</model>
+                <order_status>pending</order_status>
+                <title>Manual method 2</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </banktransferb>
+            <banktransferc>
+                <active>0</active>
+                <model>payments/method_banktransferc</model>
+                <order_status>pending</order_status>
+                <title>Manual method 3</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </banktransferc>
+            <banktransferd>
+                <active>0</active>
+                <model>payments/method_banktransferd</model>
+                <order_status>pending</order_status>
+                <title>Manual method 4</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </banktransferd>
+            <banktransfere>
+                <active>0</active>
+                <model>payments/method_banktransfere5</model>
+                <order_status>pending</order_status>
+                <title>Manual method 5</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </banktransfere>
+            <banktransferf>
+                <active>0</active>
+                <model>payments/method_banktransferf</model>
+                <order_status>pending</order_status>
+                <title>Manual method 6</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </banktransferf>
+        </payment>
+    </default>
+</config>

@@ -1,0 +1,39 @@
+<?php $_id = 'id_' . md5(microtime())  ?>
+
+<input type="hidden" name="<?php echo $this->getInputElementName() ?>" id="<?php echo $_id ?>" value="" />
+<div id="product_name_contain" style="display:none"></div>
+<?php $_gridJsObject = $this->getGridBlock()->getJsObjectName() ?>
+<script type="text/javascript">
+
+function managekeysObjectRowClick(grid, event){
+	var trElement = Event.findElement(event, 'tr');
+	var isInput   = Event.element(event).tagName == 'INPUT';
+	if(trElement){
+		var checkbox = Element.getElementsBySelector(trElement, 'input');
+		if(checkbox[0]){
+			$('<?php echo $_id ?>').value = checkbox[0].value;
+			checkbox[0].checked = true;
+			if(checkbox[0]){
+				changeProduct(checkbox[0].value);
+			}
+		}
+	}
+}
+function changeProduct(product_id){
+	var url = '<?php echo Mage::helper('adminhtml')->getUrl('managekeysadmin/adminhtml_managekeys/changeproduct') ?>';
+		if (url.indexOf('?') == -1)
+			url += '?product_id=' + product_id;
+		else
+			url += '&product_id=' + product_id;
+		new Ajax.Updater('product_name_contain',url,{method: 'get', onComplete: function(){
+			$('product_name').value = $('newproduct_name').value;
+			$('managekeys_tabs_form_section').addClassName('active');
+			$('managekeys_tabs_form_listproduct').removeClassName('active');
+			$('managekeys_tabs_form_section_content').style.display="";
+			$('managekeys_tabs_form_listproduct_content').style.display="none";
+		} ,onFailure: ""});
+}
+
+<?php echo $_gridJsObject ?>.rowClickCallback =	managekeysObjectRowClick;
+
+</script>

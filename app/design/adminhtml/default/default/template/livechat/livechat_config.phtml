@@ -1,0 +1,168 @@
+<?php
+function livechat_prepare_language_select($lang)
+{
+	$languages = array(
+		'cn' => 'Chinese',
+		'cs' => 'Český',
+		'de' => 'Deutsch',
+		'gr' => 'Ελληνικά',
+		'en' => 'English',
+		'es' => 'Espańol',
+		'fr' => 'Français',
+		'it' => 'Italiano',
+		'pl' => 'Polski',
+		'pt' => 'Português',
+		'ru' => 'Русский',
+		'se' => 'Svenska',
+		'sk' => 'Slovenský'
+	);
+
+	$s = '';
+	$s .= '<select name="livechat_lang" id="livechat_lang">';
+	foreach ($languages as $code => $name)
+	{
+		$s .= '<option value="'.$code.'"';
+		if ($code == $lang) $s .= ' selected="selected"';
+		$s .= '>'.$name.'</option>';
+	}
+	$s .= '</select>';
+
+	return $s;
+}
+?>
+<div id="livechat">
+<h3 class="first">Do you already have the LiveChat account?</h3>
+<ul id="choice_account">
+<li><input type="radio" name="choice_account" id="choice_account_1" checked="checked"> <label for="choice_account_1">Yes, I already have the LiveChat account</label></li>
+<li><input type="radio" name="choice_account" id="choice_account_0"> <label for="choice_account_0">No, I want to create one</label></li>
+</ul>
+
+<!-- Already have an account -->
+<div id="livechat_already_have" style="display:none">
+
+	<?php if (Mage::getStoreConfig('livechat/general/license') > 0): ?>
+	<h3>Download LiveChat application</h3>
+	<p><span class="installed_ok">Your LiveChat monitoring code is installed properly.</span></p>
+	<p>To monitor your website visitors and start chatting with them, download the LiveChat application right now:</p>
+	<p><a href="http://www.livechatinc.com/download/LiveChat/LiveChat.exe" class="awesome red">Download application</a></p>
+	<?php endif; ?>
+
+	<form method="post" action="<?php echo $this->getUrl('*/*/post'); ?>">
+		<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" /> 
+
+		<h3>LiveChat settings</h3>
+		<table class="form-table">
+		<tr>
+		<th scope="row"><label for="livechat_license_number">My license number is:</label></th>
+		<td><input type="text" class="input-text" name="livechat_license_number" id="livechat_license_number" value="<?php echo Mage::getStoreConfig('livechat/general/license'); ?>" /> <span class="help">You will find your license number in the <a href="https://panel.livechatinc.com/index.php/lc_dashboard/license-details" target="_blank">Control Panel</a>.</span></td>
+		</tr>
+
+		<?php if (Mage::getStoreConfig('livechat/general/license') > 0): ?>
+			<?php
+			$lang = Mage::getStoreConfig('livechat/advanced/language');
+			if (empty($lang)) $lang = 'en';
+			?>
+			<tr>
+			<th scope="row"><label for="livechat_lang">Language:</label></th>
+			<td><?php echo livechat_prepare_language_select($lang); ?></td>
+			</tr>
+
+			<?php
+			$groups = Mage::getStoreConfig('livechat/advanced/skill');
+			if (empty($groups)) $groups = '0';
+			?>
+			<tr>
+			<th scope="row"><label for="livechat_groups">Skill:</label></th>
+			<td><input type="text" class="input-text" name="livechat_groups" id="livechat_groups" value="<?php echo $groups; ?>" /> <a class="help" href="http://www.livechatinc.com/en/resources/tutorials/skills_based_routing/" target="_blank">what is that?</a></td>
+			</tr>
+
+			<?php
+			$params = Mage::getStoreConfig('livechat/advanced/params');
+			?>
+			<tr>
+			<th scope="row"><label for="livechat_params">Advanced parameters:</label></th>
+			<td><input type="text" class="input-text" name="livechat_params" id="livechat_params" value="<?php echo $params; ?>" /> <a class="help" href="http://www.livechatinc.com/en/support/documentation/customizing_web_agent_.htm" target="_blank">advanced help</a></td>
+			</tr>
+
+			<tr>
+			<td colspan="2"><p class="space">The above will change the default configuration, for a store specific configuration go to <a href="<?php echo Mage::helper("adminhtml")->getUrl("adminhtml/system_config/edit", array("section"=>"livechat")); ?>">System &gt; Configuration &gt; LiveChat</a></p></td>
+			</tr>
+		<?php endif; ?>
+		</table>
+
+		<?php
+		if (Mage::getStoreConfig('livechat/general/license') > 0):
+		
+			$license_number = Mage::getStoreConfig('livechat/general/license');
+			$groups = Mage::getStoreConfig('livechat/advanced/skill');
+			$lang = Mage::getStoreConfig('livechat/advanced/language');
+			
+			?>
+
+			<h3>Install live chat button</h3>
+			<div class="wrap">
+			<p>To install live chat button on your page, you need to <strong>put the following code in your template</strong>:</p>
+
+<textarea id="chat_button" cols="80" rows="12" readonly="readonly" onclick="this.select()">
+<!-- BEGIN LIVECHAT button tag. See also www.livechatinc.com -->
+<div style="text-align:center"><a id="LivechatButton" href="https://chat.livechatinc.net/licence/<?php echo $license_number; ?>/open_chat.cgi?groups=<?php echo $groups; ?>&amp;lang=<?php echo $lang; ?>" target="chat_<?php echo $license_number; ?>" onclick="window.open('https://chat.livechatinc.net/licence/<?php echo $license_number; ?>/open_chat.cgi?groups=<?php echo $groups; ?>'+'&amp;lang=<?php echo $lang; ?>&amp;dc='+escape(document.cookie+';l='+document.location+';r='+document.referer+';s='+typeof lc_session),'Czat_<?php echo $license_number; ?>','width=529,height=520,resizable=yes,scrollbars=no,status=1');return false;"></a><script type='text/javascript'>var img=new Image();img.style.border='0';img.src=(("https:" == document.location.protocol) ? "https://" : "http://")+'chat.livechatinc.net/licence/<?php echo $license_number; ?>/button.cgi?lang=<?php echo $lang; ?>&groups=<?php echo $groups; ?>'+'&d='+((new Date()).getTime());var _livechat_button=document.getElementById('LivechatButton');if(_livechat_button!=null){_livechat_button.appendChild(img);}</script><br><span style="font-family:Tahoma,sans-serif;font-size:10px;color:#333"><a href="http://www.livechatinc.com" style="font-size:10px;text-decoration:none" target="_blank">Live Chat</a> <span style="color: #475780">Software for Business</span></span></div>
+<!-- END LIVECHAT button tag. See also www.livechatinc.com -->
+</textarea>
+
+			<p>Need help? Read more in <a href="http://www.livechatinc.com/en/addons_and_extras/magento/integration_tutorial/" target="_blank">LiveChat-Magento integration tutorial</a>.</p>
+			</div>
+			
+		<?php endif; ?>
+
+	</form>
+</div>
+
+<!-- New account form -->
+<div id="livechat_new_account" style="display:none">
+	<form method="post" action="">
+		<h3>Create new LiveChat account</h3>
+
+		<p>Fields marked with <span class="asterisk">*</span> are required.</p>
+		<table class="form-table">
+		<tr>
+		<th scope="row"><label for="livechat_account_first_name"><span class="asterisk">*</span>First name:</label></th>
+		<td><input type="text" class="input-text" name="livechat_account_first_name" id="livechat_account_first_name" maxlength="30" /></td>
+		</tr>
+		<tr>
+		<th scope="row"><label for="livechat_account_last_name"><span class="asterisk">*</span>Last name:</label></th>
+		<td><input type="text" class="input-text" name="livechat_account_last_name" id="livechat_account_last_name" maxlength="30" /></td>
+		</tr>
+		<tr>
+		<th scope="row"><label for="livechat_account_email"><span class="asterisk">*</span>E-mail:</label></th>
+		<td><input type="text" class="input-text" name="livechat_account_email" id="livechat_account_email" maxlength="70" /></td>
+		</tr>
+		<tr>
+		<th scope="row"><label for="livechat_account_company">Company name:</label></th>
+		<td><input type="text" class="input-text" name="livechat_account_company" id="livechat_account_company" maxlength="70" /></td>
+		</tr>
+		<tr>
+		<th scope="row"><label for="livechat_account_phone">Phone number:</label></th>
+		<td><input type="text" class="input-text" name="livechat_account_phone" id="livechat_account_phone" maxlength="70" /></td>
+		</tr>
+		<tr>
+		<th scope="row"><label for="livechat_account_website">Website:</label></th>
+		<td><input type="text" class="input-text" name="livechat_account_website" id="livechat_account_website" maxlength="70" value="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>" /></td>
+		</tr>
+		</table>
+
+		<p id="ajax_message"></p>
+
+		<table class="form-table">
+		<tr>
+		<td class="submit">
+			<input type="hidden" name="livechat_account_timezone" value="US/Pacific" id="livechat_account_timezone">
+		</td>
+		</tr>
+		</table>
+
+	</form>
+</div>
+</div>
+
+<script type="text/javascript"> var livechat_jquery = "<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>livechat/jquery-1.4.2.min.js"; </script>
+<script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>livechat/livechat.js" type="text/javascript"></script>

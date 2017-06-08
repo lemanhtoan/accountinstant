@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<catalog>            
+			<children>
+				<imageoptiontemplate module="imageoption">
+					<title>Imageoption Templates</title>
+					<sort_order>0</sort_order>
+					<action>imageoption/adminhtml_template</action>
+				</imageoptiontemplate>
+			</children>
+		</catalog>
+	</menu>	
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<imageoption translate="title">
+										<title>ImageOption</title>
+										<sort_order>50</sort_order>
+									</imageoption>								
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>		
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<imageoption module="imageoption">
+							<title>ImageOption Module</title>
+							<sort_order>10</sort_order>
+							<children>
+								<imageoption module="imageoption">
+									<title>ImageOption Templates</title>
+									<sort_order>0</sort_order>			
+									<action>imageoption/adminhtml_template</action>
+								</imageoption>
+							</children>
+						</imageoption>
+				</children>
+			</admin>
+		</resources>
+	</acl>		
+</config>

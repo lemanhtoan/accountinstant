@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_Multipayments
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <menu>
+        <multipayments module="multipayments" translate="title">
+            <title>Multipayments</title>
+            <sort_order>71</sort_order>
+            <children>
+                <multipayments module="multipayments" translate="title">
+                    <title>Manage Items</title>
+                    <sort_order>0</sort_order>
+                    <action>multipaymentsadmin/adminhtml_multipayments</action>
+                </multipayments>
+                <settings module="multipayments" translate="title">
+                    <title>Settings</title>
+                    <sort_order>1000</sort_order>
+                    <action>adminhtml/system_config/edit/section/multipayments</action>
+                </settings>
+            </children>
+        </multipayments>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <multipayments module="multipayments" translate="title">
+                                        <title>Multipayments</title>
+                                        <sort_order>71</sort_order>
+                                    </multipayments>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <multipayments module="multipayments" translate="title">
+                        <title>Multipayments</title>
+                        <sort_order>71</sort_order>
+                        <children>
+                            <multipayments module="multipayments" translate="title">
+                                <title>Manage Items</title>
+                                <sort_order>0</sort_order>
+                            </multipayments>
+                            <settings module="multipayments" translate="title">
+                                <title>Settings</title>
+                                <sort_order>1000</sort_order>
+                            </settings>
+                        </children>
+                    </multipayments>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

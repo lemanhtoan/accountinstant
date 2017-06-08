@@ -1,0 +1,22 @@
+<?php 
+ $_source  = $this->getSource();
+ $_order = $this->getOrder();
+
+ $this->setPriceDataObject($_source); 
+ 
+ $store_id = Mage::getModel('sales/order')->load($_order->getId())->getStoreId();
+ $credit_dicount = $_order->getMhStorecreditDiscount();
+ $credit_dicount_show = $_order->getMhStorecreditDiscountShow();
+
+
+if ($credit_dicount > 0){ 
+$value  = - $credit_dicount;
+$value_show = - $credit_dicount_show;
+if($_source instanceof Mage_Sales_Model_Order_Creditmemo) $value =  - $value;?>
+    <tr>
+        <td class="label"><?php echo Mage::helper('storecredit')->__('Discount (Used Credits)'); ?></td>
+        <td>
+            <?php echo $this->displayPrices($value, $value_show); ?>
+        </td>
+    </tr>
+<?php }; ?>

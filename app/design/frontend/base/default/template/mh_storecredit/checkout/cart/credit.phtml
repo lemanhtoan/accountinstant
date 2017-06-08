@@ -1,0 +1,39 @@
+<?php 
+$max_credit_checkout = $this->getMaxCreditCheckout();
+$min_credit_checkout = $this->getMinCreditCheckout();
+?>
+<form id="mh-discount-storecredit-form" action="<?php echo $this->getUrl('storecredit/checkout_cart/creditPost') ?>" method="post">
+    <div class="discount">
+        <h2><?php echo $this->__('Customer Credits') ?></h2>
+        <div class="discount-form">
+        	<?php if($this->getCustomerId()):?>
+                <?php $credit = Mage::getModel('storecredit/customer')->load($this->getCustomerId())->getData('credit_balance'); ?>
+                <p><?php echo $this->__('Maximum credits you can use is:');?><?php echo $this->__(' %d', $max_credit_checkout) ?></p>
+                <p><?php echo $this->__('Minimum credits required if you use is:');?><?php echo $this->__(' %s ', $min_credit_checkout); ?></p>
+	            <input type="hidden" name="mh_remove_storecredit" id="mh_remove_storecredit" value="0" />
+	            <div class="input-box">
+	                <input class="input-text" placeholder="" id="mh_storecredit_value" name="mh_storecredit_value" style="margin-right: 5px !important; width: 80% !important;" value="<?php if($this->getCreditByCheckout() >0) echo $this->getCreditByCheckout() ?>" />
+	            	<button type="button" title="<?php echo $this->__('Apply Credit') ?>" class="button" onclick="creditForm.submit(false)" value="<?php echo $this->__('Apply Credits') ?>"><span><span><?php echo $this->__('Apply Credits') ?></span></span></button>
+	            </div>	            
+	           <?php else:?>
+	         	<div style="text-align: center; margin-top:10px; border-top: 1px dashed;padding-top: 10px;"><?php echo $this->__("Please <a href='%s'>LOGIN</a> to use credit", Mage::getUrl('customer/account/login',array('mh_storecredit_login' => 1)))?></div>
+            <?php endif;?>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+	var creditForm = new VarienForm('mh-discount-storecredit-form');
+	creditForm.submit = function (isRemove) {
+	    if (isRemove) {
+	        $('mh_storecredit_value').removeClassName('required-entry');
+	        $('mh_remove_storecredit').value = "1";
+	    } else {
+	        $('mh_storecredit_value').addClassName('required-entry validate-number');
+	        $('mh_remove_storecredit').value = "0";
+	    }
+	    return VarienForm.prototype.submit.bind(creditForm)();
+	};
+
+//]]>
+</script>

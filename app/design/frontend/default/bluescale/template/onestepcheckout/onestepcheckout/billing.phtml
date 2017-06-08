@@ -1,0 +1,312 @@
+<h3 class="step-check-header"><?php echo($this->__("1. Billing Address")); ?></h3>
+<?php if (0&& $this->customerHasAddresses()): ?>
+	<p><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></p>
+	<ul>	
+		<li>
+			<p><?php echo $this->getAddressesHtmlSelect('billing') ?></p>			
+		</li>
+	</ul>
+<?php endif; ?>
+<fieldset class="group-select" id="billing-new-address-form" <?php if (0 && $this->customerHasAddresses()): ?> style="display:none;"<?php endif; ?>>	
+	<input type="hidden" name="billing[address_id]" value="<?php echo $this->getBillingAddress()->getId() ?>" id="billing:address_id" />
+	<ul>
+		<?php $helper = Mage::helper('onestepcheckout') ?>
+		<?php $fieldValue = $helper->getFieldValue() ?>
+		<?php $checkCountry = 0 ?>
+		<?php $checkRegion = 0 ?>
+		<?php for($i=0;$i<20;$i++): ?>
+			<?php if($helper->getFieldEnable($i)=='country') $checkCountry = 1 ?>
+			<?php if($helper->getFieldEnable($i)=='region') $checkRegion = 1 ?>
+			<?php if(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i)=='email') continue; ?>
+			<?php if(!$helper->getFieldEnable($i)||$helper->getFieldEnable($i)=='0') continue; ?>
+			<?php if(($i%2==0) || (($i%2!=0)&&(!$helper->getFieldEnable($i-1)||$helper->getFieldEnable($i-1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i-1)=='email')))): ?>
+				<li>
+			<?php endif ?>
+				<?php if((($i%2==0) && ($helper->getFieldEnable($i)&&$helper->getFieldEnable($i)!='0') && (!$helper->getFieldEnable($i+1)||$helper->getFieldEnable($i+1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i+1)=='email')))
+						|| (($i%2!=0) && ($helper->getFieldEnable($i)&&$helper->getFieldEnable($i)!='0') && (!$helper->getFieldEnable($i-1) || $helper->getFieldEnable($i-1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i-1)=='email')))): ?>
+					<div class="one-field">
+				<?php else: ?>
+					<div class="two-fields">
+				<?php endif ?>
+				<?php if(!$helper->getFieldEnable($i)||$helper->getFieldEnable($i)=='0') continue; ?>
+						<?php if($helper->getFieldEnable($i)=='country'): ?>
+							<label for="billing:country_id"><?php echo $this->__('Country') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<?php echo $this->getCountryHtmlSelect('billing') ?>
+							<?php if(!$helper->getFieldRequire($helper->getFieldEnable($i))): ?>	
+								<script type="text/javascript">
+									if($('billing:country_id'))
+										$('billing:country_id').removeClassName('validate-select');
+								</script>
+							<?php endif ?>
+						<?php elseif($helper->getFieldEnable($i)=='suffix'): ?>
+							<?php $customerNameBlock = Mage::getBlockSingleton('customer/widget_name') ?>
+							<label for="billing:prefix"><?php echo $this->__('Suffix Name') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<?php if ($customerNameBlock->getSuffixOptions()===false): ?>
+								<input type="text" id="<?php echo $customerNameBlock->getFieldId('suffix')?>" name="billing[<?php echo $customerNameBlock->getFieldName('suffix')?>]" value="" title="<?php echo $this->__('Suffix') ?>" class="input-text <?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?> />
+							<?php else: ?>
+								<select id="<?php echo $customerNameBlock->getFieldId('suffix')?>" name="billing[<?php echo $customerNameBlock->getFieldName('suffix')?>]" title="<?php echo $this->__('Suffix') ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?>>
+									<?php foreach ($customerNameBlock->getSuffixOptions() as $_option): ?>
+										<option value="<?php echo $_option?>"><?php echo $this->__($_option)?></option>
+									<?php endforeach ?>
+								</select>
+							<?php endif; ?>
+							<?php elseif($helper->getFieldEnable($i)=='gender'): ?>
+							<?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+							<label for="<?php echo $_gender->getFieldId('gender')?>"><?php echo $this->__('Gender') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<select id="<?php echo $_gender->getFieldId('gender')?>" name="billing[<?php echo $_gender->getFieldName('gender')?>]" title="<?php echo $this->__('Gender') ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "validate-select"; ?>" <?php echo $_gender->getFieldParams() ?>>
+								<?php $options = Mage::getResourceSingleton('customer/customer')->getAttribute('gender')->getSource()->getAllOptions();?>
+								<?php $value = $_gender->getGender();?>
+								<?php foreach ($options as $option):?>
+									<option value="<?php echo $option['value'] ?>"<?php if ($option['value'] == $value) echo ' selected="selected"' ?>><?php echo $option['label'] ?></option>
+								<?php endforeach;?>
+							</select>
+						<?php elseif($helper->getFieldEnable($i)!='street' && $helper->getFieldEnable($i)!='city' && $helper->getFieldEnable($i)!='region' && $helper->getFieldEnable($i)!='postcode'): ?>
+							<label for="billing:<?php echo $helper->getFieldEnable($i); ?>"><?php echo $this->__($fieldValue[$helper->getFieldEnable($i)]) ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i)) || $helper->getFieldEnable($i)=='firstname'||$helper->getFieldEnable($i)=='lastname'|| $helper->getFieldEnable($i)=='email'): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br/>
+							<input type="text" <?php if($helper->getFieldEnable($i)=='email'){ ?> onblur="validate_email()" <?php } ?> id="billing:<?php echo $helper->getFieldEnable($i); ?>" name="billing[<?php echo $helper->getFieldEnable($i); ?>]" value="<?php echo $this->htmlEscape($this->getBillingAddress()->getData($helper->getFieldEnable($i))) ?>" title="<?php echo $this->__($fieldValue[$helper->getFieldEnable($i)]) ?>" class="input-text <?php if($helper->getFieldRequire($helper->getFieldEnable($i))||$helper->getFieldEnable($i)=='firstname'||$helper->getFieldEnable($i)=='lastname'||$helper->getFieldEnable($i)=='email') echo 'required-entry'; ?>" />
+							<?php if($helper->getFieldEnable($i)=='email'): ?>
+								<span id="valid_email_address_image" style="display:none;"><img src="<?php echo $this->getSkinUrl('images/onestepcheckout/valid.gif')?>" title="<?php echo $this->__('Valid Email Address');?>" alt="<?php echo $this->__('Valid Email Address');?>" width="18"/></span>				
+								<div id="email-error-message" class="error-message"></div>	
+							<?php endif ?>
+						<?php endif ?>
+					</div>
+			<?php if(($i%2!=0)||(($i%2==0)&&(!$helper->getFieldEnable($i+1)||$helper->getFieldEnable($i+1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i+1)=='email')))): ?>
+				</li>
+			<?php endif ?>
+		<?php endfor ?>
+		<?php if($checkCountry==0): ?>
+			<div style="display:none;">
+				<?php echo $this->getCountryHtmlSelect('billing') ?>
+			</div>
+		<?php endif ?>
+		<li><p style="padding: 3px;"><?php echo $this->__('Get Free SMS delivery (You can skip this field)'); ?>.</p></li>
+		<?php if ( $this->customerHasAddresses() || !$this->isCustomerLoggedIn() && Mage::helper('onestepcheckout')->enableRegistration() && Mage::helper('onestepcheckout')->allowGuestCheckout()):?>
+		<li class="need-padding-check">
+			<div class="create-check">
+				<input id="create_account_checkbox_id" type="checkbox" name="create_account_checkbox" checked="checked" onclick="checkCreatAccount()" value="1" />
+				<label for="create_account_checkbox_id"><?php echo $this->__('Create an account for later use') ?></label>
+			</div>
+		</li>
+		
+		<?php endif;?>
+		<?php if (!$this->isCustomerLoggedIn() && (Mage::helper('onestepcheckout')->enableRegistration() || !Mage::helper('onestepcheckout')->allowGuestCheckout())):?>
+		<li id="password_section_id" <?php if (!Mage::helper('onestepcheckout')->allowGuestCheckout()):?>style="display:block"<?php else:?>style="display:none"<?php endif?>>
+			<div class="<?php if (Mage::app()->getStore()->getCode() != 'fr') {echo 'two-fields';} else {echo 'one-field';}?>">
+				<label for="billing:customer_password"><?php echo $this->__('Password') ?> <span class="required">*</span></label><br/>
+				<input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="input-text required-entry validate-password" />
+			</div>
+			<div class="<?php if (Mage::app()->getStore()->getCode() != 'fr') {echo 'two-fields';} else {echo 'one-field';}?>">
+				<label for="billing:confirm_password"><?php echo $this->__('Confirm Password') ?> <span class="required">*</span></label><br/>
+				<input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="input-text required-entry validate-cpassword" />
+			</div>
+		</li>			
+		<?php endif?>		
+		
+	</ul>
+</fieldset>
+<script type="text/javascript">var countryRegions = <?php echo $this->helper('directory')->getRegionJson() ?></script>
+<script type="text/javascript">
+//<![CDATA[
+	<?php if($checkRegion == 1): ?>
+		var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', countryRegions);
+	<?php endif ?>
+	<?php if(!$helper->getFieldRequire('region')): ?>	
+		if($('billing:region_id')){
+			$('billing:region_id').removeClassName('validate-select');
+			$('billing:region_id').removeClassName('required-entry');
+		}
+	<?php endif ?>
+	if ($('billing:email')) {
+		Event.observe('billing:email', 'blur', function() {
+			var url = '<?php echo $this->getUrl('onestepcheckout/index/is_valid_email', array('_secure'=>true))?>';
+			var email_address = $('billing:email').value;
+			var parameters = {email_address: email_address};
+			var request = new Ajax.Request(
+					url,
+					{
+					parameters: parameters,
+					onComplete: check_valid_email.bindAsEventListener(this),
+					onFailure: ''				
+					});
+		});
+	}
+	if ($('billing-address-select')) {
+		Event.observe('billing-address-select', 'change', function() {
+			var isNew = $('billing-address-select').value ? false : true;
+			setNewAddress(isNew, 'billing', save_address_url);
+		});
+	}	
+//]]>
+</script>
+
+<?php if($helper->enableGeoip()):?>	
+	<script type="text/javascript">
+		/*
+			Show list postcode billing
+		*/
+		<?php if($helper->allowDetectByPostcode()):?>
+			new Ajax.Autocompleter(		
+				'billing:postcode',
+				'billing:postcode_autocomplete',		
+				'<?php echo $this->getUrl('onestepcheckout/geoip/checkPostcode')?>',		
+				{
+					paramName:'postcode',
+					minChars:<?php echo $helper->getMinCharsPostcode()?>,
+					indicator: 'billing_postcode_autocomplete_indicator',
+					updateElement:fillFilterBilling,
+					evalJSON:'force'
+				}
+			);
+		<?php endif;?>
+		
+		/*
+			Show list city billing
+		*/
+		<?php if($helper->allowDetectByCity()):?>
+			new Ajax.Autocompleter(		
+				'billing:city',
+				'billing:city_autocomplete',		
+				'<?php echo $this->getUrl('onestepcheckout/geoip/checkCity')?>',		
+				{
+					paramName:'city',
+					minChars:<?php echo $helper->getMinCharsCity()?>,
+					indicator: 'billing_city_autocomplete_indicator',
+					updateElement:fillFilterBilling,
+					evalJSON:'force'
+				}
+			);
+		<?php endif;?>
+		
+		function fillFilterBilling(li) 
+		{		
+			var country = li.getAttribute('country');
+			var region = li.getAttribute('region');
+			var region_id = li.getAttribute('region_id');
+			var city = li.getAttribute('city');
+			var postcode = li.getAttribute('postcode');
+			if(city != '') {		
+				if ($('billing:postcode')) {
+					$('billing:postcode').value = postcode;
+				}
+			}
+			if(country != '') {			
+				if ($('billing:country_id')) {				
+					$('billing:country_id').value = country;					
+				}
+			}
+			if(region != '') {			
+				if ($('billing:region')) {
+					$('billing:region').value = region;
+				}
+			}
+			
+			if(region_id != '') {		
+				if ($('billing:region_id')) {
+					$('billing:region_id').value = region_id;
+				}				
+			}
+			
+			if(city != '') {		
+				if ($('billing:city')) {
+					$('billing:city').value = city;
+				}
+			}
+			
+			updateBillingRegion();
+					
+		} 
+		
+		function updateBillingRegion() {		
+			var countryEl = $('billing:country_id');
+			var regionTextEl = $('billing:region');
+			var regionSelectEl = $('billing:region_id');
+			var regions = <?php echo $this->helper('directory')->getRegionJson() ?>;
+			var config = regions['config'];
+			delete regions.config;
+			var regions = regions;
+			var zipEl = $(zipEl);	
+			disableAction = (typeof disableAction=='undefined') ? 'hide' : disableAction;		
+			
+			updateRegion(countryEl, regionTextEl, regionSelectEl, regions, disableAction, zipEl);		
+		}		
+	</script>
+<?php endif;?>
+<script type="text/javascript">
+		function check_payment_method(method){
+		
+		var view = '<?php echo $this->getUrl("onestepcheckout/index/ajaxUpdatePayment") ?>';
+        var url = view+'?method=' + method;
+        
+        var request = new Ajax.Request(url,{
+            onComplete: function(response){
+				var el=$('billing-new-address-form').down('ul');
+                el.innerHTML = response.responseText.evalJSON();
+				$('create_account_checkbox_id').checked=true;
+				checkCreatAccount();
+				}
+			}
+		);
+		
+		}
+		function check_payment_method_1(method){
+			
+		}
+		function check_payment_method_2(method){
+			
+		}
+		function check_payment_method_3(method){
+			
+		}
+</script>
+<script type="text/javascript">
+			function checkCreatAccount() {
+				if ($('create_account_checkbox_id').checked){ 
+					$('password_section_id').show();
+				}else{ 
+					$('password_section_id').hide();
+				}
+			}
+			function validate_email(){
+			var url = '<?php echo $this->getUrl('onestepcheckout/index/is_valid_email', array('_secure'=>true))?>';
+			var email_address = $('billing:email').value;
+			var parameters = {email_address: email_address};
+			var request = new Ajax.Request(
+					url,
+					{
+					parameters: parameters,
+					onComplete: check_valid_email.bindAsEventListener(this),
+					onFailure: ''				
+					});
+			}
+			checkCreatAccount();
+		</script>
+<script type="text/javascript">
+		document.getElementById("billing:country_id").onchange = function(){ 
+			var obj = JSON.parse('{"BD": "880", "BE": "32", "BF": "226", "BG": "359", "BA": "387", "BB": "+1-246", "WF": "681", "BL": "590", "BM": "+1-441", "BN": "673", "BO": "591", "BH": "973", "BI": "257", "BJ": "229", "BT": "975", "JM": "+1-876", "BV": "", "BW": "267", "WS": "685", "BQ": "599", "BR": "55", "BS": "+1-242", "JE": "+44-1534", "BY": "375", "BZ": "501", "RU": "7", "RW": "250", "RS": "381", "TL": "670", "RE": "262", "TM": "993", "TJ": "992", "RO": "40", "TK": "690", "GW": "245", "GU": "+1-671", "GT": "502", "GS": "", "GR": "30", "GQ": "240", "GP": "590", "JP": "81", "GY": "592", "GG": "+44-1481", "GF": "594", "GE": "995", "GD": "+1-473", "GB": "44", "GA": "241", "SV": "503", "GN": "224", "GM": "220", "GL": "299", "GI": "350", "GH": "233", "OM": "968", "TN": "216", "JO": "962", "HR": "385", "HT": "509", "HU": "36", "HK": "852", "HN": "504", "HM": " ", "VE": "58", "PR": "+1-787 and 1-939", "PS": "970", "PW": "680", "PT": "351", "SJ": "47", "PY": "595", "IQ": "964", "PA": "507", "PF": "689", "PG": "675", "PE": "51", "PK": "92", "PH": "63", "PN": "870", "PL": "48", "PM": "508", "ZM": "260", "EH": "212", "EE": "372", "EG": "20", "ZA": "27", "EC": "593", "IT": "39", "VN": "84", "SB": "677", "ET": "251", "SO": "252", "ZW": "263", "SA": "966", "ES": "34", "ER": "291", "ME": "382", "MD": "373", "MG": "261", "MF": "590", "MA": "212", "MC": "377", "UZ": "998", "MM": "95", "ML": "223", "MO": "853", "MN": "976", "MH": "692", "MK": "389", "MU": "230", "MT": "356", "MW": "265", "MV": "960", "MQ": "596", "MP": "+1-670", "MS": "+1-664", "MR": "222", "IM": "+44-1624", "UG": "256", "TZ": "255", "MY": "60", "MX": "52", "IL": "972", "FR": "33", "IO": "246", "SH": "290", "FI": "358", "FJ": "679", "FK": "500", "FM": "691", "FO": "298", "NI": "505", "NL": "31", "NO": "47", "NA": "264", "VU": "678", "NC": "687", "NE": "227", "NF": "672", "NG": "234", "NZ": "64", "NP": "977", "NR": "674", "NU": "683", "CK": "682", "XK": "", "CI": "225", "CH": "41", "CO": "57", "CN": "86", "CM": "237", "CL": "56", "CC": "61", "CA": "1", "CG": "242", "CF": "236", "CD": "243", "CZ": "420", "CY": "357", "CX": "61", "CR": "506", "CW": "599", "CV": "238", "CU": "53", "SZ": "268", "SY": "963", "SX": "599", "KG": "996", "KE": "254", "SS": "211", "SR": "597", "KI": "686", "KH": "855", "KN": "+1-869", "KM": "269", "ST": "239", "SK": "421", "KR": "82", "SI": "386", "KP": "850", "KW": "965", "SN": "221", "SM": "378", "SL": "232", "SC": "248", "KZ": "7", "KY": "+1-345", "SG": "65", "SE": "46", "SD": "249", "DO": "+1-809 and 1-829", "DM": "+1-767", "DJ": "253", "DK": "45", "VG": "+1-284", "DE": "49", "YE": "967", "DZ": "213", "US": "1", "UY": "598", "YT": "262", "UM": "1", "LB": "961", "LC": "+1-758", "LA": "856", "TV": "688", "TW": "886", "TT": "+1-868", "TR": "90", "LK": "94", "LI": "423", "LV": "371", "TO": "676", "LT": "370", "LU": "352", "LR": "231", "LS": "266", "TH": "66", "TF": "", "TG": "228", "TD": "235", "TC": "+1-649", "LY": "218", "VA": "379", "VC": "+1-784", "AE": "971", "AD": "376", "AG": "+1-268", "AF": "93", "AI": "+1-264", "VI": "+1-340", "IS": "354", "IR": "98", "AM": "374", "AL": "355", "AO": "244", "AQ": "", "AS": "+1-684", "AR": "54", "AU": "61", "AT": "43", "AW": "297", "IN": "91", "AX": "+358-18", "AZ": "994", "IE": "353", "ID": "62", "UA": "380", "QA": "974", "MZ": "258"}');
+			document.getElementById("billing:telephone").value = obj[document.getElementById("billing:country_id").value];
+		}
+		
+		document.getElementById("billing:telephone").onblur = function(){
+			if(document.getElementById("billing:telephone").value.length > 0){
+				document.getElementById("billing:telephone").value = document.getElementById("billing:telephone").value.split('-').join('');
+				document.getElementById("billing:telephone").value = document.getElementById("billing:telephone").value.split('(').join('');
+				document.getElementById("billing:telephone").value = document.getElementById("billing:telephone").value.split(')').join('');
+				document.getElementById("billing:telephone").value = document.getElementById("billing:telephone").value.split(' ').join('');
+				}
+		}
+</script>

@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<customconfig translate="label">
+			<label>Keycode settings</label>
+			<sort_order>150</sort_order>
+		</customconfig>
+	</tabs>
+	<sections>
+		<selectoptions translate="label" module="adminhtml">
+			<label>Setting custom</label>
+			<tab>customconfig</tab>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label">
+					<label>Setting variables</label>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<keycode_support translate="label comment">
+							<label>Link support</label>
+							<comment>A link of support</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_support>
+
+						<keycode_count_lb1 translate="label comment">
+							<label>Label 1</label>
+							<comment>A label 1</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_lb1>
+
+						
+						<keycode_count_nb1 translate="label comment">
+							<label>Merchants number</label>
+							<comment>A number of Merchants</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>22</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_nb1>
+						
+						
+						<keycode_count_lb2 translate="label comment">
+							<label>Label 2</label>
+							<comment>A label 2</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>23</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_lb2>
+						
+						<keycode_count_nb2 translate="label comment">
+							<label>Million Consumers number</label>
+							<comment>A number of Million Consumers</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>24</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_nb2>
+
+						<keycode_count_lb3 translate="label comment">
+							<label>Label 3</label>
+							<comment>A label 3</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_lb3>
+						
+						<keycode_count_nb3 translate="label comment">
+							<label>New Users/min number</label>
+							<comment>A number of New Users/min</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>26</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_nb3>
+
+						
+						<keycode_count_lb4 translate="label comment">
+							<label>Label 4</label>
+							<comment>A label 4</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>27</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_lb4>
+						
+						<keycode_count_nb4 translate="label comment">
+							<label>Payments/second number</label>
+							<comment>A number of Payments/second</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>28</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keycode_count_nb4>
+					</fields>
+				</general>
+			</groups>
+		</selectoptions>
+	</sections>
+</config>
+
+<!--
+
+$keycodeSupport = Mage::getStoreConfig('selectoptions/general/keycode_support');
+$keycodeNum1 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb1');
+$keycodeNum2 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb2');
+$keycodeNum3 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb3');
+$keycodeNum4 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb4');
+
+-->

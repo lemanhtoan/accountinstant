@@ -1,0 +1,16 @@
+<?php
+	$order = $this->getOrderAdmin();
+	$data = $this->getTransactionData($order);
+?>
+<p>Payeer</p>
+<!--
+<div>
+	<?php echo Mage::helper('webmoney')->__('Transaction ID: ') ?><?php echo $data['transaction_id'] ?>
+	<br />
+	<?php echo Mage::helper('webmoney')->__('LMI_SYS_INVS_NO: ') ?><?php echo $data['lmi_sys_invs_no'] ?>
+	<br />
+	<?php echo Mage::helper('webmoney')->__('LMI_SYS_TRANS_NO: ') ?><?php echo $data['lmi_sys_trans_no'] ?>
+	<br />
+	<?php echo Mage::helper('webmoney')->__('LMI_SYS_TRANS_DATE: ') ?><?php echo $data['lmi_sys_trans_date'] ?>
+</div>
+-->

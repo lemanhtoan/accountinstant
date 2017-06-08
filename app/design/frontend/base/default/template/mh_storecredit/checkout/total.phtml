@@ -1,0 +1,10 @@
+<?php if ($this->getTotal()->getValue()): ?>
+    <tr>    
+        <td class="a-right" style="color: #CD5033;font: 13px/1.55 Arial,Helvetica,sans-serif; font-weight: bold;" colspan="<?php echo $this->getColspan(); ?>">
+            <?php echo $this->getTotal()->getTitle(); ?>
+        </td>
+        <td class="a-right" style="color: #CD5033;font: 13px/1.55 Arial,Helvetica,sans-serif; font-weight: bold;">
+            <?php echo Mage::helper('checkout')->formatPrice($this->getTotal()->getValue()) ?>
+        </td>
+    </tr>
+<?php endif; ?>

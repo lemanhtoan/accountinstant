@@ -1,0 +1,327 @@
+1. Add new language backend:
+- add new store french
+- update db: UPDATE `core_store` SET `name` = ' French' WHERE `core_store`.`store_id` = 3;
+- configuration locale options: french 
+
+2. Update content code
+
+3. Setting backend: Setting custom + copyright footer
+- translation category content: backend
+- translation checkout label: backend
+4. Update list cms
+
+4.1. Image slider homepage
+
+- en
+<section id="reviews">
+	<div class="gr-row row-padded">
+	   <h2><span class="cheeky-subheading">Here's the proof</span><br /> Customers rate PremiumAccountz as 'excellent'</h2>
+	   <div id="homeSlider" class="owl-carousel owl-theme">
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Since signing up with Premium Accountz, I have been very satisfied and impressed with the speed and efficiency of how transactions are dealt with. Customer service staff are always very helpful and know what they are talking about. I should have signed up long ago. Thanks a lot and keep up the excellent work.</p>
+	         <p class="reviewer"><span class="country usa-flag">United States of America -</span> Terry Coulson</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Quick smooth transactions. I find using PremiumAccountz services work very well. Also like the fact they notify me when transaction has been completed.</p>
+	         <p class="reviewer"><span class="country canada-flag">Canada -</span> Paul Greenwood</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>As yet everything works like clockwork, from the time of sending to receiving no problems are met. The website is so easy to use, a few clicks and you are done, and in a secure way as well I am well impressed, and cheap too, great.</p>
+	         <p class="reviewer"><span class="country japan-flag">Japan -</span> Aman</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Premium Accountz is okay though transactions take too long.It actually takes 5 min - 3 hours for the recipient to get the premium account. It is not realize for someone in a hurry.</p>
+	         <p class="reviewer"><span class="country united-kingdom-flag">United Kingdom -</span> James Asare</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Am so happy that I've finally found you guys! It's amazing how so easy. One of the best customer service experience i've ever had. always have a good price.</p>
+	         <p class="reviewer"><span class="country usa-flag">USA -</span> Claude Dylan T.</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>J'ai &eacute;t&eacute; surpris de voir que PremiumAccounts &eacute;tait disponible dans les villes les plus &eacute;loign&eacute;es de mon pays. A ce moment j'ai compris que le r&eacute;seau de partenaires de ce g&eacute;ant lui tisse une toile &agrave; travers le monde entier. Merci encore &agrave; PremiumAccounts.</p>
+	         <p class="reviewer"><span class="country france-flag">France -</span> Kevin Francois</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">&nbsp;</p>
+	         <p>Thank you so much for this reliable, easy to use service, which delivers according to your promises!</p>
+	         <p class="reviewer"><span class="country brazil-flag">Brazil -</span> Jana Asukile</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>I was satisfied with the excellent service that I received from PremiumAccountz. It was a fast and friendly service. As soon as I remitted the funds, the receiver responded quickly that they had received the funds. That was excellent customer service. I will recommend this to others.</p>
+	         <p class="reviewer"><span class="country india-flag">India -</span> Kiranjot Kaur</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>I regard premiumaccountz as one of the best reseller filehosting service because they are fast and reliable. I am encouraged with your service.</p>
+	         <p class="reviewer"><span class="country switzerland-flag">Switzerland -</span> Gavin Daniel</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Fast and efficient every time i use it and the constant feedback till transaction is completed is awesome and shows you care about the customer.</p>
+	         <p class="reviewer"><span class="country germany-flag">Germany -</span> Jana Asukile</p>
+	      </div>
+	   </div>
+	</div>
+</section>
+
+- fr
+
+<section id="reviews">
+	<div class="gr-row row-padded">
+	   <h2><span class="cheeky-subheading">Here's the proof</span><br /> Les clients évaluent PremiumAccountz comme «excellent» </h2>
+	   <div id="homeSlider" class="owl-carousel owl-theme">
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Since signing up with Premium Accountz, I have been very satisfied and impressed with the speed and efficiency of how transactions are dealt with. Customer service staff are always very helpful and know what they are talking about. I should have signed up long ago. Thanks a lot and keep up the excellent work.</p>
+	         <p class="reviewer"><span class="country usa-flag">United States of America -</span> Terry Coulson</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Quick smooth transactions. I find using PremiumAccountz services work very well. Also like the fact they notify me when transaction has been completed.</p>
+	         <p class="reviewer"><span class="country canada-flag">Canada -</span> Paul Greenwood</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>As yet everything works like clockwork, from the time of sending to receiving no problems are met. The website is so easy to use, a few clicks and you are done, and in a secure way as well I am well impressed, and cheap too, great.</p>
+	         <p class="reviewer"><span class="country japan-flag">Japan -</span> Aman</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Premium Accountz is okay though transactions take too long.It actually takes 5 min - 3 hours for the recipient to get the premium account. It is not realize for someone in a hurry.</p>
+	         <p class="reviewer"><span class="country united-kingdom-flag">United Kingdom -</span> James Asare</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Am so happy that I've finally found you guys! It's amazing how so easy. One of the best customer service experience i've ever had. always have a good price.</p>
+	         <p class="reviewer"><span class="country usa-flag">USA -</span> Claude Dylan T.</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>J'ai &eacute;t&eacute; surpris de voir que PremiumAccounts &eacute;tait disponible dans les villes les plus &eacute;loign&eacute;es de mon pays. A ce moment j'ai compris que le r&eacute;seau de partenaires de ce g&eacute;ant lui tisse une toile &agrave; travers le monde entier. Merci encore &agrave; PremiumAccounts.</p>
+	         <p class="reviewer"><span class="country france-flag">France -</span> Kevin Francois</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">&nbsp;</p>
+	         <p>Thank you so much for this reliable, easy to use service, which delivers according to your promises!</p>
+	         <p class="reviewer"><span class="country brazil-flag">Brazil -</span> Jana Asukile</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>I was satisfied with the excellent service that I received from PremiumAccountz. It was a fast and friendly service. As soon as I remitted the funds, the receiver responded quickly that they had received the funds. That was excellent customer service. I will recommend this to others.</p>
+	         <p class="reviewer"><span class="country india-flag">India -</span> Kiranjot Kaur</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>I regard premiumaccountz as one of the best reseller filehosting service because they are fast and reliable. I am encouraged with your service.</p>
+	         <p class="reviewer"><span class="country switzerland-flag">Switzerland -</span> Gavin Daniel</p>
+	      </div>
+	      <div class="item">
+	         <p class="ratings">
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	            <span class="star"></span>
+	        </p>
+	         <p>Fast and efficient every time i use it and the constant feedback till transaction is completed is awesome and shows you care about the customer.</p>
+	         <p class="reviewer"><span class="country germany-flag">Germany -</span> Jana Asukile</p>
+	      </div>
+	   </div>
+	</div>
+</section>
+
+4.2. footer_links
+
+- en
+
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+   <a class="title" href="#">PREMIUMACCOUNTZ</a>
+   <ul>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/delivery-policy">Delivery Policy</a></li>
+      <li><a href="/refund-cancellation/">Refund &amp; Cancellation</a></li>
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+   </ul>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+   <div>
+      <a class="title" href="#">SERVICES</a>
+      <ul>
+         <li><a href="/blog/cat/promotion/">Promotion</a></li>
+         <li><a href="/blog/premiumaccountz-credits/">My Credits</a></li>
+         <li><a href="/blog/premiumaccountz-mobile-apps/">Mobile Apps</a></li>
+         <li><a href="/secure-payment">Payment accepted</a></li>
+      </ul>
+   </div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+   <div class="last">
+      <a class="title" href="#">HELP &amp; SUPPORT</a>
+      <ul>
+         <li><a href="/blog/cat/news/">News</a></li>
+         <li><a href="/faq/">FAQs</a></li>
+         <li><a href="/blog/cat/activation-premium/">Activation Premium</a></li>
+         <li><a href="/blog/cat/instruction/">Instruction</a></li>
+         <li><a href="/contact-us/">Contact Us</a></li>
+      </ul>
+   </div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+	<p class="footerlinks social"><strong class="connect-by">FOLLOW US</strong> <a href="#" target="_blank" rel="NoFollow" class="icofacebook-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icotwitter-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icogplus-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icolinkedin-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoyoutube-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoinstagram-filled"></a> <em class="clear10"></em> <strong class="verified">VERIFIED BY</strong> <i href="" class="icoverified-by-visa"></i> <i href="" class="icomastercard-securecode"></i> <i href="" class="icopci-certi"></i></p>
+   
+    <!-- 
+      <p class="footerlinks social"><strong class="connect-by">FOLLOW US</strong> <a href="#" target="_blank" rel="NoFollow" class="icofacebook-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icotwitter-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icogplus-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icolinkedin-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoyoutube-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoinstagram-filled"></a> <em class="clear10"></em> <strong class="verified">VERIFIED BY</strong> <i href="" class="icoverified-by-visa"></i> <i href="" class="icomastercard-securecode"></i> <i href="" class="icopci-certi"></i></p>
+    -->
+</div>
+
+- fr
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+   <a class="title" href="#">PREMIUMACCOUNTZ</a>
+   <ul>
+      <li><a href="/about/">A propos de nous</a></li>
+      <li><a href="/terms-of-service/">Conditions de Service</a></li>
+      <li><a href="/delivery-policy">Politique de livraison</a></li>
+      <li><a href="/refund-cancellation/">Remboursement & Annulation</a></li>
+      <li><a href="/privacy-policy/">Politique de confidentialité</a></li>
+   </ul>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+   <div>
+      <a class="title" href="#">SERVICES</a>
+      <ul>
+         <li><a href="/blog/cat/promotion/">Promotion</a></li>
+         <li><a href="/blog/premiumaccountz-credits/">Mon Solde</a></li>
+         <li><a href="/blog/premiumaccountz-mobile-apps/">Application mobile</a></li>
+         <li><a href="/secure-payment">Paiement accepté</a></li>
+      </ul>
+   </div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+   <div class="last">
+      <a class="title" href="#">HELP &amp; SUPPORT</a>
+      <ul>
+         <li><a href="/blog/cat/news/">News</a></li>
+         <li><a href="/faq/">FAQs</a></li>
+         <li><a href="/blog/cat/activation-premium/">Premium d'activation</a></li>
+         <li><a href="/blog/cat/instruction/">Instruction</a></li>
+         <li><a href="/contact-us/">Nous contacter</a></li>
+      </ul>
+   </div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+	<p class="footerlinks social"><strong class="connect-by">SUIVEZ NOUS</strong> <a href="#" target="_blank" rel="NoFollow" class="icofacebook-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icotwitter-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icogplus-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icolinkedin-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoyoutube-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoinstagram-filled"></a> <em class="clear10"></em> <strong class="verified">VÉRIFIÉ PAR</strong> <i href="" class="icoverified-by-visa"></i> <i href="" class="icomastercard-securecode"></i> <i href="" class="icopci-certi"></i></p>
+   
+    <!-- 
+      <p class="footerlinks social"><strong class="connect-by">SUIVEZ NOUS</strong> <a href="#" target="_blank" rel="NoFollow" class="icofacebook-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icotwitter-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icogplus-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icolinkedin-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoyoutube-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoinstagram-filled"></a> <em class="clear10"></em> <strong class="verified">VÉRIFIÉ PAR</strong> <i href="" class="icoverified-by-visa"></i> <i href="" class="icomastercard-securecode"></i> <i href="" class="icopci-certi"></i></p>
+    -->
+</div>

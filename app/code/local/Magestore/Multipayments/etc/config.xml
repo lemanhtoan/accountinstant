@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_Multipayments
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <modules>
+        <Magestore_Multipayments>
+            <version>0.1.0</version>
+        </Magestore_Multipayments>
+    </modules>
+    <frontend>
+        <routers>
+            <multipayments>
+                <use>standard</use>
+                <args>
+                    <module>Magestore_Multipayments</module>
+                    <frontName>multipayments</frontName>
+                </args>
+            </multipayments>
+        </routers>
+        <layout>
+            <updates>
+                <multipayments>
+                    <file>multipayments.xml</file>
+                </multipayments>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_Multipayments>
+                    <files>
+                        <default>Magestore_Multipayments.csv</default>
+                    </files>
+                </Magestore_Multipayments>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+            <multipaymentsadmin>
+                <use>admin</use>
+                <args>
+                    <module>Magestore_Multipayments</module>
+                    <frontName>multipaymentsadmin</frontName>
+                </args>
+            </multipaymentsadmin>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <multipayments>
+                    <file>multipayments.xml</file>
+                </multipayments>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_Multipayments>
+                    <files>
+                        <default>Magestore_Multipayments.csv</default>
+                    </files>
+                </Magestore_Multipayments>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+        <models>
+            <multipayments>
+                <class>Magestore_Multipayments_Model</class>
+                <resourceModel>multipayments_mysql4</resourceModel>
+            </multipayments>
+            <multipayments_mysql4>
+                <class>Magestore_Multipayments_Model_Mysql4</class>
+                <entities>
+                    <multipayments>
+                        <table>multipayments</table>
+                    </multipayments>
+                </entities>
+            </multipayments_mysql4>
+        </models>
+        <resources>
+            <multipayments_setup>
+                <setup>
+                    <module>Magestore_Multipayments</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </multipayments_setup>
+            <multipayments_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </multipayments_write>
+            <multipayments_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </multipayments_read>
+        </resources>
+        <blocks>
+            <multipayments>
+                <class>Magestore_Multipayments_Block</class>
+            </multipayments>
+        </blocks>
+        <helpers>
+            <multipayments>
+                <class>Magestore_Multipayments_Helper</class>
+            </multipayments>
+        </helpers>
+        <!-- <events>
+            <controller_action_predispatch>
+                <observers>
+                    <multipayments_observers>
+                        <class>multipayments/observer</class>
+                        <method>controllerActionPredispatch</method>
+                    </multipayments_observers>
+                </observers>
+            </controller_action_predispatch>
+        </events> -->
+    </global>
+	<default>
+        <payment>
+            <libertyreserve>
+                <active>1</active>
+                <model>multipayments/libertyreserve</model>
+                <order_status>processing</order_status>
+                <title>Liberty Reserve Payment Method</title>
+            </libertyreserve>
+         </payment>
+    </default>
+</config>

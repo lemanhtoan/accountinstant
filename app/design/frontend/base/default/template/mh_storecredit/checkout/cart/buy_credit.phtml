@@ -1,0 +1,11 @@
+<?php 
+	  $quote = Mage::getSingleton('checkout/session')->getQuote();
+	  $store_id = Mage::app()->getStore()->getId();
+	  $buy_credit = $quote->getMhStorecreditBuyCredit();
+
+   if($buy_credit > 0):?>
+	<tr>
+	    <td class="a-right" style="color: #CD5033;font: 13px/1.55 Arial,Helvetica,sans-serif; font-weight: bold;" colspan="1"><?php echo Mage::helper("storecredit")->__("Credits awarded");?></td>
+	    <td class="a-right" style="color: #CD5033;font: 13px/1.55 Arial,Helvetica,sans-serif; font-weight: bold;"><span class="price"><?php echo $buy_credit ?></span></td>
+	</tr>
+<?php endif;?>

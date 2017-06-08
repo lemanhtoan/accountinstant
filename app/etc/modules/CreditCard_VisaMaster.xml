@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CreditCard_VisaMaster>
+            <active>true</active>
+            <codePool>local</codePool>
+        </CreditCard_VisaMaster>
+    </modules>
+</config>

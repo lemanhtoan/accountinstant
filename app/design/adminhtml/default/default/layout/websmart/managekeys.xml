@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <managekeysadmin_adminhtml_managekeys_index>
+        <reference name="content">
+            <block type="managekeys/adminhtml_managekeys" name="managekeys" />
+        </reference>
+    </managekeysadmin_adminhtml_managekeys_index>
+	<managekeysadmin_adminhtml_managekeys_listproduct>	
+		<block type="core/text_list" name="root">
+            <block type="managekeys/adminhtml_managekeys_edit_tab_listproduct" name="managekeys.edit.tab.listproduct"/>
+            <block type="managekeys/adminhtml_managekeys_serializer" name="related_grid_serializer">
+				<action method="initSerializerBlock">
+					<grid_block_name>managekeys.edit.tab.listproduct</grid_block_name>
+					<hidden_input_name>candidate_product_id</hidden_input_name>
+				</action>
+            </block>
+        </block>		
+	</managekeysadmin_adminhtml_managekeys_listproduct>
+	<managekeysadmin_adminhtml_managekeys_listproductgrid>
+	    <block type="core/text_list" name="root">
+	        <block type="managekeys/adminhtml_managekeys_edit_tab_listproduct" name="managekeys.edit.tab.listproduct"/>
+	    </block>	
+	</managekeysadmin_adminhtml_managekeys_listproductgrid>
+</layout>

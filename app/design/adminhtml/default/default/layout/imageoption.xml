@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addCss"><styleSheet>magestore/imageoption.css</styleSheet></action>
+			<action method="addJs"><script>magestore/imageoption.js</script></action>
+		</reference>
+	</default>
+    <imageoption_adminhtml_imageoption_index>
+        <reference name="content">
+            <block type="imageoption/adminhtml_imageoption" name="imageoption" />
+        </reference>
+    </imageoption_adminhtml_imageoption_index>
+	
+    <imageoption_adminhtml_template_index>		
+        <reference name="content">
+            <block type="imageoption/adminhtml_template" name="imageoption" />
+        </reference>
+    </imageoption_adminhtml_template_index>
+	
+	<imageoption_adminhtml_template_edit>
+        <reference name="left">
+            <block type="adminhtml/store_switcher" name="store_switcher" before="-"></block>	
+		</reference>		
+	</imageoption_adminhtml_template_edit>
+	
+    <imageoption_adminhtml_template_listproduct>
+		<block type="core/text_list" name="root">
+            <block type="imageoption/adminhtml_template_edit_tab_related" name="imageoption.template.listproduct"/>
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+				<action method="initSerializerBlock">
+					<grid_block_name>imageoption.template.listproduct</grid_block_name>
+					<data_callback>getSelectedRelatedProducts</data_callback>
+					<hidden_input_name>link_products</hidden_input_name>
+					<reload_param_name>products_related</reload_param_name>
+				</action>
+				<action method="addColumnInputName">
+					<input_name>position</input_name>
+				</action>
+            </block>
+        </block>	
+	</imageoption_adminhtml_template_listproduct>
+	
+	<imageoption_adminhtml_template_listproductgrid>
+	    <block type="core/text_list" name="root">
+	        <block type="imageoption/adminhtml_template_edit_tab_related" name="imageoption.template.listproduct"/>
+	    </block>
+	</imageoption_adminhtml_template_listproductgrid>	
+	
+</layout>
