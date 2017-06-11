@@ -24,25 +24,24 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<section class="footer-top">
-<?php 
-	$keycodeNum1 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb1');
-	$keycodeNum2 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb2');
-	$keycodeNum3 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb3');
-	$keycodeNum4 = Mage::getStoreConfig('selectoptions/general/keycode_count_nb4');
-	
-	$keycodeNum1l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb1');
-	$keycodeNum2l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb2');
-	$keycodeNum3l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb3');
-	$keycodeNum4l = Mage::getStoreConfig('selectoptions/general/keycode_count_lb4');
-?>
-    <div class="container ststCntnr">
-	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icoshop-bag"></i><span><b><?php echo $keycodeNum1;?></b><small>+</small><em><?php echo $keycodeNum1l;?></em></span></p>
-	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icocustomer"></i><span><b><?php echo $keycodeNum2;?></b><small>+</small><em><?php echo $keycodeNum2l;?></em></span></p>
-	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icofavuser"></i><span><b><?php echo $keycodeNum3;?></b><small>+</small><em><?php echo $keycodeNum3l;?></em></span></p>
-	    	<p class="col-xs-12 col-sm-6 col-md-3 col-lg-3"><i class="icotransactions"></i><span><b><?php echo $keycodeNum4;?></b><small>+</small><em><?php echo $keycodeNum4l;?></em></span></p>
-    </div>
-</section>
+<div class="dn-footer-bottom dn-wrap">
+	<ul>
+		<li class="dn-payment-logos"></li>
+		<li>
+			<a href="/privacy-statement">Privacy and Cookies Statement</a>
+			<a href="/terms-conditions" class="dn-with-separator">Terms and Conditions</a>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="dn-incapsula"></span>
+			<span class="dn-trustwave"></span>
+		</li>
+		<li>Trustworthy, Secure and Protected</li>
+	</ul>
+	<div class="clear"></div>
+	<p>Ezetop Unlimited Company t/a Ding \ Registered in Ireland under company number 422514 \ 3 Shelbourne Buildings, Crampton Avenue, Shelbourne Road, Ballsbridge, Dublin 4, Ireland.</p>
+</div>
 
 <div class="footer-bottom">
 	<div class="container">
@@ -58,56 +57,8 @@
 
 <script type="text/javascript" src="https://premiumaccountz.com/skin/frontend/default/bluescale/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://premiumaccountz.com/skin/frontend/default/bluescale/js/owl-carousel/owl.carousel.min.js"></script>
-<script type="text/javascript" src="https://premiumaccountz.com/skin/frontend/default/bluescale/js/script.js"></script>
+
+<script type="text/javascript" src="http://localhost/accountinstant/skin/frontend/default/bluescale/js/bootstrap.min.js"></script>
 
 
-<?php 
-	$removeAjax = Mage::getBaseUrl().'mygateway/payment/clearCartt';
-?>
-
-<script>
-	jQuery(document).ready(function() {
-
-		jQuery(".alang.currentStore").on("click", function (e) {
-			e.preventDefault();
-			return false;
-		});
-		jQuery(".alang.notCurrent").on("click", function (e) {
-			e.preventDefault();
-			var urlGo = jQuery(this).attr('href');
-			doRemove(urlGo);
-		});
-	});
-
-	function doRemove(urlGo) {
-		var urlForm = "<?php echo $removeAjax; ?>";
-		jQuery.ajax({
-			url: urlForm,
-			method: 'post',
-			dataType:"json",
-			success:function(data) {
-				//console.log(data, "success");
-				window.location.href = urlGo;
-			},
-			error:function(data) {
-				window.location.href = urlGo;
-				//console.log(data, " error");
-			}
-		});
-
-		//console.log("action before href");
-	}
-</script>
-
-
-<?php $goId = $_GET['___store']; $baseUrl = Mage::getBaseUrl();?>
-<?php if ($goId != ""): ?>
-	<script>
-		jQuery(document).ready(function () {
-			setTimeout(function() {
-				window.location.href = "<?php echo $baseUrl; ?>";
-			},100);
-			//console.log("Dirrect");
-		});
-	</script>
-<?php endif; ?>
+<script type="text/javascript" src="http://localhost/accountinstant/skin/frontend/default/bluescale/js/script.js"></script>

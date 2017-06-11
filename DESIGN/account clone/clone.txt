@@ -1,0 +1,158 @@
+<div class="pull-right">
+	<div class="btn-group">
+		<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-support icon"></i><span class="hidden-sm hidden-xs">  Help &amp; Support </span> <i class="fa fa fa-angle-down caretalt"></i>
+		</button>	
+		<ul class="dropdown-menu pull-right">
+			<li><a href="">Contact us</a></li>
+			<li><a href="">Reviews</a></li>
+			<li><a href="">uTop Points</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="pull-right">
+	<div class="btn-group">
+		<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+			<i class="glyphicon glyphicon-user icon"></i>
+			<span class="hidden-sm hidden-xs">  My Account </span>
+			<span class="fa fa fa-angle-down caretalt"></span>
+		</button>	
+		<ul class="dropdown-menu pull-right">
+			<li><a href=""><i class="fa fa-sign-in fa-fw dropdown-menu-icon"></i>  Login</a></li>
+			<li><a href=""><i class="fa fa-pencil fa-fw dropdown-menu-icon"></i>  Register</a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="cart" class="btn-group btn-block">
+  	<button type="button" data-toggle="modal" data-target="#modal-cart" data-loading-text="Loading..." class="btn btn-primary btn-block dropdown-toggle">
+		<i class="fa fa-angle-down"></i>
+		<span id="cart-total"><span class="products"><b>0</b> products, </span><span class="prices"><b>$0.00</b></span></span>
+	</button>
+</div> <!-- modal bootstrap -->
+
+<div class="alert alert-success">
+	<i class="fa fa-check-circle"></i> 
+	<b>Can't find desired host premium at uTop?</b> 
+	<a href="" target="_blank" style="font-weight: bold; text-decoration: underline;">Contact us</a> , We will make it available ASAP.
+	<button data-dismiss="alert" class="close" type="button">×</button>
+</div>
+
+<div>
+
+		
+<div class="row custom-blocks">
+	<div class="col-sm-4">
+		<div class="custom-block">
+			<a href="http://utop.us/pay-with-paypal-usa" target="_blank">
+				<div class="image">
+					<img src="https://utop.us/image/catalog/1img/paypal.png" alt="PayPal USA">
+				</div>
+				<div class="text">
+					<div class="title">Click To Pay</div>
+					<p style="word-wrap: break-word;">With <b>PayPal</b> USA </p>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="custom-block">
+			<a href="http://utop.us/pay-with-paypal-usa" target="_blank">
+				<div class="image">
+					<img src="https://utop.us/image/catalog/1img/paypal.png" alt="PayPal USA">
+				</div>
+				<div class="text">
+					<div class="title">Click To Pay</div>
+					<p style="word-wrap: break-word;">With <b>PayPal</b> USA </p>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="custom-block">
+			<a href="http://utop.us/pay-with-paypal-usa" target="_blank">
+				<div class="image">
+					<img src="https://utop.us/image/catalog/1img/paypal.png" alt="PayPal USA">
+				</div>
+				<div class="text">
+					<div class="title">Click To Pay</div>
+					<p style="word-wrap: break-word;">With <b>PayPal</b> USA </p>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="buttons">
+	<div class="btn-group dropup">
+		<button type="button" class="btn btn-addtocart">
+			<i class="fa fa-credit-card"></i>  Buy Now 
+		</button>
+	</div>
+</div>
+
+<div class="dn-footer-bottom dn-wrap">
+	<ul>
+		<li class="dn-payment-logos"></li>
+		<li>
+			<a href="/privacy-statement">Privacy and Cookies Statement</a>
+			<a href="/terms-conditions" class="dn-with-separator">Terms and Conditions</a>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="dn-incapsula"></span>
+			<span class="dn-trustwave"></span>
+		</li>
+		<li>Trustworthy, Secure and Protected</li>
+	</ul>
+	<div class="clear"></div>
+	<p>Ezetop Unlimited Company t/a Ding \ Registered in Ireland under company number 422514 \ 3 Shelbourne Buildings, Crampton Avenue, Shelbourne Road, Ballsbridge, Dublin 4, Ireland.</p>
+</div>
+
+.dn-footer-bottom {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #00273a;
+}
+.dn-wrap {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+.dn-footer-bottom ul:first-child {
+    float: left;
+    text-align: left;
+}
+.dn-footer-bottom ul {
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    color: #fff;
+}
+.dn-footer-bottom ul li:first-child {
+    margin-bottom: 12px;
+}
+.dn-footer-bottom .dn-payment-logos {
+    width: 274px;
+    height: 18px;
+    background: url(/Content/images/main-sprite.png) 0 -64px no-repeat;
+}
+.dn-footer-bottom ul li, .dn-footer-bottom a  {
+    line-height: normal;
+}
+.dn-footer-bottom ul:first-child a {
+    color: #fff;
+}
+.dn-footer-bottom p {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+    padding-top: 24px;
+    margin-top: 20px;
+    text-align: center;
+    color: #4d626c;
+    border-top: 1px solid rgba(227,230,232,.3);
+}

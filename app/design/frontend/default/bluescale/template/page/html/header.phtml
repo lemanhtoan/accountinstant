@@ -31,49 +31,249 @@
         </div>
 
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-            <div class="navigationTop">
-                <ul>
-                    <li>
-                        <?php $keycodeSupport = Mage::getStoreConfig('selectoptions/general/keycode_support');?>
-                        <a class="btn btn-sup" target="_blank" href="<?php echo $keycodeSupport;?>">
-                            <span><?php echo $this->__('Support') ?></span>
-                        </a>
-                    </li>
-                    
-                    <?php if ($this->helper('customer')->isLoggedIn()): ?>
-                        <li>
-                            <a class="btn btn-login" href="<?php echo $this->getUrl('customer/account/') ?>">
-                                <span><?php echo $this->__('My account') ?></span>
-                            </a>
-                        </li>
-                        <li> 
-                            <a class="btn btn-register" title="Logout" href="<?php echo $this->getUrl('customer/account/logout') ?>"> 
-                                <span><?php echo $this->__('Logout') ?></span>
-                            </a> 
-                        </li>
-                    <?php else: ?>
-                        <li>
-                            <a class="btn btn-login" href="<?php echo $this->getUrl('customer/account/login/') ?>">
-                                <span><?php echo $this->__('Login') ?></span>
-                            </a>
-                        </li>
+            <div class="navigationTop-">
 
-                        <li>
-                            <a class="btn btn-register" href="<?php echo $this->getUrl('customer/account/create/') ?>">
-                                <span><?php echo $this->__('Register') ?></span>
-                            </a>
-                        </li>
-                    <?php endif;?>
-
-                    <li class="cart-top">
-                        <?php echo $this->getChildHtml('cart_sidebar_top'); ?>
-                    </li>
-                </ul>
-            
-                <div class="frmlanguage">
-                    <?php echo $this->getChildHtml('store_language') ?>
+                <div class="account-box pull-right">
+                    <div class="btn-group alw-show">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-user icon"></i>
+                            <span class="hidden-sm hidden-xs">  My Account </span>
+                            <span class="fa fa fa-angle-down caretalt"></span>
+                        </button>   
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href=""><i class="fa fa-sign-in fa-fw dropdown-menu-icon"></i>  Login</a></li>
+                            <li><a href=""><i class="fa fa-pencil fa-fw dropdown-menu-icon"></i>  Register</a></li>
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="support-box pull-right">
+
+                    <div class="btn-group alw-show">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-support icon"></i><span class="hidden-sm hidden-xs">  Help  & Support </span> <i class="fa fa fa-angle-down caretalt"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Contact us</a></li>
+                            <li><a href="">Reviews</a></li>
+                            <li><a href="">uTop Points</a></li>
+                        </ul>
+                    </div>
+                </div>
+               
             </div>
         </div>
     </div>
 </div>
+<style>
+.alw-show {
+    display: block !important;
+    position: relative;
+    vertical-align: middle;
+}
+.open .caretalt {
+    transform: rotate(-180deg);
+    transition: transform ease 0.2s;
+}
+.navigationTop- li {
+    float: left;
+    width: 100%;
+}
+.support-box.pull-right {
+    margin-right: 10px;
+}
+.navigationTop- .btn{
+    background: #f5f5f5;
+    line-height: 26px;
+    border-color: #ddd;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.navigationTop- i {
+    margin-left: 5px;
+}
+.navigationTop- .dropdown-menu {
+    min-width: 100%;
+}
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+}
+.custom-blocks .custom-block {
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 10px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+    padding: 13px 15px;
+    background: #fff;
+}
+.custom-block .image {
+    width: 50px;
+    float: left;
+}
+.custom-block .text {
+    margin-left: 65px;
+}
+.custom-block .text .title {
+    margin: 0;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid #e5e5e5;
+    height: 25px;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 16px;
+}
+.custom-block .text p {
+    margin: 4px 0 0 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.3;
+    height: 36px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.custom-block img {
+    max-width: 100%;
+}
+.custom-block a:hover{
+    color: #0fa03e;
+    text-decoration: none;
+}
+.custom-block a {
+    color: #333;
+}
+.box-top-home {
+    padding: 30px 15% 0;
+    text-align: left;
+}
+.box-top-home .fa-check-circle{
+    margin-right: 5px;
+}
+.navigationTop- {
+    float: right;
+    margin-top: 5%;
+}
+li.item-listcate {
+    padding: 15px;
+}
+
+.item-listcate .img img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+.item-listcate .title {
+    background: #8db3e2;
+    color: #fff;
+    padding: 7px;
+    text-transform: uppercase;
+}
+
+.item-listcate a.clearfix {
+    border: 1px solid;
+}
+
+.item-listcate .img {
+    padding: 15px;
+}
+
+.item-listcate .buy-button {
+    margin-bottom: 15px;
+    color: #333;
+}
+.item-listcate a:hover .btn-addtocart  {
+    border-color: #0fa03e;
+    background-color: #0fa03e;
+    color: #fff;
+}
+
+.item-listcate a:hover  {
+    text-decoration: none;
+    color: #0fa03e;
+}
+
+.dn-footer-bottom {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #00273a;
+}
+.dn-wrap {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+.dn-footer-bottom ul:first-child {
+    float: left;
+    text-align: left;
+}
+.dn-footer-bottom ul {
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    color: #fff;
+}
+.dn-footer-bottom ul li:first-child {
+    margin-bottom: 12px;
+}
+.dn-footer-bottom .dn-payment-logos {
+    width: 274px;
+    height: 18px;
+    background: url('https://www.ding.com/Content/images/main-sprite.png') 0 -64px no-repeat;
+}
+.dn-footer-bottom ul li, .dn-footer-bottom a  {
+    line-height: normal;
+}
+.dn-footer-bottom ul:first-child a {
+    color: #fff;
+}
+.dn-footer-bottom p {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+    padding-top: 24px;
+    margin-top: 60px;
+    text-align: center;
+    color: #4d626c;
+    border-top: 1px solid rgba(227,230,232,.3);
+}
+.dn-footer-bottom .dn-incapsula {
+    width: 66px;
+    height: 16px;
+    margin-right: 10px;
+    display: inline-block;
+    background: url('https://www.ding.com/Content/images/main-sprite.png') -109px -86px no-repeat;
+}
+.dn-footer-bottom .dn-trustwave {
+    width: 105px;
+    height: 16px;
+    display: inline-block;
+    background: url('https://www.ding.com/Content/images/main-sprite.png') 0 -86px no-repeat;
+}
+</style>
