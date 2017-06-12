@@ -2,12 +2,19 @@
 - add new store french
 - update db: UPDATE `core_store` SET `name` = ' French' WHERE `core_store`.`store_id` = 3;
 - configuration locale options: french 
+- configuration symbol and rates currency
+- configuration backend Add Store Code to Urls yes
 
 2. Update content code
 
 3. Setting backend: Setting custom + copyright footer
 - translation category content: backend
 - translation checkout label: backend
+- translation product detail backend: 100% Safe & Secure => 100% Sûr & Sécurisé
+
+=> khi đang ở trang checkout, click vào ô đỏ: k hoat dong
+
+
 4. Update list cms
 
 4.1. Image slider homepage
@@ -129,7 +136,7 @@
 
 <section id="reviews">
 	<div class="gr-row row-padded">
-	   <h2><span class="cheeky-subheading">Here's the proof</span><br /> Les clients évaluent PremiumAccountz comme «excellent» </h2>
+	   <h2><span class="cheeky-subheading">ICI Ç'EST LA PREUVE</span><br />  Les clients évaluent PremiumAccountz comme 'excellent' </h2>
 	   <div id="homeSlider" class="owl-carousel owl-theme">
 	      <div class="item">
 	         <p class="ratings">
@@ -266,7 +273,7 @@
 </div>
 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
    <div class="last">
-      <a class="title" href="#">HELP &amp; SUPPORT</a>
+      <a class="title" href="#">HELP & SUPPORT</a>
       <ul>
          <li><a href="/blog/cat/news/">News</a></li>
          <li><a href="/faq/">FAQs</a></li>
@@ -308,9 +315,9 @@
 </div>
 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
    <div class="last">
-      <a class="title" href="#">HELP &amp; SUPPORT</a>
+      <a class="title" href="#">AIDE & SUPPORT</a>
       <ul>
-         <li><a href="/blog/cat/news/">News</a></li>
+         <li><a href="/blog/cat/news/">Informations</a></li>
          <li><a href="/faq/">FAQs</a></li>
          <li><a href="/blog/cat/activation-premium/">Premium d'activation</a></li>
          <li><a href="/blog/cat/instruction/">Instruction</a></li>
@@ -325,3 +332,221 @@
       <p class="footerlinks social"><strong class="connect-by">SUIVEZ NOUS</strong> <a href="#" target="_blank" rel="NoFollow" class="icofacebook-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icotwitter-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icogplus-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icolinkedin-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoyoutube-filled"></a> <a href="#" target="_blank" rel="NoFollow" class="icoinstagram-filled"></a> <em class="clear10"></em> <strong class="verified">VÉRIFIÉ PAR</strong> <i href="" class="icoverified-by-visa"></i> <i href="" class="icomastercard-securecode"></i> <i href="" class="icopci-certi"></i></p>
     -->
 </div>
+
+
+
+
+home list category en
+
+<div class="home-categories">
+<ul class="megamenu none">
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/1fichier-premium.html"><span><strong> <img src="/media/logo/1fichier.png" alt="" />1Fichier.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/1payfiles-premium.html"><span><strong> <img src="/media/logo/1payfiles.png" alt="" />1payfiles.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/alfafile-premium.html"><span><strong> <img src="/media/logo/alfafile.png" alt="" />AlfaFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/alldebrid-premium.html"><span><strong> <img src="/media/logo/alldebrid.png" alt="" />AllDebrid.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/arabloads-premium.html"><span><strong> <img src="/media/logo/arabloads.png" alt="" />ArabLoads.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/backin-premium.html"><span><strong> <img src="/media/logo/backin.png" alt="" />Backin.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/bigfile-premium.html"><span><strong> <img src="/media/logo/bigfile.png" alt="" />BigFile.to</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/bitport-premium.html"><span><strong> <img src="/media/logo/bitport.png" alt="" />Bitport.io</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/bytewhale-premium.html"><span><strong> <img src="/media/logo/bytewhale.png" alt="" />ByteWhale.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/cloudfile-premium.html"><span><strong> <img src="/media/logo/cloudfile.png" alt="" />CloudFile.hosting</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/daofile-premium.html"><span><strong> <img src="/media/logo/daofile.png" alt="" />DaoFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/datafile-premium.html"><span><strong> <img src="/media/logo/datafile.png" alt="" />DataFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/debriditalia-premium.html"><span><strong> <img src="/media/logo/debriditalia.png" alt="" />Debriditalia.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/depfile-premium.html"><span><strong> <img src="/media/logo/depfile.png" alt="" />DepFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/depositfiles-premium.html"><span><strong> <img src="/media/logo/depositfiles.png" alt="" />DepositFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/easybytez-premium.html"><span><strong> <img src="/media/logo/easybytez.png" alt="" />EasyBytez.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/erafile-premium.html"><span><strong> <img src="/media/logo/erafile.png" alt="" />EraFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/ex-load-premium.html"><span><strong> <img src="/media/logo/ex-load.png" alt="" />Ex-load.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/fenixfile-premium.html"><span><strong> <img src="/media/logo/fenixfile.png" alt="" />FenixFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/fenixshare-premium.html"><span><strong> <img src="/media/logo/fenixshare.png" alt="" />FenixShare.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/ffdownloader-premium.html"><span><strong> <img src="/media/logo/ffdownloader.png" alt="" />FFDownloader.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/file-al-premium.html"><span><strong> <img src="/media/logo/file-al.png" alt="" />File.al</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/fileboom-premium.html"><span><strong> <img src="/media/logo/fileboom.png" alt="" />FileBoom.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/filefactory-premium.html"><span><strong> <img src="/media/logo/filefactory.png" alt="" />FileFactory.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/fileflyer-premium.html"><span><strong> <img src="/media/logo/fileflyer.png" alt="" />FileFlyer.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/filejoker-premium.html"><span><strong> <img src="/media/logo/filejoker.png" alt="" />FileJoker.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/fileload-premium.html"><span><strong> <img src="/media/logo/fileload.png" alt="" />FileLoad.io</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/filemoney-premium.html"><span><strong> <img src="/media/logo/filemoney.png" alt="" />FileMoney.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/filesmonster-premium.html"><span><strong> <img src="/media/logo/filesmonster.png" alt="" />FilesMonster.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/filespace-premium.html"><span><strong> <img src="/media/logo/filespace.png" alt="" />FileSpace.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/filestream-premium.html"><span><strong> <img src="/media/logo/filestream.png" alt="" />FileStream.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/fireget-premium.html"><span><strong> <img src="/media/logo/fireget.png" alt="" />Fireget.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/florenfile-premium.html"><span><strong> <img src="/media/logo/florenfile.png" alt="" />FlorenFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/furk-premium.html"><span><strong> <img src="/media/logo/furk.png" alt="" />Furk.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/gboxes-premium.html"><span><strong> <img src="/media/logo/gboxes.png" alt="" />Gboxes.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/gigapeta-premium.html"><span><strong> <img src="/media/logo/gigapeta.png" alt="" />GigaPeta.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/grab8-premium.html"><span><strong> <img src="/media/logo/premlink.png" alt="" />Grab8.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/hitfile-premium.html"><span><strong> <img src="/media/logo/hitfile.png" alt="" />HitFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/hotlink-cc-premium.html"><span><strong> <img src="/media/logo/hotlink.png" alt="" />HotLink.cc</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/hulkload-premium.html"><span><strong> <img src="/media/logo/hulkload.png" alt="" />HulkLoad.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/inclouddrive-premium.html"><span><strong> <img src="/media/logo/inclouddrive.png" alt="" />InCloudDrive.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/interfile-premium.html"><span><strong> <img src="/media/logo/interfile.png" alt="" />InterFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/junocloud-premium.html"><span><strong> <img src="/media/logo/junocloud.png" alt="" />JunoCloud.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/keep2share-premium.html"><span><strong> <img src="/media/logo/keep2share.png" alt="" />Keep2share.cc</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/keepshare-premium.html"><span><strong> <img src="/media/logo/keepshare.png" alt="" />KeepShare.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/kenfiles-premium.html"><span><strong> <img src="/media/logo/kenfiles.png" alt="" />KenFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/kingfiles-premium.html"><span><strong> <img src="/media/logo/kingfiles.png" alt="" />KingFiles.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/koofile-premium.html"><span><strong> <img src="/media/logo/koofile.png" alt="" />KooFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/lafiles-premium.html"><span><strong> <img src="/media/logo/lafiles.png" alt="" />LaFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/linksnappy-premium.html"><span><strong> <img src="/media/logo/linksnappy.png" alt="" />LinkSnappy.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/littlebyte-premium.html"><span><strong> <img src="/media/logo/littlebyte.png" alt="" />LittleByte.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/lunaticfiles-premium.html"><span><strong> <img src="/media/logo/lunaticfiles.png" alt="" />LunaticFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/mediafree-premium.html"><span><strong> <img src="/media/logo/mediafree.png" alt="" />MediaFree.co</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/mixshared-premium.html"><span><strong> <img src="/media/logo/mixshared.png" alt="" />MixShared.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/nitroflare-premium.html"><span><strong> <img src="/media/logo/nitroflare.png" alt="" />NitroFlare.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/novafile-premium.html"><span><strong> <img src="/media/logo/novafile.png" alt="" />NovaFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/oload-premium.html"><span><strong> <img src="/media/logo/oload.png" alt="" />Oload.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/ozofiles-premium.html"><span><strong> <img src="/media/logo/ozofiles.png" alt="" />OzoFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/prem-link-premium.html"><span><strong> <img src="/media/logo/premlink.png" alt="" />Prem.link</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/prembox-premium.html"><span><strong> <img src="/media/logo/prembox.png" alt="" />Prembox.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/premium-to-premium.html"><span><strong> <img src="/media/logo/premium-to.png" alt="" />Premium.to</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/premiumax-premium.html"><span><strong> <img src="/media/logo/premiumax.png" alt="" />Premiumax.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/premiumize-premium.html"><span><strong> <img src="/media/logo/premiumize.png" alt="" />Premiumize.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/publish2-premium.html"><span><strong> <img src="/media/logo/publish2.png" alt="" />Publish2.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/rapidfileshare-premium.html"><span><strong> <img src="/media/logo/rapidfileshare.png" alt="" />RapidfileShare.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/rapidgator-premium.html"><span><strong> <img src="/media/logo/rapidgator.png" alt="" />Rapidgator.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/rapidrar-premium.html"><span><strong> <img src="/media/logo/rapidrar.png" alt="" />Rapidrar.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/real-debrid-premium.html"><span><strong> <img src="/media/logo/real-debrid.png" alt="" />Real-Debrid.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/rehost-premium.html"><span><strong> <img src="/media/logo/rehost.png" alt="" />ReHost.to</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/salefiles-premium.html"><span><strong> <img src="/media/logo/salefiles.png" alt="" />SaleFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/secureupload-premium.html"><span><strong> <img src="/media/logo/secureupload.png" alt="" />SecureUpload.eu</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/sharedir-premium.html"><span><strong> <img src="/media/logo/sharedir.png" alt="" />ShareDir.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/simply-debrid-premium.html"><span><strong> <img src="/media/logo/simply-debrid.png" alt="" />Simply-Debrid.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/subyshare-premium.html"><span><strong> <img src="/media/logo/subyshare.png" alt="" />SubyShare.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/sunexenus-premium.html"><span><strong> <img src="/media/logo/sunexenus.png" alt="" />Sunexenus.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/takefile-link-premium.html"><span><strong> <img src="/media/logo/takefile-link.png" alt="" />TakeFile.link</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/tezfiles-premium.html"><span><strong> <img src="/media/logo/tezfiles.png" alt="" />TezFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/turbobit-premium.html"><span><strong> <img src="/media/logo/turbobit.png" alt="" />Turbobit.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/tusfiles-premium.html"><span><strong> <img src="/media/logo/tusfiles.png" alt="" />TusFiles.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/upload-cd-premium.html"><span><strong> <img src="/media/logo/upload-cd.png" alt="" />Upload.cd</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/uploadboy-premium.html"><span><strong> <img src="/media/logo/uploadboy.png" alt="" />Uploadboy.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/uploaded-net-premium.html"><span><strong> <img src="/media/logo/uploaded-net.png" alt="" />Uploaded.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/uploadrocket-premium.html"><span><strong> <img src="/media/logo/uploadrocket.png" alt="" />Uploadrocket</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/userscloud-premium.html"><span><strong> <img src="/media/logo/userscloud.png" alt="" />UsersCloud.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/wickedcloud-premium.html"><span><strong> <img src="/media/logo/wickedcloud.png" alt="" />WickedCloud.io</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/wipfiles-premium.html"><span><strong> <img src="/media/logo/wipfiles.png" alt="" />WipFiles.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/worldbytez-premium.html"><span><strong> <img src="/media/logo/worldbytez.png" alt="" />Worldbytez.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/worldfile-premium.html"><span><strong> <img src="/media/logo/worldfile.png" alt="" />WorldFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/zbigz-premium.html"><span><strong> <img src="/media/logo/zbigz.png" alt="" />ZbigZ.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/zevera-premium.html"><span><strong> <img src="/media/logo/zevera.png" alt="" />Zevera.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/en/1payfiles-premium.html"><span><strong> <img src="/media/logo/1payfiles.png" alt="" />1payfiles.me</strong></span> </a></li>
+</ul>
+</div>
+<!-- mobile -->
+<div class="home-categories-mobile">
+<div class="form-cate">
+<div class="input-group add-on"><select name="categoryPost"> <option value="">Select product</option> <option>1Fichier.com</option> <option>1payfiles.me</option> <option>AlfaFile.net</option> <option>AllDebrid.com</option> <option>ArabLoads.com</option> <option>Backin.net</option> <option>BigFile.to</option> <option>Bitport.io</option> <option>ByteWhale.com</option> <option>CloudFile.hosting</option> <option>DaoFile.com</option> <option>DataFile.com</option> <option>Debriditalia.com</option> <option>DepFile.com</option> <option>DepositFiles.com</option> <option>EasyBytez.com</option> <option>EraFile.com</option> <option>Ex-load.com</option> <option>FenixFile.com</option> <option>FenixShare.com</option> <option>FFDownloader.com</option> <option>File.al</option> <option>FileBoom.me</option> <option>FileFactory.com</option> <option>FileFlyer.com</option> <option>FileJoker.net</option> <option>FileLoad.io</option> <option>FileMoney.com</option> <option>FilesMonster.com</option> <option>FileSpace.com</option> <option>FileStream.me</option> <option>Fireget.com</option> <option>FlorenFile.com</option> <option>Furk.net</option> <option>Gboxes.com</option> <option>GigaPeta.com</option> <option>Grab8.com</option> <option>HitFile.net</option> <option>HotLink.cc</option> <option>HulkLoad.com</option> <option>InCloudDrive.com</option> <option>InterFile.net</option> <option>JunoCloud.me</option> <option>Keep2share.cc</option> <option>KeepShare.net</option> <option>KenFiles.com</option> <option>KingFiles.net</option> <option>KooFile.com</option> <option>LaFiles.com</option> <option>LinkSnappy.com</option> <option>LittleByte.net</option> <option>LunaticFiles.com</option> <option>MediaFree.co</option> <option>MixShared.com</option> <option>NitroFlare.com</option> <option>NovaFile.com</option> <option>Oload.net</option> <option>OzoFiles.com</option> <option>Prem.link</option> <option>Prembox.com</option> <option>Premium.to</option> <option>Premiumax.net</option> <option>Premiumize.me</option> <option>Publish2.me</option> <option>RapidfileShare.net</option> <option>Rapidgator.com</option> <option>Rapidrar.com</option> <option>Real-Debrid.com</option> <option>ReHost.to</option> <option>SaleFiles.com</option> <option>SecureUpload.eu</option> <option>ShareDir.com</option> <option>Simply-Debrid.com</option> <option>SubyShare.com</option> <option>Sunexenus.com</option> <option>TakeFile.link</option> <option>TezFiles.com</option> <option>Turbobit.net</option> <option>TusFiles.net</option> <option>Upload.cd</option> <option>Uploadboy.com</option> <option>Uploaded.net</option> <option>Uploadrocket</option> <option>UsersCloud.com</option> <option>WickedCloud.io</option> <option>WipFiles.net</option> <option>Worldbytez.com</option> <option>WorldFile.net</option> <option>ZbigZ.com</option> <option>Zevera.com</option> </select>
+<div class="input-group-btn"><button id="mb-cate" class="btn btn-default" type="submit">Buy Now</button></div>
+</div>
+</div>
+</div>
+<!-- end mobile -->
+
+
+home list category fr
+
+<div class="home-categories">
+<ul class="megamenu none">
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/1fichier-premium.html"><span><strong> <img src="/media/logo/1fichier.png" alt="" />1Fichier.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/1payfiles-premium.html"><span><strong> <img src="/media/logo/1payfiles.png" alt="" />1payfiles.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/alfafile-premium.html"><span><strong> <img src="/media/logo/alfafile.png" alt="" />AlfaFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/alldebrid-premium.html"><span><strong> <img src="/media/logo/alldebrid.png" alt="" />AllDebrid.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/arabloads-premium.html"><span><strong> <img src="/media/logo/arabloads.png" alt="" />ArabLoads.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/backin-premium.html"><span><strong> <img src="/media/logo/backin.png" alt="" />Backin.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/bigfile-premium.html"><span><strong> <img src="/media/logo/bigfile.png" alt="" />BigFile.to</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/bitport-premium.html"><span><strong> <img src="/media/logo/bitport.png" alt="" />Bitport.io</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/bytewhale-premium.html"><span><strong> <img src="/media/logo/bytewhale.png" alt="" />ByteWhale.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/cloudfile-premium.html"><span><strong> <img src="/media/logo/cloudfile.png" alt="" />CloudFile.hosting</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/daofile-premium.html"><span><strong> <img src="/media/logo/daofile.png" alt="" />DaoFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/datafile-premium.html"><span><strong> <img src="/media/logo/datafile.png" alt="" />DataFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/debriditalia-premium.html"><span><strong> <img src="/media/logo/debriditalia.png" alt="" />Debriditalia.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/depfile-premium.html"><span><strong> <img src="/media/logo/depfile.png" alt="" />DepFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/depositfiles-premium.html"><span><strong> <img src="/media/logo/depositfiles.png" alt="" />DepositFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/easybytez-premium.html"><span><strong> <img src="/media/logo/easybytez.png" alt="" />EasyBytez.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/erafile-premium.html"><span><strong> <img src="/media/logo/erafile.png" alt="" />EraFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/ex-load-premium.html"><span><strong> <img src="/media/logo/ex-load.png" alt="" />Ex-load.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/fenixfile-premium.html"><span><strong> <img src="/media/logo/fenixfile.png" alt="" />FenixFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/fenixshare-premium.html"><span><strong> <img src="/media/logo/fenixshare.png" alt="" />FenixShare.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/ffdownloader-premium.html"><span><strong> <img src="/media/logo/ffdownloader.png" alt="" />FFDownloader.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/file-al-premium.html"><span><strong> <img src="/media/logo/file-al.png" alt="" />File.al</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/fileboom-premium.html"><span><strong> <img src="/media/logo/fileboom.png" alt="" />FileBoom.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/filefactory-premium.html"><span><strong> <img src="/media/logo/filefactory.png" alt="" />FileFactory.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/fileflyer-premium.html"><span><strong> <img src="/media/logo/fileflyer.png" alt="" />FileFlyer.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/filejoker-premium.html"><span><strong> <img src="/media/logo/filejoker.png" alt="" />FileJoker.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/fileload-premium.html"><span><strong> <img src="/media/logo/fileload.png" alt="" />FileLoad.io</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/filemoney-premium.html"><span><strong> <img src="/media/logo/filemoney.png" alt="" />FileMoney.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/filesmonster-premium.html"><span><strong> <img src="/media/logo/filesmonster.png" alt="" />FilesMonster.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/filespace-premium.html"><span><strong> <img src="/media/logo/filespace.png" alt="" />FileSpace.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/filestream-premium.html"><span><strong> <img src="/media/logo/filestream.png" alt="" />FileStream.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/fireget-premium.html"><span><strong> <img src="/media/logo/fireget.png" alt="" />Fireget.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/florenfile-premium.html"><span><strong> <img src="/media/logo/florenfile.png" alt="" />FlorenFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/furk-premium.html"><span><strong> <img src="/media/logo/furk.png" alt="" />Furk.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/gboxes-premium.html"><span><strong> <img src="/media/logo/gboxes.png" alt="" />Gboxes.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/gigapeta-premium.html"><span><strong> <img src="/media/logo/gigapeta.png" alt="" />GigaPeta.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/grab8-premium.html"><span><strong> <img src="/media/logo/premlink.png" alt="" />Grab8.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/hitfile-premium.html"><span><strong> <img src="/media/logo/hitfile.png" alt="" />HitFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/hotlink-cc-premium.html"><span><strong> <img src="/media/logo/hotlink.png" alt="" />HotLink.cc</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/hulkload-premium.html"><span><strong> <img src="/media/logo/hulkload.png" alt="" />HulkLoad.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/inclouddrive-premium.html"><span><strong> <img src="/media/logo/inclouddrive.png" alt="" />InCloudDrive.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/interfile-premium.html"><span><strong> <img src="/media/logo/interfile.png" alt="" />InterFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/junocloud-premium.html"><span><strong> <img src="/media/logo/junocloud.png" alt="" />JunoCloud.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/keep2share-premium.html"><span><strong> <img src="/media/logo/keep2share.png" alt="" />Keep2share.cc</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/keepshare-premium.html"><span><strong> <img src="/media/logo/keepshare.png" alt="" />KeepShare.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/kenfiles-premium.html"><span><strong> <img src="/media/logo/kenfiles.png" alt="" />KenFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/kingfiles-premium.html"><span><strong> <img src="/media/logo/kingfiles.png" alt="" />KingFiles.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/koofile-premium.html"><span><strong> <img src="/media/logo/koofile.png" alt="" />KooFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/lafiles-premium.html"><span><strong> <img src="/media/logo/lafiles.png" alt="" />LaFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/linksnappy-premium.html"><span><strong> <img src="/media/logo/linksnappy.png" alt="" />LinkSnappy.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/littlebyte-premium.html"><span><strong> <img src="/media/logo/littlebyte.png" alt="" />LittleByte.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/lunaticfiles-premium.html"><span><strong> <img src="/media/logo/lunaticfiles.png" alt="" />LunaticFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/mediafree-premium.html"><span><strong> <img src="/media/logo/mediafree.png" alt="" />MediaFree.co</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/mixshared-premium.html"><span><strong> <img src="/media/logo/mixshared.png" alt="" />MixShared.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/nitroflare-premium.html"><span><strong> <img src="/media/logo/nitroflare.png" alt="" />NitroFlare.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/novafile-premium.html"><span><strong> <img src="/media/logo/novafile.png" alt="" />NovaFile.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/oload-premium.html"><span><strong> <img src="/media/logo/oload.png" alt="" />Oload.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/ozofiles-premium.html"><span><strong> <img src="/media/logo/ozofiles.png" alt="" />OzoFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/prem-link-premium.html"><span><strong> <img src="/media/logo/premlink.png" alt="" />Prem.link</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/prembox-premium.html"><span><strong> <img src="/media/logo/prembox.png" alt="" />Prembox.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/premium-to-premium.html"><span><strong> <img src="/media/logo/premium-to.png" alt="" />Premium.to</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/premiumax-premium.html"><span><strong> <img src="/media/logo/premiumax.png" alt="" />Premiumax.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/premiumize-premium.html"><span><strong> <img src="/media/logo/premiumize.png" alt="" />Premiumize.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/publish2-premium.html"><span><strong> <img src="/media/logo/publish2.png" alt="" />Publish2.me</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/rapidfileshare-premium.html"><span><strong> <img src="/media/logo/rapidfileshare.png" alt="" />RapidfileShare.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/rapidgator-premium.html"><span><strong> <img src="/media/logo/rapidgator.png" alt="" />Rapidgator.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/rapidrar-premium.html"><span><strong> <img src="/media/logo/rapidrar.png" alt="" />Rapidrar.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/real-debrid-premium.html"><span><strong> <img src="/media/logo/real-debrid.png" alt="" />Real-Debrid.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/rehost-premium.html"><span><strong> <img src="/media/logo/rehost.png" alt="" />ReHost.to</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/salefiles-premium.html"><span><strong> <img src="/media/logo/salefiles.png" alt="" />SaleFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/secureupload-premium.html"><span><strong> <img src="/media/logo/secureupload.png" alt="" />SecureUpload.eu</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/sharedir-premium.html"><span><strong> <img src="/media/logo/sharedir.png" alt="" />ShareDir.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/simply-debrid-premium.html"><span><strong> <img src="/media/logo/simply-debrid.png" alt="" />Simply-Debrid.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/subyshare-premium.html"><span><strong> <img src="/media/logo/subyshare.png" alt="" />SubyShare.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/sunexenus-premium.html"><span><strong> <img src="/media/logo/sunexenus.png" alt="" />Sunexenus.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/takefile-link-premium.html"><span><strong> <img src="/media/logo/takefile-link.png" alt="" />TakeFile.link</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/tezfiles-premium.html"><span><strong> <img src="/media/logo/tezfiles.png" alt="" />TezFiles.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/turbobit-premium.html"><span><strong> <img src="/media/logo/turbobit.png" alt="" />Turbobit.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/tusfiles-premium.html"><span><strong> <img src="/media/logo/tusfiles.png" alt="" />TusFiles.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/upload-cd-premium.html"><span><strong> <img src="/media/logo/upload-cd.png" alt="" />Upload.cd</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/uploadboy-premium.html"><span><strong> <img src="/media/logo/uploadboy.png" alt="" />Uploadboy.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/uploaded-net-premium.html"><span><strong> <img src="/media/logo/uploaded-net.png" alt="" />Uploaded.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/uploadrocket-premium.html"><span><strong> <img src="/media/logo/uploadrocket.png" alt="" />Uploadrocket</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/userscloud-premium.html"><span><strong> <img src="/media/logo/userscloud.png" alt="" />UsersCloud.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/wickedcloud-premium.html"><span><strong> <img src="/media/logo/wickedcloud.png" alt="" />WickedCloud.io</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/wipfiles-premium.html"><span><strong> <img src="/media/logo/wipfiles.png" alt="" />WipFiles.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/worldbytez-premium.html"><span><strong> <img src="/media/logo/worldbytez.png" alt="" />Worldbytez.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/worldfile-premium.html"><span><strong> <img src="/media/logo/worldfile.png" alt="" />WorldFile.net</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/zbigz-premium.html"><span><strong> <img src="/media/logo/zbigz.png" alt="" />ZbigZ.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/zevera-premium.html"><span><strong> <img src="/media/logo/zevera.png" alt="" />Zevera.com</strong></span> </a></li>
+<li class="col-xs-12 col-sm-6 col-md-15"><a class="clearfix" href="/fr/1payfiles-premium.html"><span><strong> <img src="/media/logo/1payfiles.png" alt="" />1payfiles.me</strong></span> </a></li>
+</ul>
+</div>
+<!-- mobile -->
+<div class="home-categories-mobile">
+<div class="form-cate">
+<div class="input-group add-on"><select name="categoryPost"> <option value="">Select product</option> <option>1Fichier.com</option> <option>1payfiles.me</option> <option>AlfaFile.net</option> <option>AllDebrid.com</option> <option>ArabLoads.com</option> <option>Backin.net</option> <option>BigFile.to</option> <option>Bitport.io</option> <option>ByteWhale.com</option> <option>CloudFile.hosting</option> <option>DaoFile.com</option> <option>DataFile.com</option> <option>Debriditalia.com</option> <option>DepFile.com</option> <option>DepositFiles.com</option> <option>EasyBytez.com</option> <option>EraFile.com</option> <option>Ex-load.com</option> <option>FenixFile.com</option> <option>FenixShare.com</option> <option>FFDownloader.com</option> <option>File.al</option> <option>FileBoom.me</option> <option>FileFactory.com</option> <option>FileFlyer.com</option> <option>FileJoker.net</option> <option>FileLoad.io</option> <option>FileMoney.com</option> <option>FilesMonster.com</option> <option>FileSpace.com</option> <option>FileStream.me</option> <option>Fireget.com</option> <option>FlorenFile.com</option> <option>Furk.net</option> <option>Gboxes.com</option> <option>GigaPeta.com</option> <option>Grab8.com</option> <option>HitFile.net</option> <option>HotLink.cc</option> <option>HulkLoad.com</option> <option>InCloudDrive.com</option> <option>InterFile.net</option> <option>JunoCloud.me</option> <option>Keep2share.cc</option> <option>KeepShare.net</option> <option>KenFiles.com</option> <option>KingFiles.net</option> <option>KooFile.com</option> <option>LaFiles.com</option> <option>LinkSnappy.com</option> <option>LittleByte.net</option> <option>LunaticFiles.com</option> <option>MediaFree.co</option> <option>MixShared.com</option> <option>NitroFlare.com</option> <option>NovaFile.com</option> <option>Oload.net</option> <option>OzoFiles.com</option> <option>Prem.link</option> <option>Prembox.com</option> <option>Premium.to</option> <option>Premiumax.net</option> <option>Premiumize.me</option> <option>Publish2.me</option> <option>RapidfileShare.net</option> <option>Rapidgator.com</option> <option>Rapidrar.com</option> <option>Real-Debrid.com</option> <option>ReHost.to</option> <option>SaleFiles.com</option> <option>SecureUpload.eu</option> <option>ShareDir.com</option> <option>Simply-Debrid.com</option> <option>SubyShare.com</option> <option>Sunexenus.com</option> <option>TakeFile.link</option> <option>TezFiles.com</option> <option>Turbobit.net</option> <option>TusFiles.net</option> <option>Upload.cd</option> <option>Uploadboy.com</option> <option>Uploaded.net</option> <option>Uploadrocket</option> <option>UsersCloud.com</option> <option>WickedCloud.io</option> <option>WipFiles.net</option> <option>Worldbytez.com</option> <option>WorldFile.net</option> <option>ZbigZ.com</option> <option>Zevera.com</option> </select>
+<div class="input-group-btn"><button id="mb-cate" class="btn btn-default" type="submit">Buy Now</button></div>
+</div>
+</div>
+</div>
+<!-- end mobile -->

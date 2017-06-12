@@ -132,7 +132,7 @@ class Bitpay_Bitcoins_Model_PaymentMethod extends Mage_Payment_Model_Method_Abst
     public function canUseCheckout()
     {
         $helper = Mage::helper('bitpay');
-		/*
+
         if (!$helper->hasApiKey())
         {
             Mage::log(
@@ -154,7 +154,7 @@ class Bitpay_Bitcoins_Model_PaymentMethod extends Mage_Payment_Model_Method_Abst
 
             return false;
         }
-		*/
+
         return $this->_canUseCheckout;
     }
 

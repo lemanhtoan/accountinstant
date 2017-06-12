@@ -26,22 +26,10 @@
 ?>
 <div class="dn-footer-bottom dn-wrap">
     <div class="container">
-        <ul>
-            <li class="dn-payment-logos"></li>
-            <li>
-                <a href="/privacy-statement">Privacy and Cookies Statement</a>
-                <a href="/terms-conditions" class="dn-with-separator">Terms and Conditions</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <span class="dn-incapsula"></span>
-                <span class="dn-trustwave"></span>
-            </li>
-            <li>Trustworthy, Secure and Protected</li>
-        </ul>
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-content')->toHtml();?> 
+        
         <div class="clear"></div>
-        <p>Ezetop Unlimited Company t/a Ding \ Registered in Ireland under company number 422514 \ 3 Shelbourne Buildings, Crampton Avenue, Shelbourne Road, Ballsbridge, Dublin 4, Ireland.</p>
+        <p><?php echo $this->getCopyright() ?></p>
     </div>
 </div>
 

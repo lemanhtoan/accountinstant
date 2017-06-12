@@ -49,6 +49,7 @@
                 <?php $addClass = ''; if ( ($productBest) && ($_product->getId() == $productBest) ) {$addClass = 'best-item';}?>
                 <?php $cl = $cr = '';
                     switch ($count) {
+                        case '1':
                         case '4':
                         case '7':
                         case '10':
@@ -56,6 +57,7 @@
                         case '16':
                             $cl = 'pp1';
                             break;
+                        case '2':
                         case '5':
                         case '8':
                         case '11':
@@ -70,7 +72,7 @@
                     <div class="top-best-icon-"></div>
                     <div class="pro-wrap-">
                         <h2><a class="item-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
-                                <span class="item-title">30 days<?php //echo $this->htmlEscape($_product->getName()) ?></span>
+                                <span class="item-title"><?php echo $this->htmlEscape($_product->getName()) ?></span>
                                 <span class="arrow"><img src="http://www.nasze-klucze.pl/images/nk/arrow_blue.png" class="Arrow" alt=""></span>
                                 <span class="item-price-data"><?php if($_product->getSpecialPrice()) {echo $_coreHelper->currency($_product->getSpecialPrice(),true,false); } else {echo $_coreHelper->currency($_product->getPrice(),true,false);} ?></span>
                             </a>
@@ -80,8 +82,6 @@
 
                         <div class="item-description">
                             <?php echo $_product->getShortDescription() ?>
-                            <p>asdsd sds</p>
-                            <p>d4eere dsfdf</p>
                         </div>
 
                         <button type="button" class="buy-category" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">BUY NOW</button>
@@ -92,6 +92,7 @@
         </div>
     </div>
 <?php endif; ?>
+<?php $media = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);?>
 
 <style>
     li.question a {
@@ -107,6 +108,7 @@
         width: 100%;
         text-align: left;
         color: #0fa03e;
+        margin: 40px 0;
     }
 
     .box-follow ul {
@@ -131,7 +133,7 @@
         color: #0fa03e;
     }
     .best-item .top-best-icon-{
-        background: url(http://localhost/accountinstant/media/pay/sale.png) no-repeat scroll center center transparent;
+        background: url('<?php echo $media;?>pay/sale.png') no-repeat scroll center center transparent;
         height: 30px;
         left: -40px;
         position: absolute;
@@ -143,7 +145,7 @@
         transform: rotate(35deg);
     }
     .item.pp1 {
-        margin-left: calc(35% - 2px) !important;
+        margin-left: calc(34% + 2px) !important;
     }
     .item.pp2 {
         margin-left: calc(18% + 2px) !important;
@@ -153,9 +155,9 @@
         border: 0;
         color: #fff;
         font-weight: bold;
-        padding: 2px 25px;
-        border-radius: 10px;
-        margin-top: 10px;
+        padding: 4px 25px;
+        border-radius: 5px;
+        margin: 10px 0;
         font-size: 12px;
     }
     .br2 {
@@ -182,7 +184,7 @@
     }
     #category-slider .item {
         width: 296px;
-        min-height:200px;
+        min-height:130px;
         float: left;
         display: inline;
         position: relative;
@@ -202,6 +204,9 @@
         margin-top: 0!important;
     }
 
+#category-slider {
+    padding: 0 2%;
+}
     #category-slider .item .pro-wrap {
         padding-top: 35px;
     }

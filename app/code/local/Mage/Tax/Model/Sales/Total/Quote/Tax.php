@@ -371,7 +371,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
 		   { $rate=10; }
 		else
 		if(Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getCode()=='banktransferc')
-		   { $rate=20; }
+		   { $rate=15; }
 		else
 		if(Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getCode()=='banktransferb')
 		   { $rate=10; }
@@ -567,7 +567,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
 		   { $rate=10; }
 		else
 		if(Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getCode()=='banktransferc')
-		   { $rate=20; }
+		   { $rate=15; }
 		else
 		if(Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getCode()=='banktransferb')
 		   { $rate=10; }
@@ -758,7 +758,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
 		   { $rate=10; }
 		else
 		if(Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getCode()=='banktransferc')
-		   { $rate=20; }
+		   { $rate=15; }
 		else
 		if(Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getCode()=='banktransferb')
 		   { $rate=10; }

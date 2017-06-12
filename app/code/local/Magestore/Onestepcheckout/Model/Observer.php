@@ -93,7 +93,6 @@ class Magestore_Onestepcheckout_Model_Observer extends Mage_Core_Controller_Vari
 	public function controller_action_predispatch($observer)
 	{
 		$action = $observer->getEvent()->getControllerAction();
-		$myip = array('1.55.179.74','27.67.140.220','117.6.37.189','171.235.195.169','113.22.140.211');
 		if(in_array($_SERVER['REMOTE_ADDR'],$myip)===false){
 			/** @var $adminSession Mage_Admin_Model_Session */
 			$adminSession = Mage::getSingleton('admin/session');

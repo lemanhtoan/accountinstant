@@ -55,319 +55,43 @@
 		 
 		if($routeName == 'cms' && $identifier == 'keyissue-homepage') { ?>
 			<div class="box-top-home">
-				<div class="alert alert-success fade in alert-dismissable">
-				  <strong><i class="fa fa-check-circle"></i>Can't find desired host premium at uTop? <u>Contact us</u> , We will make it available ASAP.
-				</div>
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top-content-home')->toHtml();?> 
 
-				<div class="row custom-blocks">
-					<div class="col-sm-4">
-						<div class="custom-block">
-							<a href="" target="_blank">
-								<div class="image">
-									<img src="http://localhost/accountinstant/media/pay/i1.png" alt="PayPal USA">
-								</div>
-								<div class="text">
-									<div class="title">Click To Pay</div>
-									<p>With <b>PayPal</b> USA </p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="custom-block">
-							<a href="" target="_blank">
-								<div class="image">
-									<img src="http://localhost/accountinstant/media/pay/i2.png" alt="PayPal USA">
-								</div>
-								<div class="text">
-									<div class="title">Click To Pay</div>
-									<p>With <b>PayPal</b> USA </p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="custom-block">
-							<a href="" target="_blank">
-								<div class="image">
-									<img src="http://localhost/accountinstant/media/pay/i3.png" alt="PayPal USA">
-								</div>
-								<div class="text">
-									<div class="title">Click To Pay</div>
-									<p>With <b>PayPal</b> USA </p>
-								</div>
-							</a>
-						</div>
-					</div>
-
-                    <div class="col-sm-4">
-                        <div class="custom-block">
-                            <a href="" target="_blank">
-                                <div class="image">
-                                    <img src="http://localhost/accountinstant/media/pay/i4.png" alt="PayPal USA">
-                                </div>
-                                <div class="text">
-                                    <div class="title">Click To Pay</div>
-                                    <p>With <b>PayPal</b> USA </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="custom-block">
-                            <a href="" target="_blank">
-                                <div class="image">
-                                    <img src="http://localhost/accountinstant/media/pay/i5.png" alt="PayPal USA">
-                                </div>
-                                <div class="text">
-                                    <div class="title">Click To Pay</div>
-                                    <p>With <b>PayPal</b> USA </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="custom-block">
-                            <a href="" target="_blank">
-                                <div class="image">
-                                    <img src="http://localhost/accountinstant/media/pay/i6.png" alt="PayPal USA">
-                                </div>
-                                <div class="text">
-                                    <div class="title">Click To Pay</div>
-                                    <p>With <b>PayPal</b> USA </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-				</div>
+				
 			</div>
 
             <div class="home-categories-">
+
+             <!-- header-content-home -->
+            <?php
+                $collection = Mage::getResourceModel('catalog/category_collection')
+                ->addAttributeToSelect('*')
+                ->addAttributeToFilter('is_active', 1) //only active categories
+                 ->addAttributeToFilter('include_in_menu', 1) //only active categories
+                ->addFieldToFilter('parent_id', array('eq'=>2))
+                ->addAttributeToSort('name')//sort by position
+                ;
+            ?>
+
                 <ul>
+                    <?php foreach ($collection as $category) { ?>
                     <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
+                        <div class="clearfix">
+                            <a href="<?php echo $category->getUrl() ?>">
+                            <div class="img"><img src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$category->getImage() ?>" alt="<?php echo $category->getName();?>"></div>
 
 
                             <div class="buy-button">
                                 <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
+                                    <a  href="<?php echo $category->getUrl() ?>" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </a>
                                 </div>
                             </div>
 
-                            <div class="title">1Fichier.com</div>
-                        </a>
+                            <div class="title"><?php echo $category->getName();?></div>
+                            </a>
+                        </div>
                     </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
-                    <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
-                        <a class="clearfix" href="/1fichier-premium.html">
-                            <div class="img"><img src="https://keyinstant.com/media/catalog/category/logo_alfafile.png" alt=""></div>
-
-
-                            <div class="buy-button">
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-addtocart" title="Add to Cart"><i class="fa fa-credit-card"></i>  Buy Now </button>
-                                </div>
-                            </div>
-
-                            <div class="title">1Fichier.com</div>
-                        </a>
-                    </li>
+                    <?php } ?>
                 </ul>
             </div>
 	<?php } ?>

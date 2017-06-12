@@ -36,11 +36,11 @@
     <button type="button" data-toggle="modal" data-target="#modal-cart" data-loading-text="Loading..." class="btn btn-primary btn-block dropdown-toggle">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
-        <span id="cart-total"><span class="products"><b><?php if ($_cartQty > 0) {
-                        echo $_cartQty;
+        <span id="cart-total"><span class="products"><b><?php if ($_cartQty >1) {
+                        echo $_cartQty .' products';
                     } else {
-                        echo '0';
-                    }?></b> products, </span><span class="prices"><b><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></b></span></span>
+                        echo $_cartQty.' product';
+                    }?></b> </span><span class="prices"><b><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></b></span></span>
         <i class="fa fa-angle-down"></i>
     </button>
 </div>
@@ -73,7 +73,7 @@
             </div>
             <div class="modal-footer">
                 <div class="col-md-4"><a class="btn btn-default btn-block" data-dismiss="modal">Back to Shop</a></div>
-                <div class="col-md-4"><a href="" class="btn btn-default btn-block">View Cart</a></div>
+                <div class="col-md-4"><a href="<?php echo Mage::getBaseUrl().'checkout/cart';?>" class="btn btn-default btn-block">View Cart</a></div>
                 <div class="col-md-4">
                     <button type="button" title="<?php echo $this->__('Checkout') ?>" class="btn btn-block btn-success" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><?php echo $this->__('Checkout') ?></button>
                </div>
@@ -101,13 +101,7 @@
         font-size: 13px;
         display: block;
     }
-    #cart1 > .btn #cart-total {
-        display: block;
-        color: #ddd;
-        text-align: left;
-        margin-left: 40px;
-        margin-right: 15px;
-    }
+
     #cart1 {
         position: relative;
         border-radius: 5px;
@@ -149,7 +143,7 @@
     }
     #modal-cart .product-details {
         width: 70%;
-        float: right;
+        float: left;
         text-align: left;
     }
 </style>

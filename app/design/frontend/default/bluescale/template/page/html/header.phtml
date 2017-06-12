@@ -43,8 +43,24 @@
                             <span class="fa fa fa-angle-down caretalt"></span>
                         </button>   
                         <ul class="dropdown-menu pull-right">
-                            <li><a href=""><i class="fa fa-sign-in fa-fw dropdown-menu-icon"></i>  Login</a></li>
-                            <li><a href=""><i class="fa fa-pencil fa-fw dropdown-menu-icon"></i>  Register</a></li>
+
+                            <?php if ($this->helper('customer')->isLoggedIn()): ?>
+                            <li>
+                            <a href="<?php echo $this->getUrl('customer/account/') ?>"><i class="fa fa-area-chart fa-fw dropdown-menu-icon"></i><?php echo $this->__('My account') ?>
+                            </a>
+                            </li>
+                            <li>
+                            <a href="<?php echo $this->getUrl('customer/account/logout') ?>"><i class="fa fa-sign-out fa-fw dropdown-menu-icon"></i><?php echo $this->__('Logout') ?>
+                            </a>
+                            </li>
+                            
+                        <?php else: ?>
+                           <li><a href="<?php echo $this->getUrl('customer/account/login/') ?>"><i class="fa fa-sign-in fa-fw dropdown-menu-icon"></i>  Login</a></li>
+                            <li><a href="<?php echo $this->getUrl('customer/account/create/') ?>"><i class="fa fa-pencil fa-fw dropdown-menu-icon"></i>  Register</a></li>
+                        <?php endif;?>
+
+
+                            
                         </ul>
                     </div>
                 </div>
@@ -56,9 +72,9 @@
                         <i class="fa fa-support icon"></i><span class="hidden-sm hidden-xs">  Help  & Support </span> <i class="fa fa fa-angle-down caretalt"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="">Contact us</a></li>
-                            <li><a href="">Reviews</a></li>
-                            <li><a href="">uTop Points</a></li>
+                            <li><a href="<?php echo Mage::getBaseUrl().'contact-us'; ?>">Contact us</a></li>
+                            <li><a href="" class="review-btn">Reviews</a></li>
+                            <li><a href="<?php echo Mage::getBaseUrl().'blogs'; ?>">uTop Points</a></li>
                         </ul>
                     </div>
                 </div>
@@ -173,6 +189,13 @@ button.close {
     display: table;
     margin-top: 8px;
 }
+.btn-addtocart {
+    color: #000;
+    background-color: #eee;
+    border-color: #ddd;
+    padding: 5px 10px;
+    max-width: 125px;
+}
 .custom-block a:hover{
     color: #0fa03e;
     text-decoration: none;
@@ -206,8 +229,8 @@ li.item-listcate {
     text-transform: uppercase;
 }
 
-.item-listcate a.clearfix {
-    border: 1px solid;
+.item-listcate .clearfix {
+    border: 1px solid #a5a5a5;
 }
 
 .item-listcate .img {
@@ -218,7 +241,7 @@ li.item-listcate {
     margin-bottom: 15px;
     color: #333;
 }
-.item-listcate a:hover .btn-addtocart  {
+.item-listcate .clearfix:hover .btn-addtocart  {
     border-color: #0fa03e;
     background-color: #0fa03e;
     color: #fff;

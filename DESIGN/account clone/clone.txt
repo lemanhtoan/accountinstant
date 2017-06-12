@@ -156,3 +156,144 @@
     color: #4d626c;
     border-top: 1px solid rgba(227,230,232,.3);
 }
+
+
+
+
+<table class="table table-bordered compares" style="width: 100%;">
+<thead>
+<tr><th colspan="3">
+<h4>Premium features</h4>
+</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-success text-center"><em class="fa fa-check"></em> Download Speed: Unlimited</td>
+<td class="text-success text-center"><em class="fa fa-check"></em> IP address priority: Yes</td>
+<td class="text-success text-center"><em class="fa fa-check"></em> Maximum File Size (send): 100 GB</td>
+</tr>
+<tr>
+<td class="text-success text-center"><em class="fa fa-check"></em> Download managers: Yes</td>
+<td class="text-success text-center"><em class="fa fa-check"></em> Resuming downloads: Yes</td>
+<td class="text-success text-center"><em class="fa fa-check"></em> Maximum File Size (receive): 100 GB</td>
+</tr>
+<tr>
+<td class="text-success text-center"><em class="fa fa-check"></em> Simultaneous downloads: Yes</td>
+<td class="text-success text-center"><em class="fa fa-check"></em> CDN Credits: 100 GB / month</td>
+<td class="text-success text-center"><em class="fa fa-check"></em> Access list control: Yes</td>
+</tr>
+</tbody>
+</table>
+
+cau hinh backend hien thi giam gia checkout onepage
+sua san pham backend phan mo ta ngan
+<p><b>Direct</b> download</p>
+<p><b>Resume</b> downloads</p>
+<p><b>Simultaneous</b> downloads</p>
+
+top-content-home cms				
+<div class="alert alert-success fade in alert-dismissable">
+	  <strong><i class="fa fa-check-circle"></i>Can't find desired host premium at uTop? <u>Contact us</u> , We will make it available ASAP.
+	</div>
+
+	<div class="row custom-blocks">
+		<div class="col-sm-4">
+			<div class="custom-block">
+				<a href="" target="_blank">
+					<div class="image">
+						<img src="http://localhost/accountinstant/media/pay/i1.png" alt="PayPal USA">
+					</div>
+					<div class="text">
+						<div class="title">Click To Pay</div>
+						<p>With <b>PayPal</b> USA </p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="custom-block">
+				<a href="" target="_blank">
+					<div class="image">
+						<img src="http://localhost/accountinstant/media/pay/i2.png" alt="PayPal USA">
+					</div>
+					<div class="text">
+						<div class="title">Click To Pay</div>
+						<p>With <b>PayPal</b> USA </p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="custom-block">
+				<a href="" target="_blank">
+					<div class="image">
+						<img src="http://localhost/accountinstant/media/pay/i3.png" alt="PayPal USA">
+					</div>
+					<div class="text">
+						<div class="title">Click To Pay</div>
+						<p>With <b>PayPal</b> USA </p>
+					</div>
+				</a>
+			</div>
+		</div>
+
+        <div class="col-sm-4">
+            <div class="custom-block">
+                <a href="" target="_blank">
+                    <div class="image">
+                        <img src="http://localhost/accountinstant/media/pay/i4.png" alt="PayPal USA">
+                    </div>
+                    <div class="text">
+                        <div class="title">Click To Pay</div>
+                        <p>With <b>PayPal</b> USA </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="custom-block">
+                <a href="" target="_blank">
+                    <div class="image">
+                        <img src="http://localhost/accountinstant/media/pay/i5.png" alt="PayPal USA">
+                    </div>
+                    <div class="text">
+                        <div class="title">Click To Pay</div>
+                        <p>With <b>PayPal</b> USA </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="custom-block">
+                <a href="" target="_blank">
+                    <div class="image">
+                        <img src="http://localhost/accountinstant/media/pay/i6.png" alt="PayPal USA">
+                    </div>
+                    <div class="text">
+                        <div class="title">Click To Pay</div>
+                        <p>With <b>PayPal</b> USA </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+	</div>
+
+footer-content
+
+<ul>
+    <li class="dn-payment-logos"></li>
+    <li>
+        <a href="/privacy-statement">Privacy and Cookies Statement</a>
+        <a href="/terms-conditions" class="dn-with-separator">Terms and Conditions</a>
+    </li>
+</ul>
+<ul>
+    <li>
+        <span class="dn-incapsula"></span>
+        <span class="dn-trustwave"></span>
+    </li>
+    <li>Trustworthy, Secure and Protected</li>
+</ul>
+
+demo cate
+http://localhost/accountinstant/index.php/1fichier-premium.html

@@ -3,20 +3,20 @@
 <div id="checkout-review-load" class="default-box checkout-review-load">
   <?php echo $this->getChildHtml('info') ?>
 </div>
-
+<div class="onestepcheckout-pro-conditions">
+	<input type="checkbox" name="promo-check" id="promo-checkbox_id" >
+	<label>I have a promotional code</label>
+</div>
 <!-- Begin of Discount section -->
 <?php if ($_helper->showDiscount()):?>
-<div class="onestepcheckout-discount">
+<div class="onestepcheckout-discount btb-ch">
 	<?php $_couponCode = $this->getQuote()->getCouponCode(); ?>
-	<label for="couponcode"><?php echo $this->__('Coupon code:') ?></label>
-	
 	<div class="discount-form">
 		<input type="hidden" name="remove" id="remove-coupon-onestepcheckout" value="0" />
 		<div class="input-box">
 			<input class="input-text" id="coupon_code_onestepcheckout" autocomplete="off" name="coupon_code" value="<?php echo $this->htmlEscape($_couponCode) ?>" />
 			<br/>
-			<button type="button" id="add_coupon_code_button" title="<?php echo $this->__('Apply Coupon') ?>" class="button" value="<?php echo $this->__('Apply Coupon') ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>			
-			<button type="button" id="remove_coupon_code_button" title="<?php echo $this->__('Cancel Coupon') ?>" class="button" value="<?php echo $this->__('Cancel Coupon') ?>" <?php if(!strlen($_couponCode)): ?> style="display:none;"<?php endif?>><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
+			<button type="button" id="add_coupon_code_button" title="<?php echo $this->__('Apply') ?>" class="button-" value="<?php echo $this->__('Apply') ?>"><span><span><?php echo $this->__('Apply') ?></span></span></button>						
 		</div>		
 	</div>
 </div>
@@ -160,3 +160,35 @@
 	</div>
 </div>
 
+<style type="text/css">
+	.onestepcheckout-pro-conditions {
+		display: inline-flex;
+		text-align: left;
+		float: left;
+		margin: 25px 0 10px 26px;
+		width: 100%;
+	}
+
+	.btb-ch button#add_coupon_code_button {
+	    width: 100px;
+	    padding: 5px;
+	    background: #2248e8;
+	    border: none;
+	    margin-top: 5px;
+	}
+
+
+	.btb-ch button#add_coupon_code_button span {
+	    background: #2248e8 !important;
+	    font-weight: bold;
+	    width: 100%;
+	    padding: 7px 12px;
+	}
+	.btb-ch #coupon_code_onestepcheckout {
+		padding: 10px;
+		width: 80%;
+	}
+	.btb-ch {
+		display: none;
+	}
+</style>

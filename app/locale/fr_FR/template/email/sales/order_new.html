@@ -34,16 +34,13 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
                 <td valign="top">
                   <h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Bonjour {{htmlescape var=$order.getCustomerName()}},</h1>
                     <p style="font-size:12px; line-height:16px; margin:0;">
-				  Merci d'avoir passé commande sur  {{var store.getFrontendName()}}.</p>
-				
-                  <!-- content extra-->
-                  <p style="white-space: pre-wrap; line-height:22px; margin:0 0 11px 0;">{{var contentExtra}}</p>    
-                  <!-- content extra-->
-					
-                  <p style="font-size:12px; line-height:16px; margin:0;">Si vous avez des questions au sujet de votre commande, n'hésitez pas à nous contacter et nous serons heureux de vous aider.</p>
-                  <p style="font-size:12px; line-height:16px; margin:0;"><br>
-                  Votre confirmation de commande est ci-dessous.</p></td>
-            </tr>
+                      Merci d'avoir passé commande sur  {{var store.getFrontendName()}}.<br/>Nous vous enverrons prochainement un lien de suivi pour votre colis lorsqu'il sera expédié.</p>
+                    <p style="font-size:12px; line-height:16px; margin:0;">Si vous souhaitez suivre votre commande,  <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">connectez-vous à votre compte</a>.                      </p>
+                    <p style="font-size:12px; line-height:16px; margin:0;">&nbsp;</p>
+                    <p style="font-size:12px; line-height:16px; margin:0;">Si vous avez des questions au sujet de votre commande, n'hésitez pas à nous contacter sur <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> ou bien appelez-nous au <span class="nobr">{{config path='general/store_information/phone'}}</span> du lundi au vendredi, de 9h  à 18h. </p>
+                    <p align="center" style="font-size:12px; line-height:16px; margin:0;"><br>
+                  Votre confirmation de commande est ci-dessous.</p>
+              </tr>
             <tr>
                 <td>
                     <h2 style="font-size:18px; font-weight:normal; margin:0;">Votre commande n°{{var order.increment_id}} <small>(datant du {{var order.getCreatedAtFormated('long')}})</small></h2>
