@@ -31,96 +31,196 @@
  * @see Mage_Catalog_Block_Product_List
  */
 ?>
-<?php $_productCollection=$this->getLoadedProductCollection() ?>
+<?php $_productCollection=$this->getLoadedProductCollection(); $_coreHelper = $this->helper('core'); ?>
 
 <?php $productBest = Mage::getResourceModel('catalog/category')->getAttributeRawValue(Mage::registry('current_category')->getId(), "add_blog_bestpro", Mage::app()->getStore()->getId());
- ?>
+?>
 
 <?php if(!$_productCollection->count()): ?>
-<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+    <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
-<div class="category-products">
+    <div class="category-products">
 
-    <?php echo $this->getToolbarHtml();?>
-    <?php $_iterator = 0; ?>
-    <div id="categorySlider" class="owl-carousel owl-theme">
-        <?php foreach ($_productCollection as $_product): ?>
+        <?php echo $this->getToolbarHtml();?>
+        <?php $i=0;$_iterator = 0; $count = count($_productCollection);?>
+        <div id="category-slider">
+            <?php foreach ($_productCollection as $_product): $i++;  ?>
 
-            <?php $addClass = ''; if ( ($productBest) && ($_product->getId() == $productBest) ) {$addClass = 'best-item';}?>
+                <?php $addClass = ''; if ( ($productBest) && ($_product->getId() == $productBest) ) {$addClass = 'best-item';}?>
+                <?php $cl = $cr = '';
+                    switch ($count) {
+                        case '4':
+                        case '7':
+                        case '10':
+                        case '13':
+                        case '16':
+                            $cl = 'pp1';
+                            break;
+                        case '5':
+                        case '8':
+                        case '11':
+                        case '14':
+                        case '17':
+                            $cr = 'pp2';
+                            break;
 
-            <div class="item <?php echo $addClass;?>">
+                    }
+                ?>
+                <div class="cate-<?php echo $i;?> item <?php echo $addClass;?> <?php if($i == $count) {echo $cl;} ?> <?php if($i == ($count-1)) {echo $cr;} ?>">
+                    <div class="top-best-icon-"></div>
+                    <div class="pro-wrap-">
+                        <h2><a class="item-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
+                                <span class="item-title">30 days<?php //echo $this->htmlEscape($_product->getName()) ?></span>
+                                <span class="arrow"><img src="http://www.nasze-klucze.pl/images/nk/arrow_blue.png" class="Arrow" alt=""></span>
+                                <span class="item-price-data"><?php if($_product->getSpecialPrice()) {echo $_coreHelper->currency($_product->getSpecialPrice(),true,false); } else {echo $_coreHelper->currency($_product->getPrice(),true,false);} ?></span>
+                            </a>
+                        </h2>
 
-                <div class="top-best-icon <?php echo Mage::app()->getStore()->getCode();?>"></div>
-                <div class="top-best" style="display: none"><?php echo $this->__('Best Price');?></div>   
+                        <div class="hr-break br2"></div>
 
-                <div class="pro-wrap">
-                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(160,135); ?>" width="160" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" /></a>
-                    <?php // Product description ?>
-                    <div class="product-shop">
-                        <div class="f-fix">
-                            <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName())?></a></h2>
-                            <?php if($_product->getRatingSummary()): ?>
-                            <?php echo $this->getReviewsSummaryHtml($_product) ?>
-                            <?php endif; ?>
-                            <?php echo $this->getPriceHtml($_product, true) ?>
-
-                            <div class="group-bor">
-                                <?php if($_product->isSaleable()): ?>
-                                <p><button type="button" title="<?php echo $this->__('Buy Now >>') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Buy Now >>') ?></span></span></button></p>
-                                <?php else: ?>
-                                    <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                                <?php endif; ?>
-                                <div class="desc std">
-                                    <span class="glyphicon glyphicon glyphicon-lock" aria-hidden="true"></span><?php echo $_product->getShortDescription() ?>                                    
-                                </div>
-                            </div>                            
-                           
+                        <div class="item-description">
+                            <?php echo $_product->getShortDescription() ?>
+                            <p>asdsd sds</p>
+                            <p>d4eere dsfdf</p>
                         </div>
+
+                        <button type="button" class="buy-category" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">BUY NOW</button>
+
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
 <?php endif; ?>
 
 <style>
-.best-item .top-best {
-    display: block !important;
-}
+    li.question a {
+        color: #648ECD;
+        text-transform: uppercase;
+    }
 
+    li.question i {
+        color: #648ECD;
+    }
+    .box-follow {
+        float: left;
+        width: 100%;
+        text-align: left;
+        color: #0fa03e;
+    }
 
-.best-item .insidebox {
-    border-top: none;
-}
+    .box-follow ul {
+        text-align: left;
+        float: left;
+    }
 
-.best-item .len {
-    margin-top: 0!important;
-}
+    .box-follow li {
+        text-align: left;
+        line-height: 30px;
+    }
 
-#categorySlider .item .pro-wrap {
-    padding-top: 35px;
-}
+    .box-follow img {
+        margin-right: 5px;
+    }
 
-#categorySlider .item.best-item .pro-wrap {
-    padding-top: 7px;
-}
+    .box-follow h3 {
+        font-size: 16px;
+    }
 
-#categorySlider .item.best-item:hover .pro-wrap
-{
-    box-shadow: none;
-}
+    .box-follow a {
+        color: #0fa03e;
+    }
+    .best-item .top-best-icon-{
+        background: url(http://localhost/accountinstant/media/pay/sale.png) no-repeat scroll center center transparent;
+        height: 30px;
+        left: -40px;
+        position: absolute;
+        top: 0px;
+        width: 110px;
+        background-size: 65%;
+        -ms-transform: rotate(35deg);
+        -webkit-transform: rotate(35deg);
+        transform: rotate(35deg);
+    }
+    .item.pp1 {
+        margin-left: calc(35% - 2px) !important;
+    }
+    .item.pp2 {
+        margin-left: calc(18% + 2px) !important;
+    }
+    .buy-category {
+        background: #ED1B24;
+        border: 0;
+        color: #fff;
+        font-weight: bold;
+        padding: 2px 25px;
+        border-radius: 10px;
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    .br2 {
+        margin: 10px 0;
+        width: 90%;
+        margin-left: 5%;
+    }
+    .pro-wrap- h2 {
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+    #category-slider a.item-name {
+        text-decoration: none;
+    }
+    #category-slider .item-title {
+        font-weight: bold;
+        font-size: 24px;
+        color: #4C4B4C;
+    }
+    #category-slider .item-price-data {
+        font-weight: bold;
+        font-size: 24px;
+        color: #1D8EC1;
+    }
+    #category-slider .item {
+        width: 296px;
+        min-height:200px;
+        float: left;
+        display: inline;
+        position: relative;
+        margin: 15px;
+        border: 1px solid #BED0E4;
+        border-radius: 10px;
+    }
+    .best-item .top-best {
+        display: block !important;
+    }
 
+    .best-item .insidebox {
+        border-top: none;
+    }
 
-#categorySlider .item.best-item {
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0,0,0, 0.25);
-    border-color: transparent;
-    border-radius: 4px;
-}
-#categorySlider .item.best-item .insidebox {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    min-height: 260px;
-}
+    .best-item .len {
+        margin-top: 0!important;
+    }
+
+    #category-slider .item .pro-wrap {
+        padding-top: 35px;
+    }
+
+    #category-slider .item.best-item .pro-wrap {
+        padding-top: 7px;
+    }
+
+    #category-slider .item.best-item:hover .pro-wrap
+    {
+        box-shadow: none;
+    }
+
+    #category-slider .item.best-item {
+        z-index: 10;
+    }
+    #category-slider .item.best-item .insidebox {
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        min-height: 260px;
+    }
 </style>

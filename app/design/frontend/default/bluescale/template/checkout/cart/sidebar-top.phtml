@@ -31,52 +31,125 @@
  */
 
 ?>
-<div id="header">
-    <div class="block block-cart block-topcart">
-        <div id="cart_block">
-            <?php $_cartQty = $this->getSummaryCount() ?>
-            <div class="cart-heading">
-                <div class="basket-item-count">
-                <span id="cart_count_ajax">
-                    <span class="count" id="cart_count">
-                        <?php if ($_cartQty > 0) {
-                            echo $_cartQty;
-                        } else {
-                            echo '0';
-                        }?>
-                    </span>
-                </span> 
-                    <img alt="" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>/common/icon-cart.png">
+<?php $_cartQty = $this->getSummaryCount() ?>
+<div id="cart1" class="btn-group btn-block">
+    <button type="button" data-toggle="modal" data-target="#modal-cart" data-loading-text="Loading..." class="btn btn-primary btn-block dropdown-toggle">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+        <span id="cart-total"><span class="products"><b><?php if ($_cartQty > 0) {
+                        echo $_cartQty;
+                    } else {
+                        echo '0';
+                    }?></b> products, </span><span class="prices"><b><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></b></span></span>
+        <i class="fa fa-angle-down"></i>
+    </button>
+</div>
+<!-- Modal -->
+<div id="modal-cart" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Shopping Cart</h4>
+            </div>
+            <div class="modal-body">
+                <div class="block-content">
+                    <?php $_items = $this->getRecentItems() ?>
+                    <?php if(count($_items)) { ?>
+                        <ol id="cart-sidebar-" class="mini-products-list-">
+                            <?php foreach($_items as $_item): ?>
+                                <?php echo $this->getItemHtml($_item) ?>
+                            <?php endforeach; ?>
+                        </ol>
+                        <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
+                    <?php } else {  ?>
+                        <?php echo $this->__('Empty cart.') ?>
+                    <?php } ?>
+
+
                 </div>
-                <div class="total-price-basket">
-                    <span class="value" id="total_price"><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></span>
-                    <span class="lbl"><button class="btn btn-sup" type="button" title="<?php echo $this->__('Checkout') ?>" class="button-small" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button></span>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-4"><a class="btn btn-default btn-block" data-dismiss="modal">Back to Shop</a></div>
+                <div class="col-md-4"><a href="" class="btn btn-default btn-block">View Cart</a></div>
+                <div class="col-md-4">
+                    <button type="button" title="<?php echo $this->__('Checkout') ?>" class="btn btn-block btn-success" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><?php echo $this->__('Checkout') ?></button>
+               </div>
             </div>
         </div>
 
-        <!-- // block-title -->
-
-        <div class="block-content">
-            <?php $_items = $this->getRecentItems() ?>
-            <?php if(count($_items)) { ?>
-                <p class="block-subtitle"><?php echo $this->__('Products') ?></p>
-                <ol id="cart-sidebar" class="mini-products-list">
-                    <?php foreach($_items as $_item): ?>
-                        <?php echo $this->getItemHtml($_item) ?>
-                    <?php endforeach; ?>
-                </ol>
-                <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
-            <?php } else {  ?>
-               <?php echo $this->__('Empty cart.') ?> 
-            <?php } ?>
-
-            <?php  if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
-                <div class="actions">
-                    <?php echo $this->getChildHtml('extra_actions') ?>
-                    <button type="button" title="<?php echo $this->__('Checkout') ?>" class="btn btn-block btn-success" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><?php echo $this->__('Checkout') ?></button>
-                </div>
-            <?php endif ?>
-        </div>
     </div>
 </div>
+
+<style>
+
+    #cart1 #cart-total span.price {
+        color: #fff;
+        font-size: 13px;
+    }
+    #cart1 > .btn #cart-total {
+        display: block;
+        color: #fff;
+        text-align: left;
+        margin-left: 20px;
+        margin-right: 15px;
+    }
+    #cart1 .products, #cart1 .prices {
+        line-height: 16px;
+        font-size: 13px;
+        display: block;
+    }
+    #cart1 > .btn #cart-total {
+        display: block;
+        color: #ddd;
+        text-align: left;
+        margin-left: 40px;
+        margin-right: 15px;
+    }
+    #cart1 {
+        position: relative;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        z-index: 1010;
+        margin-left: 10px;
+        margin-top: -7px;
+    }
+    #cart1 > .btn {
+        background: #000;
+        border-radius: 5px;
+        padding: 4px 15px 4px 10px;
+        line-height: 32px;
+        text-align: left;
+        display: inline-flex;
+    }
+    #cart1 > .btn > .fa.fa-angle-down {
+        line-height: 32px;
+        float: right;
+        color: #fff;
+    }
+    #cart1 .fa-shopping-cart {
+        font-size: 26px;
+    }
+    #modal-cart .modal-title {
+        text-align: left;
+    }
+    #modal-cart button.btn-success {
+        background: #0fa03e !important;
+        border-color: #0fa03e;
+    }
+    #modal-cart .modal-body, #modal-cart .modal-footer {
+        float: left;
+        width: 100%;
+        background: #fff;
+    }
+    #modal-cart .modal-content {
+        border-radius: 0;
+    }
+    #modal-cart .product-details {
+        width: 70%;
+        float: right;
+        text-align: left;
+    }
+</style>

@@ -42,37 +42,18 @@ if ($_imgUrl = $_category->getImageUrl()) {
 }
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
         <?php if($_imgUrl): ?>
             <?php echo $_imgHtml ?>
         <?php endif; ?>
-
-        <a class="free-register" target="_blank" href="<?php echo $_category->getCategoryRegisterlink();?>">
-            <?php echo $this->__('free register');?>
-        </a>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
         <div class="page-title category-title">
-            <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
-                <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-            <?php endif; ?>
             <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
         </div>
-
-        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-
-
-        <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
-            <div class="category-description std">
-                <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
-            </div>
-        <?php endif; ?>
     </div>
 </div>
-
-<div class="row content-fulldesc">
-    <?php echo $_category->getCategoryFulldes();?>
-</div>
+<div class="hr-break"></div>
 
 <?php if($this->isContentMode()): ?>
     <?php echo $this->getCmsBlockHtml() ?>
@@ -85,47 +66,22 @@ if ($_imgUrl = $_category->getImageUrl()) {
     <?php echo $this->getProductListHtml() ?>
 <?php endif; ?>
 
+<div class="row box-cms">
 
-<?php $productBlogs = Mage::getResourceModel('catalog/category')->getAttributeRawValue(Mage::registry('current_category')->getId(), "add_blogs", Mage::app()->getStore()->getId());
- if ($productBlogs) : 
-    $blogs = explode(",", $productBlogs);
-    
-  ?>
- <!-- get list blogs -->
-<div class="blog-des">
-    <h3>Information</h3>
-    <?php 
-        $categoryBlogDes = Mage::getResourceModel('catalog/category')->getAttributeRawValue(Mage::registry('current_category')->getId(), "add_blog_descip", Mage::app()->getStore()->getId());
-    ?>
-    
-    <div class="list-contents">
-    <?php 
-    if ($categoryBlogDes) : 
-    ?>
-    <p class="des-blog">
-        <?php echo $categoryBlogDes; ?>
-    </p>
-    <?php endif; ?>
-    <ul class="list-post-blog">
-        <?php foreach( $blogs as $blog) :?>
-            <li>
-                <?php $post = Mage::getModel('blog/post')->load($blog); ?>
-                <a href="#post_<?php echo $post->getIdentifier(); ?>"><?php echo $post->getTitle(); ?></a>
+    <div class="box-follow">
+        <h3>Host Details</h3>
+        <ul>
+            <li><a href=""><img alt="" src="http://utop.us/image/data/1icon/web.gif" style="max-width: 100%; height: 16px; width: 16px;">http://hotlink.cc/</a></li>
+            <li><a href=""><img alt="" src="http://utop.us/image/data/1icon/support.png" style="max-width: 100%; height: 16px; width: 16px;">http://hotlink.cc/support/</a></li>
+            <li class="question">
+                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                <a href=""> Can't find desired host premium at uTop? Contact us , We will make it available ASAP.</a>
             </li>
-        <?php endforeach; ?>
-    </ul>
-    <div class="list-posts">
-        <?php foreach( $blogs as $blog) :?>
-            <?php $post = Mage::getModel('blog/post')->load($blog); ?>
-            
-            <div id="post_<?php echo $post->getIdentifier(); ?>" class="post-line">    
-                <h1 class="post-title-h1"><a href="<?php echo Mage::getBaseUrl().'blog/'.$post->getIdentifier(); ?>" ><?php echo $post->getTitle(); ?></a></h1>    
-                <p class="p-desciprtion"><?php echo $post->getShortContent(); ?></p>
-                <p class="read-more-blog"><a href="<?php echo Mage::getBaseUrl().'blog/'.$post->getIdentifier(); ?>" >Read More</a></p>
-            </div>
-        <?php endforeach; ?>
+        </ul>
     </div>
-    </div>
+
 </div>
-<!-- end get list blogs -->
-<?php endif; ?>
+
+<div class="row content-fulldesc">
+    <?php echo $_category->getCategoryFulldes();?>
+</div>
