@@ -74,7 +74,13 @@
             ?>
 
                 <ul>
-                    <?php foreach ($collection as $category) { ?>
+                    <?php $count=1; foreach ($collection as $category) { ?>
+                    <?php 
+                    if ($count%4 == 1)
+                      {
+                          echo "<div class='row'>";
+                      }
+                    ?>
                     <li class="item-listcate col-xs-12 col-sm-6 col-md-3">
                         <div class="clearfix">
                             <a href="<?php echo $category->getUrl() ?>">
@@ -91,6 +97,13 @@
                             </a>
                         </div>
                     </li>
+                    <?php
+                      if ($count%4 == 0)
+                      {
+                          echo "</div>";
+                      }
+                      $count++;
+                      ?>
                     <?php } ?>
                 </ul>
             </div>
