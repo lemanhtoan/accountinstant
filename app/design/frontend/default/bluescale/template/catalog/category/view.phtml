@@ -42,12 +42,12 @@ if ($_imgUrl = $_category->getImageUrl()) {
 }
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
         <?php if($_imgUrl): ?>
             <?php echo $_imgHtml ?>
         <?php endif; ?>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+    <div class="col-xs-12 col-sm-6 col-md-9 col-lg-9">
         <div class="page-title category-title">
             <h1> <?php echo $_helper->categoryAttribute($_category, $this->getCurrentCategory()->getDescription(), 'description') ?></h1>
         </div>
@@ -107,6 +107,8 @@ if ($_imgUrl = $_category->getImageUrl()) {
 <style type="text/css">
 .category-title h1 {
     font-size: 20px;
+    font-weight: normal;
+    line-height: 24px;
 }
 .des-blog li {
     list-style: none;
