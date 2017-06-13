@@ -70,14 +70,32 @@ if ($_imgUrl = $_category->getImageUrl()) {
 
     <div class="box-follow">
         <h3>Host Details</h3>
-        <ul>
-            <li><a href=""><img alt="" src="http://utop.us/image/data/1icon/web.gif" style="max-width: 100%; height: 16px; width: 16px;">http://hotlink.cc/</a></li>
-            <li><a href=""><img alt="" src="http://utop.us/image/data/1icon/support.png" style="max-width: 100%; height: 16px; width: 16px;">http://hotlink.cc/support/</a></li>
+
+        <?php 
+            $categoryBlogDes = Mage::getResourceModel('catalog/category')->getAttributeRawValue(Mage::registry('current_category')->getId(), "add_blog_descip", Mage::app()->getStore()->getId());
+            ?>
+            
+            <?php 
+            if ($categoryBlogDes) : 
+            ?>
+            <div class="des-blog">
+                <?php echo $categoryBlogDes; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php $productBlogs = Mage::getResourceModel('catalog/category')->getAttributeRawValue(Mage::registry('current_category')->getId(), "add_blogs", Mage::app()->getStore()->getId());
+             if ($productBlogs) : $blogs = explode(",", $productBlogs); ?>
+            <ul>
+            <?php foreach( $blogs as $blog) :?>
+            <?php $post = Mage::getModel('blog/post')->load($blog); ?>
             <li class="question">
                 <i class="fa fa-question-circle" aria-hidden="true"></i>
-                <a href=""> Can't find desired host premium at uTop? Contact us , We will make it available ASAP.</a>
+                <a href="<?php echo Mage::getBaseUrl().'blog/'.$post->getIdentifier(); ?>"> <?php echo $post->getTitle(); ?></a>
             </li>
+            <?php endforeach; ?>
         </ul>
+        <!-- end get list blogs -->
+    <?php endif; ?>
     </div>
 
 </div>
@@ -87,6 +105,9 @@ if ($_imgUrl = $_category->getImageUrl()) {
 </div>
 
 <style type="text/css">
+.des-blog li {
+    list-style: none;
+}
 .content-fulldesc table {
     color:#666;
     font-size:14px;
@@ -104,12 +125,21 @@ if ($_imgUrl = $_category->getImageUrl()) {
     padding:16px 25px 17px 25px;
     border-top:1px solid #fafafa;
     border-bottom:1px solid #e0e0e0;
-    background: #56b5eb;
+    background: #00273a;
 }
 .content-fulldesc table th h4 {
     text-transform: uppercase;
     color: #fff;
     font-size: 30px;
+}
+.content-fulldesc .text-success .fa {
+    font-size: 20px;
+    color: #3c763d;
+    margin-right: 7px; 
+}
+
+.content-fulldesc .text-success {
+    color: #00273a;
 }
 .content-fulldesc table th {
     text-align: left;

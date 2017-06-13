@@ -133,16 +133,16 @@ class Bitpay_Bitcoins_Model_PaymentMethod extends Mage_Payment_Model_Method_Abst
     {
         $helper = Mage::helper('bitpay');
 
-        if (!$helper->hasApiKey())
-        {
-            Mage::log(
-                'Bitpay/Bitcoins: API key not entered',
-                Zend_Log::ERR,
-                Mage::helper('bitpay')->getLogFile()
-            );
+        // if (!$helper->hasApiKey())
+        // {
+        //     Mage::log(
+        //         'Bitpay/Bitcoins: API key not entered',
+        //         Zend_Log::ERR,
+        //         Mage::helper('bitpay')->getLogFile()
+        //     );
 
-            return false;
-        }
+        //     return false;
+        // }
 
         if (!$helper->hasTransactionSpeed())
         {

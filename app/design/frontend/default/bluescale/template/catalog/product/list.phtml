@@ -72,7 +72,7 @@
                     <div class="top-best-icon-"></div>
                     <div class="pro-wrap-">
                         <h2><a class="item-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
-                                <span class="item-title"><?php echo $this->htmlEscape($_product->getName()) ?></span>
+                                <span class="item-title"><?php echo $this->htmlEscape($_product->getAttributeText('days')) ?></span>
                                 <span class="arrow"><img src="http://www.nasze-klucze.pl/images/nk/arrow_blue.png" class="Arrow" alt=""></span>
                                 <span class="item-price-data"><?php if($_product->getSpecialPrice()) {echo $_coreHelper->currency($_product->getSpecialPrice(),true,false); } else {echo $_coreHelper->currency($_product->getPrice(),true,false);} ?></span>
                             </a>
@@ -145,7 +145,7 @@
         transform: rotate(35deg);
     }
     .item.pp1 {
-        margin-left: calc(34% + 2px) !important;
+        margin-left: calc(35%) !important;
     }
     .item.pp2 {
         margin-left: calc(18% + 2px) !important;
