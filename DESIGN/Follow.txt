@@ -12,3 +12,23 @@ https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4bVUP2yU5zYjPP80bJaYUmXal
 http://utop.us/
 https://takevoucher.com/
 http://www.nasze-klucze.pl/en/
+
+
+
+1. admin
+https://accountinstant.com/management
+paadministrator
+Qaz1234567890
+
+2. sftp
+45.32.230.206
+root
+y2E(bJRG_*a]UzF3
+port 22
+
+3. phpmyadmin
+Link phpMyAdmin: http://45.32.230.206:19383
+Username: accountinstant  | Password: 69d924
+Ten Database: accountinst_5340
+User name: accountins5340
+Mat khau: 32d912cc9def6f5f
