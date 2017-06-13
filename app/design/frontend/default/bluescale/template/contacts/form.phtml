@@ -24,9 +24,26 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<style>
+    .contacts-index-index .col-main_ {
+        width: 100%;
+        padding: 50px;
+    }
+    .box-cadd {
+        padding: 20px 0;
+    }
+
+</style>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="page-title">
     <h1><?php echo Mage::helper('contacts')->__('Contact Us') ?></h1>
+</div>
+<div class="box-cadd">
+    <p><b>If you have any further requests or issues, please feel free to Contact us, we would be happy to assist you!</b></p>
+
+    <p>- Contact via LiveChat (Recommended)</p>
+
+    <p>- Email: support@accountinstant.com</p>
 </div>
 <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
     <div class="fieldset">

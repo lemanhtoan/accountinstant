@@ -48,8 +48,8 @@ if ($_imgUrl = $_category->getImageUrl()) {
         <?php endif; ?>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-        <div class="page-title category-title" style="margin-top: 20px">
-            <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+        <div class="page-title category-title">
+            <h1> <?php echo $_helper->categoryAttribute($_category, $this->getCurrentCategory()->getDescription(), 'description') ?></h1>
         </div>
     </div>
 </div>
@@ -105,8 +105,17 @@ if ($_imgUrl = $_category->getImageUrl()) {
 </div>
 
 <style type="text/css">
+.category-title h1 {
+    font-size: 20px;
+}
 .des-blog li {
     list-style: none;
+}
+.box-follow li a{
+    font-weight: normal;
+}
+.category-image img {
+    width: 258px;
 }
 .content-fulldesc table {
     color:#666;
@@ -122,15 +131,15 @@ if ($_imgUrl = $_category->getImageUrl()) {
     box-shadow: 0 1px 2px #d1d1d1;
 }
 .content-fulldesc table th {
-    padding:16px 25px 17px 25px;
+    padding:3px;
     border-top:1px solid #fafafa;
     border-bottom:1px solid #e0e0e0;
-    background: #00273a;
+    background: #0087c9;
 }
 .content-fulldesc table th h4 {
     text-transform: uppercase;
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
 }
 .content-fulldesc .text-success .fa {
     font-size: 20px;

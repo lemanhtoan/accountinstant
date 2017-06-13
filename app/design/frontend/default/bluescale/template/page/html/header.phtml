@@ -72,7 +72,7 @@
                         <i class="fa fa-support icon"></i><span class="hidden-sm hidden-xs">  Help  & Support </span> <i class="fa fa fa-angle-down caretalt"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo Mage::getBaseUrl().'contact-us'; ?>">Contact us</a></li>
+                            <li><a href="<?php echo Mage::getBaseUrl().'contacts'; ?>">Contact us</a></li>
                             <li><a href="" class="review-btn">Reviews</a></li>
                             <li><a href="<?php echo Mage::getBaseUrl().'blogs'; ?>">uTop Points</a></li>
                         </ul>
@@ -84,9 +84,7 @@
     </div>
 </div>
 <style>
-header {
-    border-bottom: 2px solid #00273a;
-}
+
 .alw-show {
     display: block !important;
     position: relative;
@@ -99,19 +97,20 @@ header {
 .navigationTop- li {
     float: left;
     width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eaeaea;
 }
 .support-box.pull-right {
     margin-right: 10px;
 }
-.navigationTop- .btn {
-    background: #00273a;
-    line-height: 28px;
-    border-color: #00273a;
-    /* padding-top: 0px; */
-    /* padding-bottom: 0px; */
+.navigationTop- .btn{
+    background: #f5f5f5;
+    line-height: 26px;
+    border-color: #ddd;
+    padding-top: 0px;
+    padding-bottom: 0px;
     padding-left: 8px;
     padding-right: 8px;
-    color: #fff;
 }
 .navigationTop- i {
     margin-left: 5px;
@@ -227,17 +226,14 @@ li.item-listcate {
     border-radius: 5px;
 }
 .item-listcate .title {
-    background: #00273a;
+    background: #0087c9;
     color: #fff;
     padding: 7px;
     text-transform: uppercase;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 .item-listcate .clearfix {
     border: 1px solid #a5a5a5;
-    border-radius: 10px;
 }
 
 .item-listcate .img {
@@ -249,19 +245,19 @@ li.item-listcate {
     color: #333;
 }
 .item-listcate .clearfix:hover .btn-addtocart  {
-    border-color: #0fa03e;
-    background-color: #0fa03e;
+    border-color: #f00;
+    background-color: #f00;
     color: #fff;
 }
 
 .item-listcate a:hover  {
     text-decoration: none;
-    color: #0fa03e;
+    color: #f00;
 }
 
 .dn-footer-bottom {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 5px;
     background: #00273a;
 }
 .dn-wrap {

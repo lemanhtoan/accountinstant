@@ -71,11 +71,10 @@
                 <div class="cate-<?php echo $i;?> item <?php echo $addClass;?> <?php if($i == $count) {echo $cl;} ?> <?php if($i == ($count-1)) {echo $cr;} ?>">
                     <div class="top-best-icon-"></div>
                     <div class="pro-wrap-">
-                        <h2><a class="item-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
-                                <span class="item-title"><?php echo $this->htmlEscape($_product->getAttributeText('days')) ?></span>
-                                <span class="arrow"><img src="http://www.nasze-klucze.pl/images/nk/arrow_blue.png" class="Arrow" alt=""></span>
-                                <span class="item-price-data"><?php if($_product->getSpecialPrice()) {echo $_coreHelper->currency($_product->getSpecialPrice(),true,false); } else {echo $_coreHelper->currency($_product->getPrice(),true,false);} ?></span>
-                            </a>
+                        <h2>
+                            <span class="item-title"><?php echo $this->htmlEscape($_product->getAttributeText('days')) ?></span>
+                            <span class="arrow"><img src="http://www.nasze-klucze.pl/images/nk/arrow_blue.png" class="Arrow" alt=""></span>
+                            <span class="item-price-data"><?php if($_product->getSpecialPrice()) {echo $_coreHelper->currency($_product->getSpecialPrice(),true,false); } else {echo $_coreHelper->currency($_product->getPrice(),true,false);} ?></span>
                         </h2>
 
                         <div class="hr-break br2"></div>
@@ -135,9 +134,9 @@
     .best-item .top-best-icon-{
         background: url('<?php echo $media;?>pay/sale.png') no-repeat scroll center center transparent;
         height: 30px;
-        left: -55px;
+        left: -48px;
         position: absolute;
-        top: -10px;
+        top: -5px;
         width: 110px;
         background-size: 65%;
         -ms-transform: rotate(35deg);
@@ -145,7 +144,7 @@
         transform: rotate(35deg);
     }
     .item.pp1 {
-        margin-left: calc(35%) !important;
+        margin-left: 330px !important;
     }
     .item.pp2 {
         margin-left: calc(18% + 2px) !important;
