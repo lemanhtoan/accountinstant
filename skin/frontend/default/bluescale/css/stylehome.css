@@ -62,6 +62,7 @@ h5,
 h6 {
     font-weight: 700
 }
+.btn-remove2 { display:block; width:16px; height:16px; font-size:0; line-height:0; background:url(../images/btn_trash.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }
 h3 {
     font-size: 16px
 }
