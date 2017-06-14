@@ -12,11 +12,14 @@
 	}
     .step-check-header, #onestepcheckout-button-place-order {
         background: #0fadf3;
-        text-transform: uppercase;
         font-size: 15px;
         margin:  0;
         margin-top: 10px;
     }
+    #onestepcheckout-button-place-order span {
+    	text-transform: uppercase;
+    }
+    
     .one-step-checkout {
         background: #fff;
         border: 0;
@@ -135,7 +138,7 @@
 					<ol>
 						<li class="payment-method">						
 							<h3 class="step-check-header">
-								<?php echo $this->__('step 2: Payment Method'); ?>
+								<?php echo $this->__('2: Payment Method'); ?>
 							</h3>						
 							<?php echo $this->getChildHtml('onestepcheckout.payment_method'); ?>												
 						</li>
@@ -143,7 +146,7 @@
 						<li class="order-review-info">	
 									
 							<h3 class="step-check-header">
-								<?php echo $this->__('step 3: Order Review'); ?>
+								<?php echo $this->__('3: Order Review'); ?>
 							</h3>		
 							<div class="clss-rv">				
 								<?php echo $this->getChildHtml('onestepcheckout.review') ?>						
@@ -161,7 +164,7 @@
 						<li class="order-review-info">	
 												
 							<h3 <?php if (!$this->isVirtual() && !Mage::helper('onestepcheckout')->isHideShippingMethod()):?> class="step_4" <?php else:?> class="step-check-header"<?php endif?>>
-								<?php echo $this->__('step 3: Order Review'); ?>
+								<?php echo $this->__('3: Order Review'); ?>
 							</h3>		
 							<div class="clss-rv">				
 								<?php echo $this->getChildHtml('onestepcheckout.review') ?>						
