@@ -98,7 +98,7 @@
 		<?php if ( $this->customerHasAddresses() || !$this->isCustomerLoggedIn() && Mage::helper('onestepcheckout')->enableRegistration() && Mage::helper('onestepcheckout')->allowGuestCheckout()):?>
 		<li class="need-padding-check" style="text-align: left;">
 			<div class="create-check">
-				<input id="create_account_checkbox_id" type="checkbox" name="create_account_checkbox" onclick="checkCreatAccount()" value="0" />
+				<input  class="create_account_checkbox_id_" id="create_account_checkbox_id" type="checkbox" name="create_account_checkbox" onclick="checkCreatAccount()" value="1" />
 				<label for="create_account_checkbox_id"><?php echo $this->__('Create an account for later use') ?></label>
 			</div>
 		</li>

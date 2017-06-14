@@ -326,6 +326,7 @@ class Magestore_Onestepcheckout_IndexController extends Mage_Core_Controller_Fro
 			$checkoutMethod = 'guest';
 			if ($helper->enableRegistration() || !$helper->allowGuestCheckout()) {
 				$is_create_account = $this->getRequest()->getPost('create_account_checkbox');
+
 				$email_address = $billing_data['email'];
 				if ($is_create_account || !$helper->allowGuestCheckout()) {
 					if ($this->_emailIsRegistered($email_address)) {						
@@ -352,6 +353,7 @@ class Magestore_Onestepcheckout_IndexController extends Mage_Core_Controller_Fro
 						}
 					}
 				}
+
 			}
 		}
 		if ($checkoutMethod != '') $this->getOnepage()->saveCheckoutMethod($checkoutMethod);
