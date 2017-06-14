@@ -32,6 +32,19 @@
     .box-cadd {
         padding: 20px 0;
     }
+    @media screen and (max-width: 768px) {
+   #contactForm input, #contactForm textarea {
+    width: 100%;
+    max-width: 100%;
+    float: left;
+   }
+   #contactForm .form-list li.wide .input-box, #contactForm .form-list .field, #contactForm .form-list .input-box {
+    width: 100%;
+   }
+   .contacts-index-index .col-main_ {
+    padding: 0;
+   }
+}
 
 </style>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>

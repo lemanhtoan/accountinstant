@@ -9,13 +9,12 @@
 </div>
 <!-- Begin of Discount section -->
 <?php if ($_helper->showDiscount()):?>
-<div class="onestepcheckout-discount btb-ch">
+<div class="onestepcheckout-discount btb-ch" style="margin-left: 5px;">
 	<?php $_couponCode = $this->getQuote()->getCouponCode(); ?>
 	<div class="discount-form">
 		<input type="hidden" name="remove" id="remove-coupon-onestepcheckout" value="0" />
 		<div class="input-box">
-			<input class="input-text" id="coupon_code_onestepcheckout" autocomplete="off" name="coupon_code" value="<?php echo $this->htmlEscape($_couponCode) ?>" />
-			<br/>
+			<input style="border-radius: 5px; width: 60%; float: left;" class="input-text" id="coupon_code_onestepcheckout" autocomplete="off" name="coupon_code" value="<?php echo $this->htmlEscape($_couponCode) ?>" />
 			<button type="button" id="add_coupon_code_button" title="<?php echo $this->__('Apply') ?>" class="button-" value="<?php echo $this->__('Apply') ?>"><span><span><?php echo $this->__('Apply') ?></span></span></button>						
 		</div>		
 	</div>
@@ -133,7 +132,7 @@
  //]]>
 </script>
 <div class="onestepcheckout-terms-conditions">
-	<input type="checkbox" name="terms_conditions_checkbox" checked="checked" id="terms_conditions_checkbox_id" value="1" class="required-entry"/>
+	<input type="checkbox" name="terms_conditions_checkbox" id="terms_conditions_checkbox_id" value="0" class="required-entry"/>
 	<label for="terms_conditions_checkbox_id"><?php echo $this->__('I read and agree to ');?> <a id="onestepcheckout-toc-link" target="_blank" href="javascript:void(0);" ><?php echo $this->__('Terms and Conditions');?></a></label>
 </div>
 <?php endif;?>
@@ -161,11 +160,19 @@
 </div>
 
 <style type="text/css">
+button#onestepcheckout-button-place-order {
+    float: left;
+    width: 100%;
+    background: #f00;
+}
+.onestepcheckout-terms-conditions {
+	float: left;
+}
 	.onestepcheckout-pro-conditions {
 		display: inline-flex;
 		text-align: left;
 		float: left;
-		margin: 25px 0 10px 26px;
+		margin: 25px 0 10px 3px;
 		width: 100%;
 	}
 
@@ -174,7 +181,7 @@
 	    padding: 5px;
 	    background: #2248e8;
 	    border: none;
-	    margin-top: 5px;
+	    border-radius: 5px;
 	}
 
 
@@ -185,7 +192,7 @@
 	    padding: 7px 12px;
 	}
 	.btb-ch #coupon_code_onestepcheckout {
-		padding: 10px;
+		padding: 5px;
 		width: 80%;
 	}
 	.btb-ch {

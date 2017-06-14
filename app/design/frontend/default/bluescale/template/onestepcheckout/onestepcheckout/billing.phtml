@@ -94,11 +94,11 @@
 				<?php echo $this->getCountryHtmlSelect('billing') ?>
 			</div>
 		<?php endif ?>
-		<li><p style="padding: 3px;"><?php echo $this->__('Get Free SMS delivery (You can skip this field)'); ?>.</p></li>
+		<li><p style="padding: 10px 5px 0; text-align: left; "><?php echo $this->__('Get Free SMS delivery (You can skip this field)'); ?>.</p></li>
 		<?php if ( $this->customerHasAddresses() || !$this->isCustomerLoggedIn() && Mage::helper('onestepcheckout')->enableRegistration() && Mage::helper('onestepcheckout')->allowGuestCheckout()):?>
-		<li class="need-padding-check">
+		<li class="need-padding-check" style="text-align: left;">
 			<div class="create-check">
-				<input id="create_account_checkbox_id" type="checkbox" name="create_account_checkbox" checked="checked" onclick="checkCreatAccount()" value="1" />
+				<input id="create_account_checkbox_id" type="checkbox" name="create_account_checkbox" onclick="checkCreatAccount()" value="0" />
 				<label for="create_account_checkbox_id"><?php echo $this->__('Create an account for later use') ?></label>
 			</div>
 		</li>

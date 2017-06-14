@@ -43,7 +43,23 @@
     <?php echo $this->getChildHtml('header') ?>
 </header>
 <!-- end header page -->
+<style type="text/css">
+  .top-title {
+    background: #0087c9;
+    color: #fff;
+}
 
+.top-title h2 {
+    font-size: 20px;
+    padding: 10px 20px;
+    text-align: left;
+}
+    @media screen and (max-width: 768px) {
+#login-form .form-list input.input-text, #login-form .form-list .input-box {
+  width: 100%;
+}
+}
+</style>
 <!-- main content page -->
 <div class="container padding-both">
 
@@ -56,9 +72,11 @@
 		if($routeName == 'cms' && $identifier == 'keyissue-homepage') { ?>
 			<div class="box-top-home">
             <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top-content-home')->toHtml();?> 
-
-				
 			</div>
+
+      <div class="top-title">
+        <h2>Categories   <i class="fa fa-angle-down" aria-hidden="true"></i></h2>
+      </div>
 
             <div class="home-categories-">
 
