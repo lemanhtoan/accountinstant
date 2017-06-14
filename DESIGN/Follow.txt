@@ -32,3 +32,15 @@ Username: accountinstant  | Password: 69d924
 Ten Database: accountinst_5340
 User name: accountins5340
 Mat khau: 32d912cc9def6f5f
+
+
+update order number
+
+
+UPDATE `eav_entity_store` SET `increment_last_id` = '100010001', `increment_prefix` = '' WHERE `entity_type_id` = '5';
+
+UPDATE `eav_entity_store` SET `increment_last_id` = '100010001', `increment_prefix` = '' WHERE `entity_type_id` = '6';
+
+UPDATE `eav_entity_store` SET `increment_last_id` = '100010001', `increment_prefix` = '' WHERE `entity_type_id` = '7';
+
+UPDATE `eav_entity_store` SET `increment_last_id` = '100010001', `increment_prefix` = '' WHERE `entity_type_id` = '8';

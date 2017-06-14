@@ -132,7 +132,7 @@
  //]]>
 </script>
 <div class="onestepcheckout-terms-conditions">
-	<input type="checkbox" name="terms_conditions_checkbox" id="terms_conditions_checkbox_id" value="0" class="required-entry"/>
+	<input type="checkbox" name="terms_conditions_checkbox" id="terms_conditions_checkbox_id" checked="checked" value="1" class="required-entry"/>
 	<label for="terms_conditions_checkbox_id"><?php echo $this->__('I read and agree to ');?> <a id="onestepcheckout-toc-link" target="_blank" href="javascript:void(0);" ><?php echo $this->__('Terms and Conditions');?></a></label>
 </div>
 <?php endif;?>
@@ -167,6 +167,9 @@ button#onestepcheckout-button-place-order {
 }
 .onestepcheckout-terms-conditions {
 	float: left;
+}
+.order-review-info .onestepcheckout-terms-conditions {
+padding-top: 0 !important;
 }
 	.onestepcheckout-pro-conditions {
 		display: inline-flex;

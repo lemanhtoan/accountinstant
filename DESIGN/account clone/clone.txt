@@ -199,7 +199,7 @@ top-content-home cms
 	<div class="row custom-blocks">
 		<div class="col-sm-4">
 			<div class="custom-block">
-				<a href="" target="_blank">
+				
 					<div class="image">
 						<img src="http://localhost/accountinstant/media/pay/i1.png" alt="PayPal USA">
 					</div>
@@ -207,12 +207,12 @@ top-content-home cms
 						<div class="title">Click To Pay</div>
 						<p>With <b>PayPal</b> USA </p>
 					</div>
-				</a>
+			
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="custom-block">
-				<a href="" target="_blank">
+				
 					<div class="image">
 						<img src="http://localhost/accountinstant/media/pay/i2.png" alt="PayPal USA">
 					</div>
@@ -220,12 +220,12 @@ top-content-home cms
 						<div class="title">Click To Pay</div>
 						<p>With <b>PayPal</b> USA </p>
 					</div>
-				</a>
+			
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="custom-block">
-				<a href="" target="_blank">
+				
 					<div class="image">
 						<img src="http://localhost/accountinstant/media/pay/i3.png" alt="PayPal USA">
 					</div>
@@ -233,13 +233,13 @@ top-content-home cms
 						<div class="title">Click To Pay</div>
 						<p>With <b>PayPal</b> USA </p>
 					</div>
-				</a>
+		
 			</div>
 		</div>
 
         <div class="col-sm-4">
             <div class="custom-block">
-                <a href="" target="_blank">
+                
                     <div class="image">
                         <img src="http://localhost/accountinstant/media/pay/i4.png" alt="PayPal USA">
                     </div>
@@ -247,12 +247,12 @@ top-content-home cms
                         <div class="title">Click To Pay</div>
                         <p>With <b>PayPal</b> USA </p>
                     </div>
-                </a>
+           
             </div>
         </div>
         <div class="col-sm-4">
             <div class="custom-block">
-                <a href="" target="_blank">
+                
                     <div class="image">
                         <img src="http://localhost/accountinstant/media/pay/i5.png" alt="PayPal USA">
                     </div>
@@ -260,12 +260,12 @@ top-content-home cms
                         <div class="title">Click To Pay</div>
                         <p>With <b>PayPal</b> USA </p>
                     </div>
-                </a>
+            
             </div>
         </div>
         <div class="col-sm-4">
             <div class="custom-block">
-                <a href="" target="_blank">
+                
                     <div class="image">
                         <img src="http://localhost/accountinstant/media/pay/i6.png" alt="PayPal USA">
                     </div>
@@ -273,7 +273,7 @@ top-content-home cms
                         <div class="title">Click To Pay</div>
                         <p>With <b>PayPal</b> USA </p>
                     </div>
-                </a>
+               
             </div>
         </div>
 	</div>
@@ -283,8 +283,7 @@ footer-content
 <ul>
     <li class="dn-payment-logos"></li>
     <li>
-        <a href="/privacy-statement">Privacy and Cookies Statement</a>
-        <a href="/terms-conditions" class="dn-with-separator">Terms and Conditions</a>
+        <li><a href="/privacy-statement">Privacy and Cookies Statement</a> | <a class="dn-with-separator" href="/terms-conditions">Terms and Conditions</a></li>
     </li>
 </ul>
 <ul>

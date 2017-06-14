@@ -143,12 +143,19 @@
         -webkit-transform: rotate(35deg);
         transform: rotate(35deg);
     }
-    .item.pp1 {
-        margin-left: 330px !important;
-    }
-    .item.pp2 {
-        margin-left: calc(18% + 2px) !important;
-    }
+	@media screen and (min-width: 1024px) {
+		.item.pp1 {
+			margin-left: 330px !important;
+		}
+		.item.pp2 {
+			margin-left: calc(18% + 2px) !important;
+		}
+	}
+	@media screen and (max-width: 768px) {
+		.box-follow {
+			margin: 10px 0 !important;
+		}
+	}
     .buy-category {
         background: #ED1B24;
         border: 0;
