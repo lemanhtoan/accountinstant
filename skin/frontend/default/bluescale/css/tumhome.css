@@ -1,0 +1,58 @@
+h1.logo img {
+    width: 74%;
+    border: none;
+    float: left;
+}
+
+a.logo, h1.logo {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+header {
+    border-bottom: 2px solid rgb(63, 167, 186);
+    padding-bottom: 30px;
+}
+
+
+.block-cart .actions {
+    padding-right: 10px !important;
+}
+
+header .container {
+    padding-top: 10px;
+}
+
+
+@media screen and (min-width: 520px) and (max-width: 1024px) {
+    #header .block-topcart .block-content {
+        left: -165px;
+    }
+}
+
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 4px 5px 0;
+}
+
+input[type="radio"] {
+    margin-top: 7x;
+}
+
+.best_sellers_title span {
+    margin-top: 8px;
+    float: left;
+}
+
+.col-main_ {
+    text-align: left;
+}
+
+.col-main_ .postWrapper img,
+.col-main_ .ytp-thumbnail-overlay-image {
+    width: 100%;
+}
+.col-main_ .postWrapper {
+    overflow: hidden;
+}

@@ -45,7 +45,32 @@
 <!--	</div>-->
 <!--</div>-->
 
-<script type="text/javascript" src="https://accountinstant.com/skin/frontend/default/bluescale/js/jquery.min.js"></script>
-<script type="text/javascript" src="https://accountinstant.com/skin/frontend/default/bluescale/js/owl-carousel/owl.carousel.min.js"></script>
-<script type="text/javascript" src="https://accountinstant.com/skin/frontend/default/bluescale/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://accountinstant.com/skin/frontend/default/bluescale/js/script.js"></script>
+<?php 
+		$routeName = Mage::app()->getRequest()->getRouteName(); 
+		$identifier = Mage::getSingleton('cms/page')->getIdentifier();
+		 
+		if($routeName == 'cms' && $identifier == 'keyissue-homepage') { ?>
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/stylehome.css" media="all" />
+			<!-- <link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/skin.css" media="all" />
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/bootstrap.min.css" media="all" />
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/font-awesome.min.css" media="all" />
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/tumhome.css" media="all" /> -->
+		<?php } else { ?>
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/styles.css" media="all" />
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/skin.css" media="all" />
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/bootstrap.min.css" media="all" />
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/font-awesome.min.css" media="all" />
+
+			<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/css/tumt4.css" media="all" />
+		<?php } ?>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://localhost/accountinstant/skin/frontend/default/bluescale/js/owl-carousel/owl.carousel.css" media="all" />
+
+<script type="text/javascript" src="http://localhost/accountinstant/skin/frontend/default/bluescale/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost/accountinstant/skin/frontend/default/bluescale/js/owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="http://localhost/accountinstant/skin/frontend/default/bluescale/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost/accountinstant/skin/frontend/default/bluescale/js/script.js"></script>

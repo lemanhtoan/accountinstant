@@ -2,10 +2,11 @@
 <layout version="0.1.0">
 	<default>
         <reference name="head">
-			<action method="addCss"><stylesheet>css/skin.css</stylesheet></action>
+            
+			<!-- <action method="addCss"><stylesheet>css/skin.css</stylesheet></action> -->
 
             <!-- add bootstrap css - js-->
-            <action method="addCss">
+           <!--  <action method="addCss">
                 <stylesheet>css/bootstrap.min.css</stylesheet>
             </action>
 
@@ -22,7 +23,7 @@
                 <type>skin_css</type>
                 <name>js/owl-carousel/owl.carousel.css</name>
             </action>
-
+ -->
             <!--<action method="addItem">-->
                 <!--<type>skin_js</type>-->
                 <!--<name>js/script.js</name>-->
