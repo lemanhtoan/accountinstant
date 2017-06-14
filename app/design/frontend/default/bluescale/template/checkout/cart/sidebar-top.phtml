@@ -63,7 +63,6 @@
                                 <?php echo $this->getItemHtml($_item) ?>
                             <?php endforeach; ?>
                         </ol>
-                        <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
                     <?php } else {  ?>
                         <?php echo $this->__('Empty cart.') ?>
                     <?php } ?>
@@ -75,7 +74,7 @@
                 <div class="col-md-4"><a class="btn btn-default btn-block" data-dismiss="modal">Back to Shop</a></div>
                 <div class="col-md-4"><a href="<?php echo Mage::getBaseUrl().'checkout/cart';?>" class="btn btn-default btn-block">View Cart</a></div>
                 <div class="col-md-4">
-                    <button type="button" title="<?php echo $this->__('Checkout') ?>" class="btn btn-block btn-success" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><?php echo $this->__('Checkout') ?></button>
+                    <a  class="btn btn-block btn-success" href="<?php echo Mage::getBaseUrl().'checkout/onepage' ?>"><?php echo $this->__('Checkout') ?></a>
                </div>
             </div>
         </div>
@@ -86,5 +85,11 @@
 <style>
 
    #cart1 #cart-total span.price{color:#fff;font-size:13px}#cart1>.btn #cart-total{display:block;color:#fff;text-align:left;margin-left:20px;margin-right:15px}#cart1 .prices,#cart1 .products{line-height:16px;font-size:13px;display:block}#cart1{position:relative;border-radius:5px;margin-bottom:20px;z-index:1010;margin-left:10px;margin-top:-7px}#cart1>.btn{background:#0087c9;border-radius:5px;padding:4px 0 4px 10px;line-height:32px;text-align:left;display:inline-flex}#cart1>.btn>.fa.fa-angle-down{line-height:32px;float:right;color:#fff}#cart1 .fa-shopping-cart{font-size:26px}#modal-cart .modal-title{text-align:left}#modal-cart button.btn-success{background:red!important;border-color:red}#modal-cart .modal-body,#modal-cart .modal-footer{float:left;width:100%;background:#fff}#modal-cart .modal-content{border-radius:0}#modal-cart .product-details{width:70%;float:left;text-align:left;margin-left:50px}#modal-cart .btn-remove2{margin-top:15px}@media screen and (max-width:768px){#modal-cart .product-details{width:50%;margin-left:0}.navigationTop-{margin-right:10%}.modal-footer .col-md-4{margin-top:15px}.dn-footer-bottom ul{margin-top:10px!important;float:left!important}.dn-footer-bottom p{margin-top:145px!important}.onestepcheckout-index-index .dn-footer-bottom p{margin-top:5px!important}}
+   a.btn.btn-block.btn-success {
+    background: #f00;
+}
+#onestepcheckout-button-place-order span {
+    font-size: 15px;
+}
     
 </style>
