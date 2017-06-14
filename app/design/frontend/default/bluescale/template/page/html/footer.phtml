@@ -66,3 +66,18 @@
 		<?php } ?>
 
 
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('#promo-checkbox_id').change(function() {
+		    if(this.checked) {
+		        jQuery('.btb-ch').show();
+		    }else {
+		    	jQuery('.btb-ch').hide();
+		    }
+		});
+		jQuery('.review-btn').click(function(){
+			jQuery('#livechat-badge').click();
+			return false;
+		});
+	});
+</script>
